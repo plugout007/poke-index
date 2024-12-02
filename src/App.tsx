@@ -1,6 +1,11 @@
+// Provider と Routes を分けて作る
+import AppProvider from './providers/app-provider';
+import AppRoutes from './routes/app-routes';
 const App = () => {
   return (
-    <div>App</div>
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
   )
 }
 
