@@ -5,21 +5,14 @@ export type Pokemon = {
   height: number;
   weight: number;
   types: string[];
+  abilities: string[];
   url: string;
   imageUrl: string;
   genus: string;
   flavorText: string;
 };
 
-// export type PokemonListResponse = {
-//   count: number;
-//   next: string | null;
-//   previous: string | null;
-//   results: Array<{ name: string; url: string }>;
-// };
 export type PokemonListResponse = {
-  next: string | null;
-  previous: string | null;
   results: Pokemon[];
 };
 
@@ -55,10 +48,14 @@ export type FetchPokemon = {
   id: number;        // ポケモンの一意のID
   height: number;    // ポケモンの高さ
   weight: number;    // ポケモンの体重
+  species: {
+    url: string;
+  }
   sprites: {
     front_default: string; // 通常の画像のURL
   };
   types: PokemonType[];
+  abilities: PokemonAbility[];
 };
 
 /**
@@ -91,6 +88,13 @@ type PokemonName = {
 
 type PokemonType = {
   type: {
+    name: string;
+    url: string;
+  }
+}
+
+type PokemonAbility = {
+  ability: {
     name: string;
     url: string;
   }

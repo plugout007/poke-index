@@ -3,52 +3,39 @@ import { useEffect, useState } from 'react';
 import PokeCard from '../../components/poke-card';
 import { fetchPokemonList, getPokemon } from '../../api/pokeApi';
 import { PokemonListResponse, Pokemon } from '../../types/pokemon';
-import { Box } from '@mui/material';
+import { API_BASE_URL, POKE_INDEX_ID_MAX } from '../../utils/commonData';
+import { Box, Pagination } from '@mui/material';
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function Home() {
   const [pokemonList, setPokemonList] = useState<PokemonListResponse['results']>([]);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
-  const [nextUrl, setNextUrl] = useState<string | null>('');
-  const [prevUrl, setPrevUrl] = useState<string | null>('');
 
-  const API_BASE_URL = 'https://pokeapi.co/api/v2';
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
 
   const initOffset = 0   // 開始No - 1
-  const initLimit = 25   // 最大表示数
+  const initLimit = 20   // 最大表示数
   const buildPokemonListUrl = (offset: number, limit: number): string => {
     const params = new URLSearchParams({ offset: offset.toString(), limit: limit.toString() });
     return `${API_BASE_URL}/pokemon?${params.toString()}`;
   };
-  const pokemonListUrl = buildPokemonListUrl(initOffset, initLimit);
 
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
-        const data = await fetchPokemonList(pokemonListUrl);
+        const url = buildPokemonListUrl(initOffset + (page - 1) * initLimit, initLimit);
+        const data = await fetchPokemonList(url);
         console.log(data);
         setPokemonList(data.results);
-        setNextUrl(data.next);
-        setPrevUrl(data.previous)
+        setTotalPages(Math.ceil(POKE_INDEX_ID_MAX / initLimit));
       } catch (error) {
         console.error(error);
       }
     };
     fetchPokemon();
-  }, []);
-
-  const loadPokemon = async (data) => {
-    const _pokemonData = await Promise.all(
-      data.map((pokemon) => {
-        const pokemonRecord = getPokemon(pokemon.id);
-        return pokemonRecord
-      })
-    )
-    setPokemonList(_pokemonData)
-  }
-
-
+  }, [page]);
 
   const handlePokemonClick = async (id: number) => {
     try {
@@ -60,34 +47,33 @@ export default function Home() {
     }
   };
 
-  const handleNextPage = async () => {
-    if(!nextUrl) return
-    let data = await fetchPokemonList(nextUrl);
-    await loadPokemon(data.results)
-    setNextUrl(data.next)
-    setPrevUrl(data.previous)
-  };
-  const handlePrevPage = async () => {
-    if(!prevUrl) return
-    let data = await fetchPokemonList(prevUrl);
-    await loadPokemon(data.results)
-    setNextUrl(data.next)
-    setPrevUrl(data.previous)
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value); // ページ番号の変更
   };
 
   return (
     <div>
       <h1>Pokémon List</h1>
       <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: '10px' }}>
-        {pokemonList.map((pokemon) => (
-          <Box key={pokemon.name} onClick={() => handlePokemonClick(pokemon.id)}>
-            <PokeCard pokemon={pokemon}/>
-          </Box>
-      ))}
+        {pokemonList.map((pokemon) => {
+          if(pokemon.id <= POKE_INDEX_ID_MAX){
+            return (
+              <Box key={pokemon.id} onClick={() => handlePokemonClick(pokemon.id)}>
+              <PokeCard pokemon={pokemon}/>
+              </Box>
+            )
+          }}
+        )}
       </Box>
-      <button onClick={handlePrevPage}>前へ</button>
-      <button onClick={handleNextPage}>次へ</button>
-      {/* {selectedPokemon && <PokeCard pokemon={selectedPokemon} />} */}
+      <Pagination
+        count={totalPages} // 総ページ数
+        page={page} // 現在のページ
+        onChange={handlePageChange} // ページ変更のハンドラー
+        color="primary" // 色
+        shape="rounded" // 丸みを帯びた形
+        sx={{ mt: 2 }} // 上に余白を追加
+      />
+      {selectedPokemon && <PokeCard pokemon={selectedPokemon} />}
     </div>
   );
 };

@@ -28,6 +28,9 @@ export default function PokeCard({ pokemon }: Props) {
           タイプ: {pokemon.types.join(', ')}
         </Typography>
         <Typography variant="body2" color="text.secondary">
+          特性: {pokemon.abilities.join(', ')}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
           説明: {pokemon.flavorText}
         </Typography>
       </CardContent>
