@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { PokemonListResponse, FetchPokemon, FetchPokemonSpecies, Pokemon, PokemonTypeLangData } from '../types/pokemon';
-import { API_BASE_URL, POKE_INDEX_ID_MAX, LANG } from '../utils/commonData';
+import { PokemonListResponse, FetchPokemon, FetchPokemonSpecies, Pokemon, PokemonTypeLangData, PokemonEvolutionChainResponse, FetchPokemonEvolutionChainResponse } from '../types/pokemon';
+import { API_BASE_URL, LANG } from '../utils/commonData';
 
 /**
  * ポケモンリストを取得する関数
@@ -28,27 +28,36 @@ export const fetchPokemonList = async (url: string): Promise<PokemonListResponse
   return pokemonList;
 };
 
-/**
- * 特定のポケモンの詳細を取得する関数
- * @param id - ポケモンの名前またはID
- * @returns PokemonDetails
- */
-export const fetchPokemonDetails = async (id: string): Promise<FetchPokemon> => {
-  const pokemonResponse = await axios.get<FetchPokemon>(`${API_BASE_URL}/pokemon/${id}`);
-  return pokemonResponse.data;
-};
+export const fetchPokemonEvolutionChain = async (url: string): Promise<PokemonEvolutionChainResponse> => {
+  const response = await axios.get<FetchPokemonEvolutionChainResponse>(url);
+  // 最初のポケモンの名前を取得
+  const seedPokemonName = await getPokemonNameJp(response.data.chain.species.url);
 
-// TODO:このデータをfetchできないときの処理
-export const fetchPokemonSpecies = async (id: string): Promise<FetchPokemonSpecies | null> => {
-  try {
-    const pokemonSpeciesResponse = await axios.get<FetchPokemonSpecies>(`${API_BASE_URL}/pokemon-species/${id}`);
-    return pokemonSpeciesResponse.data;
-  } catch (error) {
-    if (axios.isAxiosError(error) && error.response?.status === 404) {
-      return null;
+  // 進化段階を格納する配列
+  const firstStageNames: string[] = [];
+  const secondStageNames: string[] = [];
+
+  // 進化チェーンを解析
+  if (response.data.chain.evolves_to) {
+    for (const evolveFirst of response.data.chain.evolves_to) {
+      // 第一段階のポケモン名を取得
+      const evolveFirstPokemonName = await getPokemonNameJp(evolveFirst.species.url);
+      firstStageNames.push(evolveFirstPokemonName);
+
+      // 第二段階の進化を解析
+      for (const evolveSecond of evolveFirst.evolves_to) {
+        const evolveSecondPokemonName = await getPokemonNameJp(evolveSecond.species.url);
+        secondStageNames.push(evolveSecondPokemonName);
+      }
     }
-    throw error;
   }
+
+  const pokemonEvolutionChain = {
+    seed: seedPokemonName,
+    first: firstStageNames,
+    second: secondStageNames,
+  }
+  return pokemonEvolutionChain
 }
 
 /**
@@ -74,6 +83,60 @@ const fetchLocalizedName = async (url: string, lang: string = 'ja'): Promise<str
   }
 };
 
+/**
+ * genderRateからポケモンの性別を取得する関数
+ * 
+ * @param genderRate - ポケモンの性別比率を示す数値
+ *  - 8: メスのみ
+ *  - 0: オスのみ
+ *  - -1: 性別不明
+ *  - 0 < genderRate < 8: オス・メス
+ *  - それ以外: データエラー
+ * @returns 性別の配列
+ *  - ['♀']: メスのみ
+ *  - ['♂']: オスのみ
+ *  - ['不明']: 性別不明
+ *  - ['♀', '♂']: オス・メス
+ *  - ['データを取得できませんでした']: 無効なgenderRateの場合
+ */
+const getPokemonGender = (genderRate: number): string[] => {
+  if (genderRate === 8) {
+    return ['♀'];
+  } else if (genderRate === 0) {
+    return ['♂'];
+  } else if (genderRate === -1) {
+    return ['不明'];
+  } else if (genderRate > 0 && genderRate < 8 ) {
+    return ['♀', '♂'];
+  } else {
+    return ['データを取得できませんでした']
+  }
+}
+
+/**
+ * 指定されたURLからポケモンの日本語名を取得する関数
+ * 
+ * @param url - ポケモンのAPI URL
+ * @returns 日本語名（取得できない場合は空文字列）
+ */
+const getPokemonNameJp = async (url: string): Promise<string> => {
+  try {
+    const response = await axios.get(url);
+
+    // 名前リストから日本語名を検索
+    const nameEntry = response.data.names.find(
+      (entry: { language: { name: string }; name: string }) => entry.language.name === "ja" // 言語コードを直接記述
+    );
+
+    // 日本語名を返す（見つからない場合は空文字列）
+    return nameEntry?.name ?? "";
+  } catch (error) {
+    console.error("Failed to fetch Pokemon name:", error);
+    return ""; // エラー時は空文字列を返す
+  }
+};
+
+
 export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonUrl = `${API_BASE_URL}/pokemon/${id}`
   const pokemonResponse = await axios.get<FetchPokemon>(pokemonUrl);
@@ -98,9 +161,16 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonAbilitiesUrl = pokemonResponse.data.abilities.map((entry) => entry.ability.url);
   const pokemonAbilityJa = await Promise.all(pokemonAbilitiesUrl.map((url) => fetchLocalizedName(url, LANG)));
 
+  // ポケモンの性別
+  const pokemonGenderRate = pokemonSpeciesResponse.data.gender_rate;
+  const pokemonGender = getPokemonGender(pokemonGenderRate);
+  
+  const pokemonEvolutionChainUrl = pokemonSpeciesResponse.data.evolution_chain.url;
+  const pokemonEvolutionChain = await fetchPokemonEvolutionChain(pokemonEvolutionChainUrl);
   const pokemon: Pokemon = {
     id: pokemonResponse.data.id,
     name: pokemonNameJa || 'データが存在しません',
+    gender: pokemonGender,
     height : pokemonHeight,
     weight : pokemonWeight,
     types: pokemonTypeJa,
@@ -109,6 +179,9 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     imageUrl: pokemonResponse.data.sprites.front_default,
     genus: pokemonGeneraJa || 'データが存在しません',
     flavorText: pokemonFlavorTextJa || 'データが存在しません',
+    evolutionChainSeed: pokemonEvolutionChain.seed,
+    evolutionChainFirst: pokemonEvolutionChain.first,
+    evolutionChainSecond: pokemonEvolutionChain.second,
   };
   return pokemon
 }

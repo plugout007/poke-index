@@ -9,15 +9,12 @@ type Props = {
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
-export default function PokeCard({ pokemon }: Props) {
+export default function PokeDetailCard({ pokemon }: Props) {
   return (
-    <Card sx={{ maxWidth: 345, margin: 2, bgcolor: 'background.paper' }}>
+    <Card sx={{ maxWidth: 768, margin: 2, bgcolor: 'background.paper' }}>
       <CardContent>
-        <Typography variant="h5" component="div" sx={{mt: '5px'}}>
+        <Typography variant="h4" component="div" sx={{mt: '5px'}}>
           {pokemon.name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{mt: '5px'}}>
-          性別: {pokemon.gender.join(' ')}
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{mt: '5px'}}>
           {pokemon.genus}
@@ -36,6 +33,23 @@ export default function PokeCard({ pokemon }: Props) {
         <Typography variant="body2" color="text.secondary" sx={{mt: '10px'}}>
           説明: {pokemon.flavorText}
         </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{mt: '10px'}}>
+          最初のポケモン: {pokemon.evolutionChainSeed}
+        </Typography>
+        {pokemon.evolutionChainFirst && pokemon.evolutionChainFirst.length > 0 ? (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: '10px' }}>
+            第一進化先ポケモン: {pokemon.evolutionChainFirst.join(', ')}
+          </Typography>
+        ) : (
+          <Typography variant="body2" color="text.secondary" sx={{ mt: '10px' }}>
+            このポケモンは進化しません。
+          </Typography>
+        )}
+        {pokemon.evolutionChainSecond.length > 0 && (
+          <Typography variant="body2" color="text.secondary" sx={{mt: '10px'}}>
+            第二進化先ポケモン: {pokemon.evolutionChainSecond.join(', ')}
+          </Typography>
+        )}
       </CardContent>
     </Card>
   );

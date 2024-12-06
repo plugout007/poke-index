@@ -5,11 +5,13 @@ import { fetchPokemonList, getPokemon } from '../../api/pokeApi';
 import { PokemonListResponse, Pokemon } from '../../types/pokemon';
 import { API_BASE_URL, POKE_INDEX_ID_MAX } from '../../utils/commonData';
 import { Box, Pagination } from '@mui/material';
+import PokeDetailCard from '../../components/poke-detail-card';
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function Home() {
   const [pokemonList, setPokemonList] = useState<PokemonListResponse['results']>([]);
+  // const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
   const [page, setPage] = useState<number>(1);
@@ -59,7 +61,7 @@ export default function Home() {
           if(pokemon.id <= POKE_INDEX_ID_MAX){
             return (
               <Box key={pokemon.id} onClick={() => handlePokemonClick(pokemon.id)}>
-              <PokeCard pokemon={pokemon}/>
+                <PokeCard pokemon={pokemon}/>
               </Box>
             )
           }}
@@ -73,7 +75,7 @@ export default function Home() {
         shape="rounded" // 丸みを帯びた形
         sx={{ mt: 2 }} // 上に余白を追加
       />
-      {selectedPokemon && <PokeCard pokemon={selectedPokemon} />}
+      {selectedPokemon && <PokeDetailCard pokemon={selectedPokemon} />}
     </div>
   );
 };

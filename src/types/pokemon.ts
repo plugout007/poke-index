@@ -2,6 +2,7 @@
 export type Pokemon = {
   id: number;
   name: string;
+  gender: string[];
   height: number;
   weight: number;
   types: string[];
@@ -10,30 +11,21 @@ export type Pokemon = {
   imageUrl: string;
   genus: string;
   flavorText: string;
+
+  evolutionChainSeed: string,
+  evolutionChainFirst: string[],
+  evolutionChainSecond: string[],
+
 };
 
 export type PokemonListResponse = {
   results: Pokemon[];
 };
 
-export type PokemonList = {
-  next: string
+export type PokemonDetail = {
+  pokemon: Pokemon;
+  
 }
-
-export type PokemonDetails = {
-  id: number;
-  name: string;
-  sprites: {
-    front_default: string;
-  };
-  types: Array<{
-    slot: number;
-    type: {
-      name: string;
-      url: string;
-    };
-  }>;
-};
 
 /**
  * ポケモンの基本的な情報
@@ -70,6 +62,32 @@ export type FetchPokemonSpecies = {
   names: PokemonName[];
   flavor_text_entries: FlavorTextEntry[];
   genera: PokemonGenus[];
+  gender_rate: number;
+  evolution_chain: {
+    url: string
+  }
+}
+
+/**
+ * ポケモンの進化チェーンのレスポンス型
+ */
+export type FetchPokemonEvolutionChainResponse = {
+  chain: EvolutionStage;
+}
+
+/**
+ * 進化ステージの型
+ * 進化先と種別情報を含む
+ */
+type EvolutionStage = {
+  evolves_to: EvolutionStage[];
+  species: PokemonSpecies;
+}
+/**
+ * ポケモン種別情報の型
+ */
+type PokemonSpecies = {
+    url: string;
 }
 
 /**
@@ -135,4 +153,10 @@ type FlavorTextEntry = {
   version: {
     name: string;
   }
+}
+
+export type PokemonEvolutionChainResponse = {
+  seed: string,
+  first: string[],
+  second: string[],
 }
