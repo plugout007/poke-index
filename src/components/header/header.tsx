@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import P from '../p';
 import theme from '../../config/theme-config';
 import { } from './styled';
+import { Link } from 'react-router-dom';
 
 /**
  * このコンポーネントはヘッダー要素を提供する
@@ -23,7 +24,9 @@ export default function Header() {
         alignItems: 'center',
       }}
     >
-      <P v='h1' sx={{ color: theme.palette.basic.light }}>ポケモン図鑑</P>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <P v='h1' sx={{ color: theme.palette.basic.light }}>ポケモン図鑑</P>
+      </Link>
     </Box>
   );
 }

@@ -5,7 +5,7 @@ export type Pokemon = {
   gender: string[];
   height: number;
   weight: number;
-  types: string[];
+  types: {en: string; ja: string}[];
   abilities: string[];
   url: string;
   imageUrl: string;
@@ -13,8 +13,15 @@ export type Pokemon = {
   flavorText: string;
 
   evolutionChainSeed: string,
+  evolutionChainSeedImg: string,
   evolutionChainFirst: string[],
+  evolutionChainFirstImg: string[],
   evolutionChainSecond: string[],
+  evolutionChainSecondImg: string[],
+  varietiesUrl: string[],
+
+  evolutionChainFirstStage: { imageUrl: string; name: string; }[],
+  evolutionChainSecondStage: { imageUrl: string; name: string; }[],
 
 };
 
@@ -45,6 +52,11 @@ export type FetchPokemon = {
   }
   sprites: {
     front_default: string; // 通常の画像のURL
+    other: {
+      "official-artwork": {
+        front_default: string;
+      }
+    }
   };
   types: PokemonType[];
   abilities: PokemonAbility[];
@@ -65,7 +77,8 @@ export type FetchPokemonSpecies = {
   gender_rate: number;
   evolution_chain: {
     url: string
-  }
+  };
+  varieties: PokemonVariety[];
 }
 
 /**
@@ -87,7 +100,14 @@ type EvolutionStage = {
  * ポケモン種別情報の型
  */
 type PokemonSpecies = {
+  url: string;
+}
+type PokemonVariety = {
+  is_default: boolean;
+  pokemon: {
+    name: string;
     url: string;
+  }
 }
 
 /**
@@ -157,6 +177,11 @@ type FlavorTextEntry = {
 
 export type PokemonEvolutionChainResponse = {
   seed: string,
+  seedImg: string,
   first: string[],
+  firstImg: string[],
   second: string[],
+  secondImg: string[],
+  firstStage: { imageUrl: string; name: string; }[],
+  secondStage: { imageUrl: string; name: string; }[],
 }
