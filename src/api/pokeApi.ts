@@ -5,8 +5,8 @@ import {
   FetchPokemonSpecies,
   Pokemon,
   PokemonTypeLangData,
-  PokemonEvolutionChainResponse,
-  FetchPokemonEvolutionChainResponse,
+  // PokemonEvolutionChainResponse,
+  // FetchPokemonEvolutionChainResponse,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
@@ -41,82 +41,82 @@ export const fetchPokemonList = async (
 };
 
 // [未実装]進化データ取得
-export const fetchPokemonEvolutionChain = async (
-  url: string
-): Promise<PokemonEvolutionChainResponse> => {
-  const response = await axios.get<FetchPokemonEvolutionChainResponse>(url);
-  // 最初のポケモンの名前を取得
-  const seedPokemonName = await getPokemonNameJp(
-    response.data.chain.species.url
-  );
-  const seedPokemonId = extractIdFromUrl(response.data.chain.species.url);
-  const seedPokemonResponse = await axios.get<FetchPokemon>(
-    `${API_BASE_URL}/pokemon/${seedPokemonId}`
-  );
-  const seedPokemonImgUrl = seedPokemonResponse.data.sprites.front_default;
+// export const fetchPokemonEvolutionChain = async (
+//   url: string
+// ): Promise<PokemonEvolutionChainResponse> => {
+//   const response = await axios.get<FetchPokemonEvolutionChainResponse>(url);
+//   // 最初のポケモンの名前を取得
+//   const seedPokemonName = await getPokemonNameJp(
+//     response.data.chain.species.url
+//   );
+//   const seedPokemonId = extractIdFromUrl(response.data.chain.species.url);
+//   const seedPokemonResponse = await axios.get<FetchPokemon>(
+//     `${API_BASE_URL}/pokemon/${seedPokemonId}`
+//   );
+//   const seedPokemonImgUrl = seedPokemonResponse.data.sprites.front_default;
 
-  // 進化段階を格納する配列
-  const firstStageNames: string[] = [];
-  const firstStageNamesImgUrl: string[] = [];
-  const secondStageNames: string[] = [];
-  const secondStageNamesImgUrl: string[] = [];
+//   // 進化段階を格納する配列
+//   const firstStageNames: string[] = [];
+//   const firstStageNamesImgUrl: string[] = [];
+//   const secondStageNames: string[] = [];
+//   const secondStageNamesImgUrl: string[] = [];
 
-  const firstStage = [];
-  const secondStage = [];
+//   const firstStage = [];
+//   const secondStage = [];
 
-  // 進化チェーンを解析
-  if (response.data.chain.evolves_to) {
-    for (const evolveFirst of response.data.chain.evolves_to) {
-      // 第一段階のポケモン名を取得
-      const evolveFirstPokemonName = await getPokemonNameJp(
-        evolveFirst.species.url
-      );
-      firstStageNames.push(evolveFirstPokemonName);
+//   // 進化チェーンを解析
+//   if (response.data.chain.evolves_to) {
+//     for (const evolveFirst of response.data.chain.evolves_to) {
+//       // 第一段階のポケモン名を取得
+//       const evolveFirstPokemonName = await getPokemonNameJp(
+//         evolveFirst.species.url
+//       );
+//       firstStageNames.push(evolveFirstPokemonName);
 
-      const evolveFirstPokemonId = extractIdFromUrl(evolveFirst.species.url);
-      const evolveFirstPokemonResponse = await axios.get<FetchPokemon>(
-        `${API_BASE_URL}/pokemon/${evolveFirstPokemonId}`
-      );
-      const evolveFirstPokemonImgUrl =
-        evolveFirstPokemonResponse.data.sprites.front_default;
-      firstStageNamesImgUrl.push(evolveFirstPokemonImgUrl);
+//       const evolveFirstPokemonId = extractIdFromUrl(evolveFirst.species.url);
+//       const evolveFirstPokemonResponse = await axios.get<FetchPokemon>(
+//         `${API_BASE_URL}/pokemon/${evolveFirstPokemonId}`
+//       );
+//       const evolveFirstPokemonImgUrl =
+//         evolveFirstPokemonResponse.data.sprites.front_default;
+//       firstStageNamesImgUrl.push(evolveFirstPokemonImgUrl);
 
-      firstStage.push({imageUrl: evolveFirstPokemonImgUrl, name: evolveFirstPokemonName});
+//       firstStage.push({imageUrl: evolveFirstPokemonImgUrl, name: evolveFirstPokemonName});
 
-      // 第二段階の進化を解析
-      for (const evolveSecond of evolveFirst.evolves_to) {
-        const evolveSecondPokemonName = await getPokemonNameJp(
-          evolveSecond.species.url
-        );
-        secondStageNames.push(evolveSecondPokemonName);
+//       // 第二段階の進化を解析
+//       for (const evolveSecond of evolveFirst.evolves_to) {
+//         const evolveSecondPokemonName = await getPokemonNameJp(
+//           evolveSecond.species.url
+//         );
+//         secondStageNames.push(evolveSecondPokemonName);
 
-        const evolveSecondPokemonId = extractIdFromUrl(
-          evolveSecond.species.url
-        );
-        const evolveSecondPokemonResponse = await axios.get<FetchPokemon>(
-          `${API_BASE_URL}/pokemon/${evolveSecondPokemonId}`
-        );
-        const evolveSecondPokemonImgUrl =
-          evolveSecondPokemonResponse.data.sprites.front_default;
-        secondStageNamesImgUrl.push(evolveSecondPokemonImgUrl);
+//         const evolveSecondPokemonId = extractIdFromUrl(
+//           evolveSecond.species.url
+//         );
+//         const evolveSecondPokemonResponse = await axios.get<FetchPokemon>(
+//           `${API_BASE_URL}/pokemon/${evolveSecondPokemonId}`
+//         );
+//         const evolveSecondPokemonImgUrl =
+//           evolveSecondPokemonResponse.data.sprites.front_default;
+//         secondStageNamesImgUrl.push(evolveSecondPokemonImgUrl);
 
-        secondStage.push({imageUrl: evolveSecondPokemonImgUrl, name: evolveSecondPokemonName});
-      }
-    }
-  }
+//         secondStage.push({imageUrl: evolveSecondPokemonImgUrl, name: evolveSecondPokemonName});
+//       }
+//     }
+//   }
 
-  const pokemonEvolutionChain = {
-    seed: seedPokemonName,
-    seedImg: seedPokemonImgUrl,
-    first: firstStageNames,
-    firstImg: firstStageNamesImgUrl,
-    second: secondStageNames,
-    secondImg: secondStageNamesImgUrl,
-    firstStage: firstStage,
-    secondStage: secondStage,
-  };
-  return pokemonEvolutionChain;
-};
+//   const pokemonEvolutionChain = {
+//     seed: seedPokemonName,
+//     seedImg: seedPokemonImgUrl,
+//     first: firstStageNames,
+//     firstImg: firstStageNamesImgUrl,
+//     second: secondStageNames,
+//     secondImg: secondStageNamesImgUrl,
+//     firstStage: firstStage,
+//     secondStage: secondStage,
+//   };
+//   return pokemonEvolutionChain;
+// };
 
 /**
  * 指定した言語の名称を取得する関数
@@ -180,39 +180,39 @@ const getPokemonGender = (genderRate: number): string[] => {
  * @param url - ポケモンのAPI URL
  * @returns 日本語名（取得できない場合は空文字列）
  */
-const getPokemonNameJp = async (url: string): Promise<string> => {
-  try {
-    const response = await axios.get(url);
+// const getPokemonNameJp = async (url: string): Promise<string> => {
+//   try {
+//     const response = await axios.get(url);
 
-    // 名前リストから日本語名を検索
-    const nameEntry = response.data.names.find(
-      (entry: { language: { name: string }; name: string }) =>
-        entry.language.name === "ja" // 言語コードを直接記述
-    );
+//     // 名前リストから日本語名を検索
+//     const nameEntry = response.data.names.find(
+//       (entry: { language: { name: string }; name: string }) =>
+//         entry.language.name === "ja" // 言語コードを直接記述
+//     );
 
-    // 日本語名を返す（見つからない場合は空文字列）
-    return nameEntry?.name ?? "";
-  } catch (error) {
-    console.error("Failed to fetch Pokemon name:", error);
-    return ""; // エラー時は空文字列を返す
-  }
-};
+//     // 日本語名を返す（見つからない場合は空文字列）
+//     return nameEntry?.name ?? "";
+//   } catch (error) {
+//     console.error("Failed to fetch Pokemon name:", error);
+//     return ""; // エラー時は空文字列を返す
+//   }
+// };
 
 /**
  * URLからポケモンIDを抽出する関数
  * @param url - ポケモンAPIのURL
  * @returns 抽出したID（成功した場合）またはnull（失敗した場合）
  */
-const extractIdFromUrl = (url: string) => {
-  try {
-    // URLをスラッシュで分割し、最後から2番目の要素を取得
-    const id = url.split("/").slice(-2, -1)[0];
-    return id;
-  } catch (error) {
-    console.error(`エラー: ${error}`);
-    return null;
-  }
-};
+// const extractIdFromUrl = (url: string) => {
+//   try {
+//     // URLをスラッシュで分割し、最後から2番目の要素を取得
+//     const id = url.split("/").slice(-2, -1)[0];
+//     return id;
+//   } catch (error) {
+//     console.error(`エラー: ${error}`);
+//     return null;
+//   }
+// };
 
 // 取得
 export const fetchPokemonRaw = async (id: number) => {
@@ -232,7 +232,7 @@ const extractJa = (species: FetchPokemonSpecies) => {
 
   const genus =
     species.genera.find((g) => g.language.name === "ja")?.genus ??
-    species.genera.find((g) => g.language.name === "ja-Hrkt")?.genus ??
+    species.genera.find((g) => g.language.name === "ja-hrkt")?.genus ??
     "";
 
   const flavor =
@@ -244,20 +244,18 @@ const extractJa = (species: FetchPokemonSpecies) => {
 };
 
 // タイプ・特性
-const extractTypes = async (pokemon: FetchPokemon) => {
-  return Promise.all(
-    pokemon.types.map(async (t) => ({
-      en: t.type.name,
-      ja: typeData[t.type.name as keyof typeof typeData]?.ja || "不明",
-    }))
-  );
+const extractTypes = (pokemon: FetchPokemon) => {
+  return pokemon.types.map((t) => ({
+    en: t.type.name,
+    ja: typeData[t.type.name as keyof typeof typeData]?.ja || "不明",
+  }));
 };
 
 export const getPokemon = async (id: number): Promise<Pokemon> => {
   const { pokemon, species } = await fetchPokemonRaw(id);
   
   const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
-  const pokemonTypes = await extractTypes(pokemon);
+  const pokemonTypes = extractTypes(pokemon);
   
   // ポケモンの性別
   const pokemonGenderRate = species.gender_rate;
