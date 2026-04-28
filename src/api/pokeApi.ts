@@ -8,7 +8,9 @@ import {
   PokemonEvolutionChainResponse,
   FetchPokemonEvolutionChainResponse,
 } from "../types/pokemon";
-import { API_BASE_URL, LANG } from "../utils/commonData";
+import { API_BASE_URL } from "../config/api-config";
+import { LANG } from "../config/app-config";
+import { typeData } from "../constants/pokemon";
 
 /**
  * ポケモンリストを取得する関数
@@ -35,10 +37,10 @@ export const fetchPokemonList = async (
     ),
   };
 
-  // return pokemonListResults.filter((pokemon): pokemon is Pokemon => pokemon !== null);
   return pokemonList;
 };
 
+// [未実装]進化データ取得
 export const fetchPokemonEvolutionChain = async (
   url: string
 ): Promise<PokemonEvolutionChainResponse> => {
@@ -101,8 +103,6 @@ export const fetchPokemonEvolutionChain = async (
         secondStage.push({imageUrl: evolveSecondPokemonImgUrl, name: evolveSecondPokemonName});
       }
     }
-    console.log(firstStage);
-    console.log(secondStage);
   }
 
   const pokemonEvolutionChain = {
@@ -199,27 +199,6 @@ const getPokemonNameJp = async (url: string): Promise<string> => {
 };
 
 /**
- * 指定されたURLからポケモンの画像URLを取得する関数
- *
- * @param url - ポケモンのAPI URL
- * @returns ポケモンの画像URL（取得できない場合は空文字列）
- */
-const getPokemonImgUrl = async (url: string): Promise<string> => {
-  try {
-    const response = await axios.get(url);
-
-    // 名前リストから日本語名を検索
-    const pokemonImgUrl = response.data.sprites.front_default;
-
-    // 日本語名を返す（見つからない場合は空文字列）
-    return pokemonImgUrl ?? "";
-  } catch (error) {
-    console.error("Failed to fetch Pokemon Image Url:", error);
-    return ""; // エラー時は空文字列を返す
-  }
-};
-
-/**
  * URLからポケモンIDを抽出する関数
  * @param url - ポケモンAPIのURL
  * @returns 抽出したID（成功した場合）またはnull（失敗した場合）
@@ -235,100 +214,80 @@ const extractIdFromUrl = (url: string) => {
   }
 };
 
-export const getPokemon = async (id: number): Promise<Pokemon> => {
-  const pokemonUrl = `${API_BASE_URL}/pokemon/${id}`;
-  const pokemonResponse = await axios.get<FetchPokemon>(pokemonUrl);
-  const pokemonSpeciesUrl = pokemonResponse.data.species.url;
-  const pokemonSpeciesResponse = await axios.get<FetchPokemonSpecies>(
-    pokemonSpeciesUrl
-  );
-  // 日本語のポケモン名
-  const pokemonNameJa = pokemonSpeciesResponse.data.names.find(
-    (entry) => entry.language.name === LANG
-  )?.name;
-  // 日本語のポケモンの分類
-  const pokemonGeneraJa =
-    pokemonSpeciesResponse.data.genera.find(
-      (entry) => entry.language.name === "ja"
-    )?.genus ||
-    pokemonSpeciesResponse.data.genera.find(
-      (entry) => entry.language.name === "ja-Hrkt"
-    )?.genus;
-  // 日本語のフレーバーテキスト
-  const pokemonFlavorTextJa =
-    pokemonSpeciesResponse.data.flavor_text_entries.find(
-      (entry) => entry.language.name === LANG
-    )?.flavor_text;
-  // ポケモンの高さ
-  const pokemonHeight = pokemonResponse.data.height / 10;
-  // ポケモンの重さ
-  const pokemonWeight = pokemonResponse.data.weight / 10;
+// 取得
+export const fetchPokemonRaw = async (id: number) => {
+  const pokemon = await axios.get(`${API_BASE_URL}/pokemon/${id}`);
+  const species = await axios.get(pokemon.data.species.url);
 
-  // ポケモンのタイプ・属性
-  // const pokemonTypesUrl = pokemonResponse.data.types.map(
-  //   (typeInfo) => typeInfo.type.url
-  // );
-  // const pokemonTypeJa = await Promise.all(
-  //   pokemonTypesUrl.map((url) => fetchLocalizedName(url, LANG))
-  // );
-  const pokemonTypes = await Promise.all(
-    pokemonResponse.data.types.map(async (typeInfo) => {
-      const en = typeInfo.type.name;
-      const ja = await fetchLocalizedName(typeInfo.type.url, LANG);
-      return { en, ja };
-    })
+  return {
+    pokemon: pokemon.data,
+    species: species.data,
+  };
+};
+
+// ローカライズ
+const extractJa = (species: FetchPokemonSpecies) => {
+  const name =
+    species.names.find((n) => n.language.name === LANG)?.name ?? "";
+
+  const genus =
+    species.genera.find((g) => g.language.name === "ja")?.genus ??
+    species.genera.find((g) => g.language.name === "ja-Hrkt")?.genus ??
+    "";
+
+  const flavor =
+    species.flavor_text_entries.find(
+      (f) => f.language.name === LANG
+    )?.flavor_text ?? "";
+
+  return { name, genus, flavor };
+};
+
+// タイプ・特性
+const extractTypes = async (pokemon: FetchPokemon) => {
+  return Promise.all(
+    pokemon.types.map(async (t) => ({
+      en: t.type.name,
+      ja: typeData[t.type.name as keyof typeof typeData]?.ja || "不明",
+    }))
   );
+};
+
+export const getPokemon = async (id: number): Promise<Pokemon> => {
+  const { pokemon, species } = await fetchPokemonRaw(id);
+  
+  const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
+  const pokemonTypes = await extractTypes(pokemon);
+  
+  // ポケモンの性別
+  const pokemonGenderRate = species.gender_rate;
+  const pokemonGender = getPokemonGender(pokemonGenderRate);
+  
+  // ポケモンの高さ
+  const pokemonHeight = pokemon.height / 10;
+  // ポケモンの重さ
+  const pokemonWeight = pokemon.weight / 10;
+
+
   // ポケモンの特性
-  const pokemonAbilitiesUrl = pokemonResponse.data.abilities.map(
-    (entry) => entry.ability.url
+  const pokemonAbilitiesUrl = pokemon.abilities.map(
+    (entry: { ability: { url: string } }) => entry.ability.url
   );
   const pokemonAbilityJa = await Promise.all(
-    pokemonAbilitiesUrl.map((url) => fetchLocalizedName(url, LANG))
+    pokemonAbilitiesUrl.map((url: string) => fetchLocalizedName(url, LANG))
   );
 
-  // ポケモンの性別
-  const pokemonGenderRate = pokemonSpeciesResponse.data.gender_rate;
-  const pokemonGender = getPokemonGender(pokemonGenderRate);
-
-  // ポケモン進化チェーン
-  const pokemonEvolutionChainUrl =
-    pokemonSpeciesResponse.data.evolution_chain.url;
-  const pokemonEvolutionChain = await fetchPokemonEvolutionChain(
-    pokemonEvolutionChainUrl
-  );
-
-  const pokemonVarietiesUrl = pokemonSpeciesResponse.data.varieties
-    .filter((variety) => variety.is_default === false)
-    .map((variety) => variety.pokemon.url);
-
-  let pokemonVarietiesImgUrl: string[] = [];
-  if (pokemonVarietiesUrl.length > 0) {
-    pokemonVarietiesImgUrl = await Promise.all(
-      pokemonVarietiesUrl.map(async (url) => await getPokemonImgUrl(url))
-    );
-  }
-  const pokemon: Pokemon = {
-    id: pokemonResponse.data.id,
+  return {
+    id: pokemon.id,
     name: pokemonNameJa || "データが存在しません",
     gender: pokemonGender,
     height: pokemonHeight,
     weight: pokemonWeight,
     types: pokemonTypes,
     abilities: pokemonAbilityJa,
-    url: pokemonUrl,
-    imageUrl: pokemonResponse.data.sprites.front_default,
+    url: `${API_BASE_URL}/pokemon/${id}`,
+    imageUrl: pokemon.sprites.front_default,
     genus: pokemonGeneraJa || "データが存在しません",
     flavorText: pokemonFlavorTextJa || "データが存在しません",
-    evolutionChainSeed: pokemonEvolutionChain.seed,
-    evolutionChainSeedImg: pokemonEvolutionChain.seedImg,
-    evolutionChainFirst: pokemonEvolutionChain.first,
-    evolutionChainFirstImg: pokemonEvolutionChain.firstImg,
-    evolutionChainSecond: pokemonEvolutionChain.second,
-    evolutionChainSecondImg: pokemonEvolutionChain.secondImg,
-
-    evolutionChainFirstStage: pokemonEvolutionChain.firstStage,
-    evolutionChainSecondStage: pokemonEvolutionChain.secondStage,
-    varietiesUrl: pokemonVarietiesImgUrl,
   };
-  return pokemon;
 };

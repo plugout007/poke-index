@@ -3,52 +3,40 @@ import { getPokemon } from "../../api/pokeApi";
 import {} from "./styled";
 import { useParams } from "react-router-dom";
 import { Pokemon } from "../../types/pokemon";
-import PokeDetailCard from "../../components/poke-detail-card";
 import { Box } from "@mui/material";
 import { Link } from "react-router-dom";
-import { POKE_INDEX_ID_MAX } from "../../utils/commonData";
 import NotFound from "../not-found";
+import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
+import PokeDetailCard from "./components/poke-detail-card";
 /**
- * このコンポーネントはxxx画面全体の機能を提供する
+ * このコンポーネントはポケモン詳細ページ画面全体の機能を提供する
  */
 export default function PokemonPage() {
   const { pokemonId: pokemonId } = useParams<{ pokemonId?: string }>();
   const [selectedPokemon, setSelectedPokemon] = useState<Pokemon | null>(null);
 
+  const id = pokemonId ? Number(pokemonId) : null;
 
+  const isInvalid =
+    id === null || !Number.isInteger(id) || id <= 0 || id > POKE_INDEX_ID_MAX;
 
   useEffect(() => {
-    if (!pokemonId) {
-      console.error("Invalid Pokemon ID");
-      return;
-    }
-    const fetchPokemon = async () => {
-      try {
-        const id = parseInt(pokemonId, 10);
-        if (isNaN(id)) {
-          throw new Error("Invalid Pokemon ID");
-        }
+    if (id === null) return;
 
-        const details = await getPokemon(id);
-        setSelectedPokemon(details);
-      } catch (error) {
-        console.error(error);
-      }
+    const fetchPokemon = async () => {
+      const details = await getPokemon(id);
+      setSelectedPokemon(details);
     };
 
     fetchPokemon();
-  }, [pokemonId]);
+  }, [id]);
 
-  const nextId = pokemonId ? parseInt(pokemonId, 10) + 1 : POKE_INDEX_ID_MAX + 1;
-  const prevId = pokemonId ? parseInt(pokemonId, 10) - 1 : 0;
-
-  if( parseInt(pokemonId) <= 0 || parseInt(pokemonId) > POKE_INDEX_ID_MAX) {
-    return(
-      <>
-        <NotFound />
-      </>
-    )
+  if (isInvalid) {
+    return <NotFound />;
   }
+
+  const nextId = id + 1;
+  const prevId = id - 1;
 
   return (
     <>
@@ -72,7 +60,9 @@ export default function PokemonPage() {
       >
         {prevId > 0 && <Link to={`/pokemon/${prevId}`}>prev</Link>}
 
-        {nextId <= POKE_INDEX_ID_MAX &&<Link to={`/pokemon/${nextId}`}>next</Link>}
+        {nextId <= POKE_INDEX_ID_MAX && (
+          <Link to={`/pokemon/${nextId}`}>next</Link>
+        )}
       </Box>
     </>
   );

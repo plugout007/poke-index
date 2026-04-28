@@ -1,11 +1,12 @@
 import {} from "./styled";
 import { useEffect, useState } from "react";
-import PokeCard from "../../components/poke-card";
 import { fetchPokemonList } from "../../api/pokeApi";
 import { PokemonListResponse } from "../../types/pokemon";
-import { API_BASE_URL, POKE_INDEX_ID_MAX } from "../../utils/commonData";
 import { Box, Pagination } from "@mui/material";
 import { Link } from "react-router-dom";
+import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
+import PokeCard from "./comonents/poke-card";
+import { API_BASE_URL } from "../../config/api-config";
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
@@ -35,7 +36,6 @@ export default function Home() {
           initLimit
         );
         const data = await fetchPokemonList(url);
-        console.log(data);
         setPokemonList(data.results);
         setTotalPages(Math.ceil(POKE_INDEX_ID_MAX / initLimit));
       } catch (error) {
@@ -45,17 +45,8 @@ export default function Home() {
     fetchPokemon();
   }, [page]);
 
-  // const handlePokemonClick = async (id: number) => {
-  //   try {
-  //     const details = await getPokemon(id);
-  //     setSelectedPokemon(details);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   const handlePageChange = (
-    event: React.ChangeEvent<unknown>,
+    _: React.ChangeEvent<unknown>,
     value: number
   ) => {
     setPage(value); // ページ番号の変更

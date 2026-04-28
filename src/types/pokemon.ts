@@ -12,16 +12,16 @@ export type Pokemon = {
   genus: string;
   flavorText: string;
 
-  evolutionChainSeed: string,
-  evolutionChainSeedImg: string,
-  evolutionChainFirst: string[],
-  evolutionChainFirstImg: string[],
-  evolutionChainSecond: string[],
-  evolutionChainSecondImg: string[],
-  varietiesUrl: string[],
+  // evolutionChainSeed: string,
+  // evolutionChainSeedImg: string,
+  // evolutionChainFirst: string[],
+  // evolutionChainFirstImg: string[],
+  // evolutionChainSecond: string[],
+  // evolutionChainSecondImg: string[],
+  // varietiesUrl: string[],
 
-  evolutionChainFirstStage: { imageUrl: string; name: string; }[],
-  evolutionChainSecondStage: { imageUrl: string; name: string; }[],
+  // evolutionChainFirstStage: { imageUrl: string; name: string; }[],
+  // evolutionChainSecondStage: { imageUrl: string; name: string; }[],
 
 };
 
