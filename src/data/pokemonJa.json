@@ -1,4102 +1,7703 @@
 [
   {
     "id": 1,
-    "name": "フシギダネ"
+    "name": "フシギダネ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 2,
-    "name": "フシギソウ"
+    "name": "フシギソウ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 3,
-    "name": "フシギバナ"
+    "name": "フシギバナ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 4,
-    "name": "ヒトカゲ"
+    "name": "ヒトカゲ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 5,
-    "name": "リザード"
+    "name": "リザード",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 6,
-    "name": "リザードン"
+    "name": "リザードン",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 7,
-    "name": "ゼニガメ"
+    "name": "ゼニガメ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 8,
-    "name": "カメール"
+    "name": "カメール",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 9,
-    "name": "カメックス"
+    "name": "カメックス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 10,
-    "name": "キャタピー"
+    "name": "キャタピー",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 11,
-    "name": "トランセル"
+    "name": "トランセル",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 12,
-    "name": "バタフリー"
+    "name": "バタフリー",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 13,
-    "name": "ビードル"
+    "name": "ビードル",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 14,
-    "name": "コクーン"
+    "name": "コクーン",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 15,
-    "name": "スピアー"
+    "name": "スピアー",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 16,
-    "name": "ポッポ"
+    "name": "ポッポ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 17,
-    "name": "ピジョン"
+    "name": "ピジョン",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 18,
-    "name": "ピジョット"
+    "name": "ピジョット",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 19,
-    "name": "コラッタ"
+    "name": "コラッタ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 20,
-    "name": "ラッタ"
+    "name": "ラッタ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 21,
-    "name": "オニスズメ"
+    "name": "オニスズメ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 22,
-    "name": "オニドリル"
+    "name": "オニドリル",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 23,
-    "name": "アーボ"
+    "name": "アーボ",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 24,
-    "name": "アーボック"
+    "name": "アーボック",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 25,
-    "name": "ピカチュウ"
+    "name": "ピカチュウ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 26,
-    "name": "ライチュウ"
+    "name": "ライチュウ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 27,
-    "name": "サンド"
+    "name": "サンド",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 28,
-    "name": "サンドパン"
+    "name": "サンドパン",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 29,
-    "name": "ニドラン♀"
+    "name": "ニドラン♀",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 30,
-    "name": "ニドリーナ"
+    "name": "ニドリーナ",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 31,
-    "name": "ニドクイン"
+    "name": "ニドクイン",
+    "types": [
+      "poison",
+      "ground"
+    ]
   },
   {
     "id": 32,
-    "name": "ニドラン♂"
+    "name": "ニドラン♂",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 33,
-    "name": "ニドリーノ"
+    "name": "ニドリーノ",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 34,
-    "name": "ニドキング"
+    "name": "ニドキング",
+    "types": [
+      "poison",
+      "ground"
+    ]
   },
   {
     "id": 35,
-    "name": "ピッピ"
+    "name": "ピッピ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 36,
-    "name": "ピクシー"
+    "name": "ピクシー",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 37,
-    "name": "ロコン"
+    "name": "ロコン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 38,
-    "name": "キュウコン"
+    "name": "キュウコン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 39,
-    "name": "プリン"
+    "name": "プリン",
+    "types": [
+      "normal",
+      "fairy"
+    ]
   },
   {
     "id": 40,
-    "name": "プクリン"
+    "name": "プクリン",
+    "types": [
+      "normal",
+      "fairy"
+    ]
   },
   {
     "id": 41,
-    "name": "ズバット"
+    "name": "ズバット",
+    "types": [
+      "poison",
+      "flying"
+    ]
   },
   {
     "id": 42,
-    "name": "ゴルバット"
+    "name": "ゴルバット",
+    "types": [
+      "poison",
+      "flying"
+    ]
   },
   {
     "id": 43,
-    "name": "ナゾノクサ"
+    "name": "ナゾノクサ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 44,
-    "name": "クサイハナ"
+    "name": "クサイハナ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 45,
-    "name": "ラフレシア"
+    "name": "ラフレシア",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 46,
-    "name": "パラス"
+    "name": "パラス",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 47,
-    "name": "パラセクト"
+    "name": "パラセクト",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 48,
-    "name": "コンパン"
+    "name": "コンパン",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 49,
-    "name": "モルフォン"
+    "name": "モルフォン",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 50,
-    "name": "ディグダ"
+    "name": "ディグダ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 51,
-    "name": "ダグトリオ"
+    "name": "ダグトリオ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 52,
-    "name": "ニャース"
+    "name": "ニャース",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 53,
-    "name": "ペルシアン"
+    "name": "ペルシアン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 54,
-    "name": "コダック"
+    "name": "コダック",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 55,
-    "name": "ゴルダック"
+    "name": "ゴルダック",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 56,
-    "name": "マンキー"
+    "name": "マンキー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 57,
-    "name": "オコリザル"
+    "name": "オコリザル",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 58,
-    "name": "ガーディ"
+    "name": "ガーディ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 59,
-    "name": "ウインディ"
+    "name": "ウインディ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 60,
-    "name": "ニョロモ"
+    "name": "ニョロモ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 61,
-    "name": "ニョロゾ"
+    "name": "ニョロゾ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 62,
-    "name": "ニョロボン"
+    "name": "ニョロボン",
+    "types": [
+      "water",
+      "fighting"
+    ]
   },
   {
     "id": 63,
-    "name": "ケーシィ"
+    "name": "ケーシィ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 64,
-    "name": "ユンゲラー"
+    "name": "ユンゲラー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 65,
-    "name": "フーディン"
+    "name": "フーディン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 66,
-    "name": "ワンリキー"
+    "name": "ワンリキー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 67,
-    "name": "ゴーリキー"
+    "name": "ゴーリキー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 68,
-    "name": "カイリキー"
+    "name": "カイリキー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 69,
-    "name": "マダツボミ"
+    "name": "マダツボミ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 70,
-    "name": "ウツドン"
+    "name": "ウツドン",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 71,
-    "name": "ウツボット"
+    "name": "ウツボット",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 72,
-    "name": "メノクラゲ"
+    "name": "メノクラゲ",
+    "types": [
+      "water",
+      "poison"
+    ]
   },
   {
     "id": 73,
-    "name": "ドククラゲ"
+    "name": "ドククラゲ",
+    "types": [
+      "water",
+      "poison"
+    ]
   },
   {
     "id": 74,
-    "name": "イシツブテ"
+    "name": "イシツブテ",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 75,
-    "name": "ゴローン"
+    "name": "ゴローン",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 76,
-    "name": "ゴローニャ"
+    "name": "ゴローニャ",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 77,
-    "name": "ポニータ"
+    "name": "ポニータ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 78,
-    "name": "ギャロップ"
+    "name": "ギャロップ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 79,
-    "name": "ヤドン"
+    "name": "ヤドン",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 80,
-    "name": "ヤドラン"
+    "name": "ヤドラン",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 81,
-    "name": "コイル"
+    "name": "コイル",
+    "types": [
+      "electric",
+      "steel"
+    ]
   },
   {
     "id": 82,
-    "name": "レアコイル"
+    "name": "レアコイル",
+    "types": [
+      "electric",
+      "steel"
+    ]
   },
   {
     "id": 83,
-    "name": "カモネギ"
+    "name": "カモネギ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 84,
-    "name": "ドードー"
+    "name": "ドードー",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 85,
-    "name": "ドードリオ"
+    "name": "ドードリオ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 86,
-    "name": "パウワウ"
+    "name": "パウワウ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 87,
-    "name": "ジュゴン"
+    "name": "ジュゴン",
+    "types": [
+      "water",
+      "ice"
+    ]
   },
   {
     "id": 88,
-    "name": "ベトベター"
+    "name": "ベトベター",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 89,
-    "name": "ベトベトン"
+    "name": "ベトベトン",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 90,
-    "name": "シェルダー"
+    "name": "シェルダー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 91,
-    "name": "パルシェン"
+    "name": "パルシェン",
+    "types": [
+      "water",
+      "ice"
+    ]
   },
   {
     "id": 92,
-    "name": "ゴース"
+    "name": "ゴース",
+    "types": [
+      "ghost",
+      "poison"
+    ]
   },
   {
     "id": 93,
-    "name": "ゴースト"
+    "name": "ゴースト",
+    "types": [
+      "ghost",
+      "poison"
+    ]
   },
   {
     "id": 94,
-    "name": "ゲンガー"
+    "name": "ゲンガー",
+    "types": [
+      "ghost",
+      "poison"
+    ]
   },
   {
     "id": 95,
-    "name": "イワーク"
+    "name": "イワーク",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 96,
-    "name": "スリープ"
+    "name": "スリープ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 97,
-    "name": "スリーパー"
+    "name": "スリーパー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 98,
-    "name": "クラブ"
+    "name": "クラブ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 99,
-    "name": "キングラー"
+    "name": "キングラー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 100,
-    "name": "ビリリダマ"
+    "name": "ビリリダマ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 101,
-    "name": "マルマイン"
+    "name": "マルマイン",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 102,
-    "name": "タマタマ"
+    "name": "タマタマ",
+    "types": [
+      "grass",
+      "psychic"
+    ]
   },
   {
     "id": 103,
-    "name": "ナッシー"
+    "name": "ナッシー",
+    "types": [
+      "grass",
+      "psychic"
+    ]
   },
   {
     "id": 104,
-    "name": "カラカラ"
+    "name": "カラカラ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 105,
-    "name": "ガラガラ"
+    "name": "ガラガラ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 106,
-    "name": "サワムラー"
+    "name": "サワムラー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 107,
-    "name": "エビワラー"
+    "name": "エビワラー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 108,
-    "name": "ベロリンガ"
+    "name": "ベロリンガ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 109,
-    "name": "ドガース"
+    "name": "ドガース",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 110,
-    "name": "マタドガス"
+    "name": "マタドガス",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 111,
-    "name": "サイホーン"
+    "name": "サイホーン",
+    "types": [
+      "ground",
+      "rock"
+    ]
   },
   {
     "id": 112,
-    "name": "サイドン"
+    "name": "サイドン",
+    "types": [
+      "ground",
+      "rock"
+    ]
   },
   {
     "id": 113,
-    "name": "ラッキー"
+    "name": "ラッキー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 114,
-    "name": "モンジャラ"
+    "name": "モンジャラ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 115,
-    "name": "ガルーラ"
+    "name": "ガルーラ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 116,
-    "name": "タッツー"
+    "name": "タッツー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 117,
-    "name": "シードラ"
+    "name": "シードラ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 118,
-    "name": "トサキント"
+    "name": "トサキント",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 119,
-    "name": "アズマオウ"
+    "name": "アズマオウ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 120,
-    "name": "ヒトデマン"
+    "name": "ヒトデマン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 121,
-    "name": "スターミー"
+    "name": "スターミー",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 122,
-    "name": "バリヤード"
+    "name": "バリヤード",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 123,
-    "name": "ストライク"
+    "name": "ストライク",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 124,
-    "name": "ルージュラ"
+    "name": "ルージュラ",
+    "types": [
+      "ice",
+      "psychic"
+    ]
   },
   {
     "id": 125,
-    "name": "エレブー"
+    "name": "エレブー",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 126,
-    "name": "ブーバー"
+    "name": "ブーバー",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 127,
-    "name": "カイロス"
+    "name": "カイロス",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 128,
-    "name": "ケンタロス"
+    "name": "ケンタロス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 129,
-    "name": "コイキング"
+    "name": "コイキング",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 130,
-    "name": "ギャラドス"
+    "name": "ギャラドス",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 131,
-    "name": "ラプラス"
+    "name": "ラプラス",
+    "types": [
+      "water",
+      "ice"
+    ]
   },
   {
     "id": 132,
-    "name": "メタモン"
+    "name": "メタモン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 133,
-    "name": "イーブイ"
+    "name": "イーブイ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 134,
-    "name": "シャワーズ"
+    "name": "シャワーズ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 135,
-    "name": "サンダース"
+    "name": "サンダース",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 136,
-    "name": "ブースター"
+    "name": "ブースター",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 137,
-    "name": "ポリゴン"
+    "name": "ポリゴン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 138,
-    "name": "オムナイト"
+    "name": "オムナイト",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 139,
-    "name": "オムスター"
+    "name": "オムスター",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 140,
-    "name": "カブト"
+    "name": "カブト",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 141,
-    "name": "カブトプス"
+    "name": "カブトプス",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 142,
-    "name": "プテラ"
+    "name": "プテラ",
+    "types": [
+      "rock",
+      "flying"
+    ]
   },
   {
     "id": 143,
-    "name": "カビゴン"
+    "name": "カビゴン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 144,
-    "name": "フリーザー"
+    "name": "フリーザー",
+    "types": [
+      "ice",
+      "flying"
+    ]
   },
   {
     "id": 145,
-    "name": "サンダー"
+    "name": "サンダー",
+    "types": [
+      "electric",
+      "flying"
+    ]
   },
   {
     "id": 146,
-    "name": "ファイヤー"
+    "name": "ファイヤー",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 147,
-    "name": "ミニリュウ"
+    "name": "ミニリュウ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 148,
-    "name": "ハクリュー"
+    "name": "ハクリュー",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 149,
-    "name": "カイリュー"
+    "name": "カイリュー",
+    "types": [
+      "dragon",
+      "flying"
+    ]
   },
   {
     "id": 150,
-    "name": "ミュウツー"
+    "name": "ミュウツー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 151,
-    "name": "ミュウ"
+    "name": "ミュウ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 152,
-    "name": "チコリータ"
+    "name": "チコリータ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 153,
-    "name": "ベイリーフ"
+    "name": "ベイリーフ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 154,
-    "name": "メガニウム"
+    "name": "メガニウム",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 155,
-    "name": "ヒノアラシ"
+    "name": "ヒノアラシ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 156,
-    "name": "マグマラシ"
+    "name": "マグマラシ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 157,
-    "name": "バクフーン"
+    "name": "バクフーン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 158,
-    "name": "ワニノコ"
+    "name": "ワニノコ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 159,
-    "name": "アリゲイツ"
+    "name": "アリゲイツ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 160,
-    "name": "オーダイル"
+    "name": "オーダイル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 161,
-    "name": "オタチ"
+    "name": "オタチ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 162,
-    "name": "オオタチ"
+    "name": "オオタチ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 163,
-    "name": "ホーホー"
+    "name": "ホーホー",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 164,
-    "name": "ヨルノズク"
+    "name": "ヨルノズク",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 165,
-    "name": "レディバ"
+    "name": "レディバ",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 166,
-    "name": "レディアン"
+    "name": "レディアン",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 167,
-    "name": "イトマル"
+    "name": "イトマル",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 168,
-    "name": "アリアドス"
+    "name": "アリアドス",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 169,
-    "name": "クロバット"
+    "name": "クロバット",
+    "types": [
+      "poison",
+      "flying"
+    ]
   },
   {
     "id": 170,
-    "name": "チョンチー"
+    "name": "チョンチー",
+    "types": [
+      "water",
+      "electric"
+    ]
   },
   {
     "id": 171,
-    "name": "ランターン"
+    "name": "ランターン",
+    "types": [
+      "water",
+      "electric"
+    ]
   },
   {
     "id": 172,
-    "name": "ピチュー"
+    "name": "ピチュー",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 173,
-    "name": "ピィ"
+    "name": "ピィ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 174,
-    "name": "ププリン"
+    "name": "ププリン",
+    "types": [
+      "normal",
+      "fairy"
+    ]
   },
   {
     "id": 175,
-    "name": "トゲピー"
+    "name": "トゲピー",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 176,
-    "name": "トゲチック"
+    "name": "トゲチック",
+    "types": [
+      "fairy",
+      "flying"
+    ]
   },
   {
     "id": 177,
-    "name": "ネイティ"
+    "name": "ネイティ",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 178,
-    "name": "ネイティオ"
+    "name": "ネイティオ",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 179,
-    "name": "メリープ"
+    "name": "メリープ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 180,
-    "name": "モココ"
+    "name": "モココ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 181,
-    "name": "デンリュウ"
+    "name": "デンリュウ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 182,
-    "name": "キレイハナ"
+    "name": "キレイハナ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 183,
-    "name": "マリル"
+    "name": "マリル",
+    "types": [
+      "water",
+      "fairy"
+    ]
   },
   {
     "id": 184,
-    "name": "マリルリ"
+    "name": "マリルリ",
+    "types": [
+      "water",
+      "fairy"
+    ]
   },
   {
     "id": 185,
-    "name": "ウソッキー"
+    "name": "ウソッキー",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 186,
-    "name": "ニョロトノ"
+    "name": "ニョロトノ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 187,
-    "name": "ハネッコ"
+    "name": "ハネッコ",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 188,
-    "name": "ポポッコ"
+    "name": "ポポッコ",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 189,
-    "name": "ワタッコ"
+    "name": "ワタッコ",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 190,
-    "name": "エイパム"
+    "name": "エイパム",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 191,
-    "name": "ヒマナッツ"
+    "name": "ヒマナッツ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 192,
-    "name": "キマワリ"
+    "name": "キマワリ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 193,
-    "name": "ヤンヤンマ"
+    "name": "ヤンヤンマ",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 194,
-    "name": "ウパー"
+    "name": "ウパー",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 195,
-    "name": "ヌオー"
+    "name": "ヌオー",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 196,
-    "name": "エーフィ"
+    "name": "エーフィ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 197,
-    "name": "ブラッキー"
+    "name": "ブラッキー",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 198,
-    "name": "ヤミカラス"
+    "name": "ヤミカラス",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 199,
-    "name": "ヤドキング"
+    "name": "ヤドキング",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 200,
-    "name": "ムウマ"
+    "name": "ムウマ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 201,
-    "name": "アンノーン"
+    "name": "アンノーン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 202,
-    "name": "ソーナンス"
+    "name": "ソーナンス",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 203,
-    "name": "キリンリキ"
+    "name": "キリンリキ",
+    "types": [
+      "normal",
+      "psychic"
+    ]
   },
   {
     "id": 204,
-    "name": "クヌギダマ"
+    "name": "クヌギダマ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 205,
-    "name": "フォレトス"
+    "name": "フォレトス",
+    "types": [
+      "bug",
+      "steel"
+    ]
   },
   {
     "id": 206,
-    "name": "ノコッチ"
+    "name": "ノコッチ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 207,
-    "name": "グライガー"
+    "name": "グライガー",
+    "types": [
+      "ground",
+      "flying"
+    ]
   },
   {
     "id": 208,
-    "name": "ハガネール"
+    "name": "ハガネール",
+    "types": [
+      "steel",
+      "ground"
+    ]
   },
   {
     "id": 209,
-    "name": "ブルー"
+    "name": "ブルー",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 210,
-    "name": "グランブル"
+    "name": "グランブル",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 211,
-    "name": "ハリーセン"
+    "name": "ハリーセン",
+    "types": [
+      "water",
+      "poison"
+    ]
   },
   {
     "id": 212,
-    "name": "ハッサム"
+    "name": "ハッサム",
+    "types": [
+      "bug",
+      "steel"
+    ]
   },
   {
     "id": 213,
-    "name": "ツボツボ"
+    "name": "ツボツボ",
+    "types": [
+      "bug",
+      "rock"
+    ]
   },
   {
     "id": 214,
-    "name": "ヘラクロス"
+    "name": "ヘラクロス",
+    "types": [
+      "bug",
+      "fighting"
+    ]
   },
   {
     "id": 215,
-    "name": "ニューラ"
+    "name": "ニューラ",
+    "types": [
+      "dark",
+      "ice"
+    ]
   },
   {
     "id": 216,
-    "name": "ヒメグマ"
+    "name": "ヒメグマ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 217,
-    "name": "リングマ"
+    "name": "リングマ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 218,
-    "name": "マグマッグ"
+    "name": "マグマッグ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 219,
-    "name": "マグカルゴ"
+    "name": "マグカルゴ",
+    "types": [
+      "fire",
+      "rock"
+    ]
   },
   {
     "id": 220,
-    "name": "ウリムー"
+    "name": "ウリムー",
+    "types": [
+      "ice",
+      "ground"
+    ]
   },
   {
     "id": 221,
-    "name": "イノムー"
+    "name": "イノムー",
+    "types": [
+      "ice",
+      "ground"
+    ]
   },
   {
     "id": 222,
-    "name": "サニーゴ"
+    "name": "サニーゴ",
+    "types": [
+      "water",
+      "rock"
+    ]
   },
   {
     "id": 223,
-    "name": "テッポウオ"
+    "name": "テッポウオ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 224,
-    "name": "オクタン"
+    "name": "オクタン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 225,
-    "name": "デリバード"
+    "name": "デリバード",
+    "types": [
+      "ice",
+      "flying"
+    ]
   },
   {
     "id": 226,
-    "name": "マンタイン"
+    "name": "マンタイン",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 227,
-    "name": "エアームド"
+    "name": "エアームド",
+    "types": [
+      "steel",
+      "flying"
+    ]
   },
   {
     "id": 228,
-    "name": "デルビル"
+    "name": "デルビル",
+    "types": [
+      "dark",
+      "fire"
+    ]
   },
   {
     "id": 229,
-    "name": "ヘルガー"
+    "name": "ヘルガー",
+    "types": [
+      "dark",
+      "fire"
+    ]
   },
   {
     "id": 230,
-    "name": "キングドラ"
+    "name": "キングドラ",
+    "types": [
+      "water",
+      "dragon"
+    ]
   },
   {
     "id": 231,
-    "name": "ゴマゾウ"
+    "name": "ゴマゾウ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 232,
-    "name": "ドンファン"
+    "name": "ドンファン",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 233,
-    "name": "ポリゴン２"
+    "name": "ポリゴン２",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 234,
-    "name": "オドシシ"
+    "name": "オドシシ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 235,
-    "name": "ドーブル"
+    "name": "ドーブル",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 236,
-    "name": "バルキー"
+    "name": "バルキー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 237,
-    "name": "カポエラー"
+    "name": "カポエラー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 238,
-    "name": "ムチュール"
+    "name": "ムチュール",
+    "types": [
+      "ice",
+      "psychic"
+    ]
   },
   {
     "id": 239,
-    "name": "エレキッド"
+    "name": "エレキッド",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 240,
-    "name": "ブビィ"
+    "name": "ブビィ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 241,
-    "name": "ミルタンク"
+    "name": "ミルタンク",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 242,
-    "name": "ハピナス"
+    "name": "ハピナス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 243,
-    "name": "ライコウ"
+    "name": "ライコウ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 244,
-    "name": "エンテイ"
+    "name": "エンテイ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 245,
-    "name": "スイクン"
+    "name": "スイクン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 246,
-    "name": "ヨーギラス"
+    "name": "ヨーギラス",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 247,
-    "name": "サナギラス"
+    "name": "サナギラス",
+    "types": [
+      "rock",
+      "ground"
+    ]
   },
   {
     "id": 248,
-    "name": "バンギラス"
+    "name": "バンギラス",
+    "types": [
+      "rock",
+      "dark"
+    ]
   },
   {
     "id": 249,
-    "name": "ルギア"
+    "name": "ルギア",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 250,
-    "name": "ホウオウ"
+    "name": "ホウオウ",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 251,
-    "name": "セレビィ"
+    "name": "セレビィ",
+    "types": [
+      "psychic",
+      "grass"
+    ]
   },
   {
     "id": 252,
-    "name": "キモリ"
+    "name": "キモリ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 253,
-    "name": "ジュプトル"
+    "name": "ジュプトル",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 254,
-    "name": "ジュカイン"
+    "name": "ジュカイン",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 255,
-    "name": "アチャモ"
+    "name": "アチャモ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 256,
-    "name": "ワカシャモ"
+    "name": "ワカシャモ",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 257,
-    "name": "バシャーモ"
+    "name": "バシャーモ",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 258,
-    "name": "ミズゴロウ"
+    "name": "ミズゴロウ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 259,
-    "name": "ヌマクロー"
+    "name": "ヌマクロー",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 260,
-    "name": "ラグラージ"
+    "name": "ラグラージ",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 261,
-    "name": "ポチエナ"
+    "name": "ポチエナ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 262,
-    "name": "グラエナ"
+    "name": "グラエナ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 263,
-    "name": "ジグザグマ"
+    "name": "ジグザグマ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 264,
-    "name": "マッスグマ"
+    "name": "マッスグマ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 265,
-    "name": "ケムッソ"
+    "name": "ケムッソ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 266,
-    "name": "カラサリス"
+    "name": "カラサリス",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 267,
-    "name": "アゲハント"
+    "name": "アゲハント",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 268,
-    "name": "マユルド"
+    "name": "マユルド",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 269,
-    "name": "ドクケイル"
+    "name": "ドクケイル",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 270,
-    "name": "ハスボー"
+    "name": "ハスボー",
+    "types": [
+      "water",
+      "grass"
+    ]
   },
   {
     "id": 271,
-    "name": "ハスブレロ"
+    "name": "ハスブレロ",
+    "types": [
+      "water",
+      "grass"
+    ]
   },
   {
     "id": 272,
-    "name": "ルンパッパ"
+    "name": "ルンパッパ",
+    "types": [
+      "water",
+      "grass"
+    ]
   },
   {
     "id": 273,
-    "name": "タネボー"
+    "name": "タネボー",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 274,
-    "name": "コノハナ"
+    "name": "コノハナ",
+    "types": [
+      "grass",
+      "dark"
+    ]
   },
   {
     "id": 275,
-    "name": "ダーテング"
+    "name": "ダーテング",
+    "types": [
+      "grass",
+      "dark"
+    ]
   },
   {
     "id": 276,
-    "name": "スバメ"
+    "name": "スバメ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 277,
-    "name": "オオスバメ"
+    "name": "オオスバメ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 278,
-    "name": "キャモメ"
+    "name": "キャモメ",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 279,
-    "name": "ペリッパー"
+    "name": "ペリッパー",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 280,
-    "name": "ラルトス"
+    "name": "ラルトス",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 281,
-    "name": "キルリア"
+    "name": "キルリア",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 282,
-    "name": "サーナイト"
+    "name": "サーナイト",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 283,
-    "name": "アメタマ"
+    "name": "アメタマ",
+    "types": [
+      "bug",
+      "water"
+    ]
   },
   {
     "id": 284,
-    "name": "アメモース"
+    "name": "アメモース",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 285,
-    "name": "キノココ"
+    "name": "キノココ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 286,
-    "name": "キノガッサ"
+    "name": "キノガッサ",
+    "types": [
+      "grass",
+      "fighting"
+    ]
   },
   {
     "id": 287,
-    "name": "ナマケロ"
+    "name": "ナマケロ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 288,
-    "name": "ヤルキモノ"
+    "name": "ヤルキモノ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 289,
-    "name": "ケッキング"
+    "name": "ケッキング",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 290,
-    "name": "ツチニン"
+    "name": "ツチニン",
+    "types": [
+      "bug",
+      "ground"
+    ]
   },
   {
     "id": 291,
-    "name": "テッカニン"
+    "name": "テッカニン",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 292,
-    "name": "ヌケニン"
+    "name": "ヌケニン",
+    "types": [
+      "bug",
+      "ghost"
+    ]
   },
   {
     "id": 293,
-    "name": "ゴニョニョ"
+    "name": "ゴニョニョ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 294,
-    "name": "ドゴーム"
+    "name": "ドゴーム",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 295,
-    "name": "バクオング"
+    "name": "バクオング",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 296,
-    "name": "マクノシタ"
+    "name": "マクノシタ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 297,
-    "name": "ハリテヤマ"
+    "name": "ハリテヤマ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 298,
-    "name": "ルリリ"
+    "name": "ルリリ",
+    "types": [
+      "normal",
+      "fairy"
+    ]
   },
   {
     "id": 299,
-    "name": "ノズパス"
+    "name": "ノズパス",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 300,
-    "name": "エネコ"
+    "name": "エネコ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 301,
-    "name": "エネコロロ"
+    "name": "エネコロロ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 302,
-    "name": "ヤミラミ"
+    "name": "ヤミラミ",
+    "types": [
+      "dark",
+      "ghost"
+    ]
   },
   {
     "id": 303,
-    "name": "クチート"
+    "name": "クチート",
+    "types": [
+      "steel",
+      "fairy"
+    ]
   },
   {
     "id": 304,
-    "name": "ココドラ"
+    "name": "ココドラ",
+    "types": [
+      "steel",
+      "rock"
+    ]
   },
   {
     "id": 305,
-    "name": "コドラ"
+    "name": "コドラ",
+    "types": [
+      "steel",
+      "rock"
+    ]
   },
   {
     "id": 306,
-    "name": "ボスゴドラ"
+    "name": "ボスゴドラ",
+    "types": [
+      "steel",
+      "rock"
+    ]
   },
   {
     "id": 307,
-    "name": "アサナン"
+    "name": "アサナン",
+    "types": [
+      "fighting",
+      "psychic"
+    ]
   },
   {
     "id": 308,
-    "name": "チャーレム"
+    "name": "チャーレム",
+    "types": [
+      "fighting",
+      "psychic"
+    ]
   },
   {
     "id": 309,
-    "name": "ラクライ"
+    "name": "ラクライ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 310,
-    "name": "ライボルト"
+    "name": "ライボルト",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 311,
-    "name": "プラスル"
+    "name": "プラスル",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 312,
-    "name": "マイナン"
+    "name": "マイナン",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 313,
-    "name": "バルビート"
+    "name": "バルビート",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 314,
-    "name": "イルミーゼ"
+    "name": "イルミーゼ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 315,
-    "name": "ロゼリア"
+    "name": "ロゼリア",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 316,
-    "name": "ゴクリン"
+    "name": "ゴクリン",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 317,
-    "name": "マルノーム"
+    "name": "マルノーム",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 318,
-    "name": "キバニア"
+    "name": "キバニア",
+    "types": [
+      "water",
+      "dark"
+    ]
   },
   {
     "id": 319,
-    "name": "サメハダー"
+    "name": "サメハダー",
+    "types": [
+      "water",
+      "dark"
+    ]
   },
   {
     "id": 320,
-    "name": "ホエルコ"
+    "name": "ホエルコ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 321,
-    "name": "ホエルオー"
+    "name": "ホエルオー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 322,
-    "name": "ドンメル"
+    "name": "ドンメル",
+    "types": [
+      "fire",
+      "ground"
+    ]
   },
   {
     "id": 323,
-    "name": "バクーダ"
+    "name": "バクーダ",
+    "types": [
+      "fire",
+      "ground"
+    ]
   },
   {
     "id": 324,
-    "name": "コータス"
+    "name": "コータス",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 325,
-    "name": "バネブー"
+    "name": "バネブー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 326,
-    "name": "ブーピッグ"
+    "name": "ブーピッグ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 327,
-    "name": "パッチール"
+    "name": "パッチール",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 328,
-    "name": "ナックラー"
+    "name": "ナックラー",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 329,
-    "name": "ビブラーバ"
+    "name": "ビブラーバ",
+    "types": [
+      "ground",
+      "dragon"
+    ]
   },
   {
     "id": 330,
-    "name": "フライゴン"
+    "name": "フライゴン",
+    "types": [
+      "ground",
+      "dragon"
+    ]
   },
   {
     "id": 331,
-    "name": "サボネア"
+    "name": "サボネア",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 332,
-    "name": "ノクタス"
+    "name": "ノクタス",
+    "types": [
+      "grass",
+      "dark"
+    ]
   },
   {
     "id": 333,
-    "name": "チルット"
+    "name": "チルット",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 334,
-    "name": "チルタリス"
+    "name": "チルタリス",
+    "types": [
+      "dragon",
+      "flying"
+    ]
   },
   {
     "id": 335,
-    "name": "ザングース"
+    "name": "ザングース",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 336,
-    "name": "ハブネーク"
+    "name": "ハブネーク",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 337,
-    "name": "ルナトーン"
+    "name": "ルナトーン",
+    "types": [
+      "rock",
+      "psychic"
+    ]
   },
   {
     "id": 338,
-    "name": "ソルロック"
+    "name": "ソルロック",
+    "types": [
+      "rock",
+      "psychic"
+    ]
   },
   {
     "id": 339,
-    "name": "ドジョッチ"
+    "name": "ドジョッチ",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 340,
-    "name": "ナマズン"
+    "name": "ナマズン",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 341,
-    "name": "ヘイガニ"
+    "name": "ヘイガニ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 342,
-    "name": "シザリガー"
+    "name": "シザリガー",
+    "types": [
+      "water",
+      "dark"
+    ]
   },
   {
     "id": 343,
-    "name": "ヤジロン"
+    "name": "ヤジロン",
+    "types": [
+      "ground",
+      "psychic"
+    ]
   },
   {
     "id": 344,
-    "name": "ネンドール"
+    "name": "ネンドール",
+    "types": [
+      "ground",
+      "psychic"
+    ]
   },
   {
     "id": 345,
-    "name": "リリーラ"
+    "name": "リリーラ",
+    "types": [
+      "rock",
+      "grass"
+    ]
   },
   {
     "id": 346,
-    "name": "ユレイドル"
+    "name": "ユレイドル",
+    "types": [
+      "rock",
+      "grass"
+    ]
   },
   {
     "id": 347,
-    "name": "アノプス"
+    "name": "アノプス",
+    "types": [
+      "rock",
+      "bug"
+    ]
   },
   {
     "id": 348,
-    "name": "アーマルド"
+    "name": "アーマルド",
+    "types": [
+      "rock",
+      "bug"
+    ]
   },
   {
     "id": 349,
-    "name": "ヒンバス"
+    "name": "ヒンバス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 350,
-    "name": "ミロカロス"
+    "name": "ミロカロス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 351,
-    "name": "ポワルン"
+    "name": "ポワルン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 352,
-    "name": "カクレオン"
+    "name": "カクレオン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 353,
-    "name": "カゲボウズ"
+    "name": "カゲボウズ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 354,
-    "name": "ジュペッタ"
+    "name": "ジュペッタ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 355,
-    "name": "ヨマワル"
+    "name": "ヨマワル",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 356,
-    "name": "サマヨール"
+    "name": "サマヨール",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 357,
-    "name": "トロピウス"
+    "name": "トロピウス",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 358,
-    "name": "チリーン"
+    "name": "チリーン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 359,
-    "name": "アブソル"
+    "name": "アブソル",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 360,
-    "name": "ソーナノ"
+    "name": "ソーナノ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 361,
-    "name": "ユキワラシ"
+    "name": "ユキワラシ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 362,
-    "name": "オニゴーリ"
+    "name": "オニゴーリ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 363,
-    "name": "タマザラシ"
+    "name": "タマザラシ",
+    "types": [
+      "ice",
+      "water"
+    ]
   },
   {
     "id": 364,
-    "name": "トドグラー"
+    "name": "トドグラー",
+    "types": [
+      "ice",
+      "water"
+    ]
   },
   {
     "id": 365,
-    "name": "トドゼルガ"
+    "name": "トドゼルガ",
+    "types": [
+      "ice",
+      "water"
+    ]
   },
   {
     "id": 366,
-    "name": "パールル"
+    "name": "パールル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 367,
-    "name": "ハンテール"
+    "name": "ハンテール",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 368,
-    "name": "サクラビス"
+    "name": "サクラビス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 369,
-    "name": "ジーランス"
+    "name": "ジーランス",
+    "types": [
+      "water",
+      "rock"
+    ]
   },
   {
     "id": 370,
-    "name": "ラブカス"
+    "name": "ラブカス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 371,
-    "name": "タツベイ"
+    "name": "タツベイ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 372,
-    "name": "コモルー"
+    "name": "コモルー",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 373,
-    "name": "ボーマンダ"
+    "name": "ボーマンダ",
+    "types": [
+      "dragon",
+      "flying"
+    ]
   },
   {
     "id": 374,
-    "name": "ダンバル"
+    "name": "ダンバル",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 375,
-    "name": "メタング"
+    "name": "メタング",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 376,
-    "name": "メタグロス"
+    "name": "メタグロス",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 377,
-    "name": "レジロック"
+    "name": "レジロック",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 378,
-    "name": "レジアイス"
+    "name": "レジアイス",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 379,
-    "name": "レジスチル"
+    "name": "レジスチル",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 380,
-    "name": "ラティアス"
+    "name": "ラティアス",
+    "types": [
+      "dragon",
+      "psychic"
+    ]
   },
   {
     "id": 381,
-    "name": "ラティオス"
+    "name": "ラティオス",
+    "types": [
+      "dragon",
+      "psychic"
+    ]
   },
   {
     "id": 382,
-    "name": "カイオーガ"
+    "name": "カイオーガ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 383,
-    "name": "グラードン"
+    "name": "グラードン",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 384,
-    "name": "レックウザ"
+    "name": "レックウザ",
+    "types": [
+      "dragon",
+      "flying"
+    ]
   },
   {
     "id": 385,
-    "name": "ジラーチ"
+    "name": "ジラーチ",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 386,
-    "name": "デオキシス"
+    "name": "デオキシス",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 387,
-    "name": "ナエトル"
+    "name": "ナエトル",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 388,
-    "name": "ハヤシガメ"
+    "name": "ハヤシガメ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 389,
-    "name": "ドダイトス"
+    "name": "ドダイトス",
+    "types": [
+      "grass",
+      "ground"
+    ]
   },
   {
     "id": 390,
-    "name": "ヒコザル"
+    "name": "ヒコザル",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 391,
-    "name": "モウカザル"
+    "name": "モウカザル",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 392,
-    "name": "ゴウカザル"
+    "name": "ゴウカザル",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 393,
-    "name": "ポッチャマ"
+    "name": "ポッチャマ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 394,
-    "name": "ポッタイシ"
+    "name": "ポッタイシ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 395,
-    "name": "エンペルト"
+    "name": "エンペルト",
+    "types": [
+      "water",
+      "steel"
+    ]
   },
   {
     "id": 396,
-    "name": "ムックル"
+    "name": "ムックル",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 397,
-    "name": "ムクバード"
+    "name": "ムクバード",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 398,
-    "name": "ムクホーク"
+    "name": "ムクホーク",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 399,
-    "name": "ビッパ"
+    "name": "ビッパ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 400,
-    "name": "ビーダル"
+    "name": "ビーダル",
+    "types": [
+      "normal",
+      "water"
+    ]
   },
   {
     "id": 401,
-    "name": "コロボーシ"
+    "name": "コロボーシ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 402,
-    "name": "コロトック"
+    "name": "コロトック",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 403,
-    "name": "コリンク"
+    "name": "コリンク",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 404,
-    "name": "ルクシオ"
+    "name": "ルクシオ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 405,
-    "name": "レントラー"
+    "name": "レントラー",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 406,
-    "name": "スボミー"
+    "name": "スボミー",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 407,
-    "name": "ロズレイド"
+    "name": "ロズレイド",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 408,
-    "name": "ズガイドス"
+    "name": "ズガイドス",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 409,
-    "name": "ラムパルド"
+    "name": "ラムパルド",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 410,
-    "name": "タテトプス"
+    "name": "タテトプス",
+    "types": [
+      "rock",
+      "steel"
+    ]
   },
   {
     "id": 411,
-    "name": "トリデプス"
+    "name": "トリデプス",
+    "types": [
+      "rock",
+      "steel"
+    ]
   },
   {
     "id": 412,
-    "name": "ミノムッチ"
+    "name": "ミノムッチ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 413,
-    "name": "ミノマダム"
+    "name": "ミノマダム",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 414,
-    "name": "ガーメイル"
+    "name": "ガーメイル",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 415,
-    "name": "ミツハニー"
+    "name": "ミツハニー",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 416,
-    "name": "ビークイン"
+    "name": "ビークイン",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 417,
-    "name": "パチリス"
+    "name": "パチリス",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 418,
-    "name": "ブイゼル"
+    "name": "ブイゼル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 419,
-    "name": "フローゼル"
+    "name": "フローゼル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 420,
-    "name": "チェリンボ"
+    "name": "チェリンボ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 421,
-    "name": "チェリム"
+    "name": "チェリム",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 422,
-    "name": "カラナクシ"
+    "name": "カラナクシ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 423,
-    "name": "トリトドン"
+    "name": "トリトドン",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 424,
-    "name": "エテボース"
+    "name": "エテボース",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 425,
-    "name": "フワンテ"
+    "name": "フワンテ",
+    "types": [
+      "ghost",
+      "flying"
+    ]
   },
   {
     "id": 426,
-    "name": "フワライド"
+    "name": "フワライド",
+    "types": [
+      "ghost",
+      "flying"
+    ]
   },
   {
     "id": 427,
-    "name": "ミミロル"
+    "name": "ミミロル",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 428,
-    "name": "ミミロップ"
+    "name": "ミミロップ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 429,
-    "name": "ムウマージ"
+    "name": "ムウマージ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 430,
-    "name": "ドンカラス"
+    "name": "ドンカラス",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 431,
-    "name": "ニャルマー"
+    "name": "ニャルマー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 432,
-    "name": "ブニャット"
+    "name": "ブニャット",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 433,
-    "name": "リーシャン"
+    "name": "リーシャン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 434,
-    "name": "スカンプー"
+    "name": "スカンプー",
+    "types": [
+      "poison",
+      "dark"
+    ]
   },
   {
     "id": 435,
-    "name": "スカタンク"
+    "name": "スカタンク",
+    "types": [
+      "poison",
+      "dark"
+    ]
   },
   {
     "id": 436,
-    "name": "ドーミラー"
+    "name": "ドーミラー",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 437,
-    "name": "ドータクン"
+    "name": "ドータクン",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 438,
-    "name": "ウソハチ"
+    "name": "ウソハチ",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 439,
-    "name": "マネネ"
+    "name": "マネネ",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 440,
-    "name": "ピンプク"
+    "name": "ピンプク",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 441,
-    "name": "ペラップ"
+    "name": "ペラップ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 442,
-    "name": "ミカルゲ"
+    "name": "ミカルゲ",
+    "types": [
+      "ghost",
+      "dark"
+    ]
   },
   {
     "id": 443,
-    "name": "フカマル"
+    "name": "フカマル",
+    "types": [
+      "dragon",
+      "ground"
+    ]
   },
   {
     "id": 444,
-    "name": "ガバイト"
+    "name": "ガバイト",
+    "types": [
+      "dragon",
+      "ground"
+    ]
   },
   {
     "id": 445,
-    "name": "ガブリアス"
+    "name": "ガブリアス",
+    "types": [
+      "dragon",
+      "ground"
+    ]
   },
   {
     "id": 446,
-    "name": "ゴンベ"
+    "name": "ゴンベ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 447,
-    "name": "リオル"
+    "name": "リオル",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 448,
-    "name": "ルカリオ"
+    "name": "ルカリオ",
+    "types": [
+      "fighting",
+      "steel"
+    ]
   },
   {
     "id": 449,
-    "name": "ヒポポタス"
+    "name": "ヒポポタス",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 450,
-    "name": "カバルドン"
+    "name": "カバルドン",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 451,
-    "name": "スコルピ"
+    "name": "スコルピ",
+    "types": [
+      "poison",
+      "bug"
+    ]
   },
   {
     "id": 452,
-    "name": "ドラピオン"
+    "name": "ドラピオン",
+    "types": [
+      "poison",
+      "dark"
+    ]
   },
   {
     "id": 453,
-    "name": "グレッグル"
+    "name": "グレッグル",
+    "types": [
+      "poison",
+      "fighting"
+    ]
   },
   {
     "id": 454,
-    "name": "ドクロッグ"
+    "name": "ドクロッグ",
+    "types": [
+      "poison",
+      "fighting"
+    ]
   },
   {
     "id": 455,
-    "name": "マスキッパ"
+    "name": "マスキッパ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 456,
-    "name": "ケイコウオ"
+    "name": "ケイコウオ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 457,
-    "name": "ネオラント"
+    "name": "ネオラント",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 458,
-    "name": "タマンタ"
+    "name": "タマンタ",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 459,
-    "name": "ユキカブリ"
+    "name": "ユキカブリ",
+    "types": [
+      "grass",
+      "ice"
+    ]
   },
   {
     "id": 460,
-    "name": "ユキノオー"
+    "name": "ユキノオー",
+    "types": [
+      "grass",
+      "ice"
+    ]
   },
   {
     "id": 461,
-    "name": "マニューラ"
+    "name": "マニューラ",
+    "types": [
+      "dark",
+      "ice"
+    ]
   },
   {
     "id": 462,
-    "name": "ジバコイル"
+    "name": "ジバコイル",
+    "types": [
+      "electric",
+      "steel"
+    ]
   },
   {
     "id": 463,
-    "name": "ベロベルト"
+    "name": "ベロベルト",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 464,
-    "name": "ドサイドン"
+    "name": "ドサイドン",
+    "types": [
+      "ground",
+      "rock"
+    ]
   },
   {
     "id": 465,
-    "name": "モジャンボ"
+    "name": "モジャンボ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 466,
-    "name": "エレキブル"
+    "name": "エレキブル",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 467,
-    "name": "ブーバーン"
+    "name": "ブーバーン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 468,
-    "name": "トゲキッス"
+    "name": "トゲキッス",
+    "types": [
+      "fairy",
+      "flying"
+    ]
   },
   {
     "id": 469,
-    "name": "メガヤンマ"
+    "name": "メガヤンマ",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 470,
-    "name": "リーフィア"
+    "name": "リーフィア",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 471,
-    "name": "グレイシア"
+    "name": "グレイシア",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 472,
-    "name": "グライオン"
+    "name": "グライオン",
+    "types": [
+      "ground",
+      "flying"
+    ]
   },
   {
     "id": 473,
-    "name": "マンムー"
+    "name": "マンムー",
+    "types": [
+      "ice",
+      "ground"
+    ]
   },
   {
     "id": 474,
-    "name": "ポリゴンＺ"
+    "name": "ポリゴンＺ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 475,
-    "name": "エルレイド"
+    "name": "エルレイド",
+    "types": [
+      "psychic",
+      "fighting"
+    ]
   },
   {
     "id": 476,
-    "name": "ダイノーズ"
+    "name": "ダイノーズ",
+    "types": [
+      "rock",
+      "steel"
+    ]
   },
   {
     "id": 477,
-    "name": "ヨノワール"
+    "name": "ヨノワール",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 478,
-    "name": "ユキメノコ"
+    "name": "ユキメノコ",
+    "types": [
+      "ice",
+      "ghost"
+    ]
   },
   {
     "id": 479,
-    "name": "ロトム"
+    "name": "ロトム",
+    "types": [
+      "electric",
+      "ghost"
+    ]
   },
   {
     "id": 480,
-    "name": "ユクシー"
+    "name": "ユクシー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 481,
-    "name": "エムリット"
+    "name": "エムリット",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 482,
-    "name": "アグノム"
+    "name": "アグノム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 483,
-    "name": "ディアルガ"
+    "name": "ディアルガ",
+    "types": [
+      "steel",
+      "dragon"
+    ]
   },
   {
     "id": 484,
-    "name": "パルキア"
+    "name": "パルキア",
+    "types": [
+      "water",
+      "dragon"
+    ]
   },
   {
     "id": 485,
-    "name": "ヒードラン"
+    "name": "ヒードラン",
+    "types": [
+      "fire",
+      "steel"
+    ]
   },
   {
     "id": 486,
-    "name": "レジギガス"
+    "name": "レジギガス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 487,
-    "name": "ギラティナ"
+    "name": "ギラティナ",
+    "types": [
+      "ghost",
+      "dragon"
+    ]
   },
   {
     "id": 488,
-    "name": "クレセリア"
+    "name": "クレセリア",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 489,
-    "name": "フィオネ"
+    "name": "フィオネ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 490,
-    "name": "マナフィ"
+    "name": "マナフィ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 491,
-    "name": "ダークライ"
+    "name": "ダークライ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 492,
-    "name": "シェイミ"
+    "name": "シェイミ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 493,
-    "name": "アルセウス"
+    "name": "アルセウス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 494,
-    "name": "ビクティニ"
+    "name": "ビクティニ",
+    "types": [
+      "psychic",
+      "fire"
+    ]
   },
   {
     "id": 495,
-    "name": "ツタージャ"
+    "name": "ツタージャ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 496,
-    "name": "ジャノビー"
+    "name": "ジャノビー",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 497,
-    "name": "ジャローダ"
+    "name": "ジャローダ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 498,
-    "name": "ポカブ"
+    "name": "ポカブ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 499,
-    "name": "チャオブー"
+    "name": "チャオブー",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 500,
-    "name": "エンブオー"
+    "name": "エンブオー",
+    "types": [
+      "fire",
+      "fighting"
+    ]
   },
   {
     "id": 501,
-    "name": "ミジュマル"
+    "name": "ミジュマル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 502,
-    "name": "フタチマル"
+    "name": "フタチマル",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 503,
-    "name": "ダイケンキ"
+    "name": "ダイケンキ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 504,
-    "name": "ミネズミ"
+    "name": "ミネズミ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 505,
-    "name": "ミルホッグ"
+    "name": "ミルホッグ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 506,
-    "name": "ヨーテリー"
+    "name": "ヨーテリー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 507,
-    "name": "ハーデリア"
+    "name": "ハーデリア",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 508,
-    "name": "ムーランド"
+    "name": "ムーランド",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 509,
-    "name": "チョロネコ"
+    "name": "チョロネコ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 510,
-    "name": "レパルダス"
+    "name": "レパルダス",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 511,
-    "name": "ヤナップ"
+    "name": "ヤナップ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 512,
-    "name": "ヤナッキー"
+    "name": "ヤナッキー",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 513,
-    "name": "バオップ"
+    "name": "バオップ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 514,
-    "name": "バオッキー"
+    "name": "バオッキー",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 515,
-    "name": "ヒヤップ"
+    "name": "ヒヤップ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 516,
-    "name": "ヒヤッキー"
+    "name": "ヒヤッキー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 517,
-    "name": "ムンナ"
+    "name": "ムンナ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 518,
-    "name": "ムシャーナ"
+    "name": "ムシャーナ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 519,
-    "name": "マメパト"
+    "name": "マメパト",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 520,
-    "name": "ハトーボー"
+    "name": "ハトーボー",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 521,
-    "name": "ケンホロウ"
+    "name": "ケンホロウ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 522,
-    "name": "シママ"
+    "name": "シママ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 523,
-    "name": "ゼブライカ"
+    "name": "ゼブライカ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 524,
-    "name": "ダンゴロ"
+    "name": "ダンゴロ",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 525,
-    "name": "ガントル"
+    "name": "ガントル",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 526,
-    "name": "ギガイアス"
+    "name": "ギガイアス",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 527,
-    "name": "コロモリ"
+    "name": "コロモリ",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 528,
-    "name": "ココロモリ"
+    "name": "ココロモリ",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 529,
-    "name": "モグリュー"
+    "name": "モグリュー",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 530,
-    "name": "ドリュウズ"
+    "name": "ドリュウズ",
+    "types": [
+      "ground",
+      "steel"
+    ]
   },
   {
     "id": 531,
-    "name": "タブンネ"
+    "name": "タブンネ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 532,
-    "name": "ドッコラー"
+    "name": "ドッコラー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 533,
-    "name": "ドテッコツ"
+    "name": "ドテッコツ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 534,
-    "name": "ローブシン"
+    "name": "ローブシン",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 535,
-    "name": "オタマロ"
+    "name": "オタマロ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 536,
-    "name": "ガマガル"
+    "name": "ガマガル",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 537,
-    "name": "ガマゲロゲ"
+    "name": "ガマゲロゲ",
+    "types": [
+      "water",
+      "ground"
+    ]
   },
   {
     "id": 538,
-    "name": "ナゲキ"
+    "name": "ナゲキ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 539,
-    "name": "ダゲキ"
+    "name": "ダゲキ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 540,
-    "name": "クルミル"
+    "name": "クルミル",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 541,
-    "name": "クルマユ"
+    "name": "クルマユ",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 542,
-    "name": "ハハコモリ"
+    "name": "ハハコモリ",
+    "types": [
+      "bug",
+      "grass"
+    ]
   },
   {
     "id": 543,
-    "name": "フシデ"
+    "name": "フシデ",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 544,
-    "name": "ホイーガ"
+    "name": "ホイーガ",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 545,
-    "name": "ペンドラー"
+    "name": "ペンドラー",
+    "types": [
+      "bug",
+      "poison"
+    ]
   },
   {
     "id": 546,
-    "name": "モンメン"
+    "name": "モンメン",
+    "types": [
+      "grass",
+      "fairy"
+    ]
   },
   {
     "id": 547,
-    "name": "エルフーン"
+    "name": "エルフーン",
+    "types": [
+      "grass",
+      "fairy"
+    ]
   },
   {
     "id": 548,
-    "name": "チュリネ"
+    "name": "チュリネ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 549,
-    "name": "ドレディア"
+    "name": "ドレディア",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 550,
-    "name": "バスラオ"
+    "name": "バスラオ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 551,
-    "name": "メグロコ"
+    "name": "メグロコ",
+    "types": [
+      "ground",
+      "dark"
+    ]
   },
   {
     "id": 552,
-    "name": "ワルビル"
+    "name": "ワルビル",
+    "types": [
+      "ground",
+      "dark"
+    ]
   },
   {
     "id": 553,
-    "name": "ワルビアル"
+    "name": "ワルビアル",
+    "types": [
+      "ground",
+      "dark"
+    ]
   },
   {
     "id": 554,
-    "name": "ダルマッカ"
+    "name": "ダルマッカ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 555,
-    "name": "ヒヒダルマ"
+    "name": "ヒヒダルマ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 556,
-    "name": "マラカッチ"
+    "name": "マラカッチ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 557,
-    "name": "イシズマイ"
+    "name": "イシズマイ",
+    "types": [
+      "bug",
+      "rock"
+    ]
   },
   {
     "id": 558,
-    "name": "イワパレス"
+    "name": "イワパレス",
+    "types": [
+      "bug",
+      "rock"
+    ]
   },
   {
     "id": 559,
-    "name": "ズルッグ"
+    "name": "ズルッグ",
+    "types": [
+      "dark",
+      "fighting"
+    ]
   },
   {
     "id": 560,
-    "name": "ズルズキン"
+    "name": "ズルズキン",
+    "types": [
+      "dark",
+      "fighting"
+    ]
   },
   {
     "id": 561,
-    "name": "シンボラー"
+    "name": "シンボラー",
+    "types": [
+      "psychic",
+      "flying"
+    ]
   },
   {
     "id": 562,
-    "name": "デスマス"
+    "name": "デスマス",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 563,
-    "name": "デスカーン"
+    "name": "デスカーン",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 564,
-    "name": "プロトーガ"
+    "name": "プロトーガ",
+    "types": [
+      "water",
+      "rock"
+    ]
   },
   {
     "id": 565,
-    "name": "アバゴーラ"
+    "name": "アバゴーラ",
+    "types": [
+      "water",
+      "rock"
+    ]
   },
   {
     "id": 566,
-    "name": "アーケン"
+    "name": "アーケン",
+    "types": [
+      "rock",
+      "flying"
+    ]
   },
   {
     "id": 567,
-    "name": "アーケオス"
+    "name": "アーケオス",
+    "types": [
+      "rock",
+      "flying"
+    ]
   },
   {
     "id": 568,
-    "name": "ヤブクロン"
+    "name": "ヤブクロン",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 569,
-    "name": "ダストダス"
+    "name": "ダストダス",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 570,
-    "name": "ゾロア"
+    "name": "ゾロア",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 571,
-    "name": "ゾロアーク"
+    "name": "ゾロアーク",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 572,
-    "name": "チラーミィ"
+    "name": "チラーミィ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 573,
-    "name": "チラチーノ"
+    "name": "チラチーノ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 574,
-    "name": "ゴチム"
+    "name": "ゴチム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 575,
-    "name": "ゴチミル"
+    "name": "ゴチミル",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 576,
-    "name": "ゴチルゼル"
+    "name": "ゴチルゼル",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 577,
-    "name": "ユニラン"
+    "name": "ユニラン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 578,
-    "name": "ダブラン"
+    "name": "ダブラン",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 579,
-    "name": "ランクルス"
+    "name": "ランクルス",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 580,
-    "name": "コアルヒー"
+    "name": "コアルヒー",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 581,
-    "name": "スワンナ"
+    "name": "スワンナ",
+    "types": [
+      "water",
+      "flying"
+    ]
   },
   {
     "id": 582,
-    "name": "バニプッチ"
+    "name": "バニプッチ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 583,
-    "name": "バニリッチ"
+    "name": "バニリッチ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 584,
-    "name": "バイバニラ"
+    "name": "バイバニラ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 585,
-    "name": "シキジカ"
+    "name": "シキジカ",
+    "types": [
+      "normal",
+      "grass"
+    ]
   },
   {
     "id": 586,
-    "name": "メブキジカ"
+    "name": "メブキジカ",
+    "types": [
+      "normal",
+      "grass"
+    ]
   },
   {
     "id": 587,
-    "name": "エモンガ"
+    "name": "エモンガ",
+    "types": [
+      "electric",
+      "flying"
+    ]
   },
   {
     "id": 588,
-    "name": "カブルモ"
+    "name": "カブルモ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 589,
-    "name": "シュバルゴ"
+    "name": "シュバルゴ",
+    "types": [
+      "bug",
+      "steel"
+    ]
   },
   {
     "id": 590,
-    "name": "タマゲタケ"
+    "name": "タマゲタケ",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 591,
-    "name": "モロバレル"
+    "name": "モロバレル",
+    "types": [
+      "grass",
+      "poison"
+    ]
   },
   {
     "id": 592,
-    "name": "プルリル"
+    "name": "プルリル",
+    "types": [
+      "water",
+      "ghost"
+    ]
   },
   {
     "id": 593,
-    "name": "ブルンゲル"
+    "name": "ブルンゲル",
+    "types": [
+      "water",
+      "ghost"
+    ]
   },
   {
     "id": 594,
-    "name": "ママンボウ"
+    "name": "ママンボウ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 595,
-    "name": "バチュル"
+    "name": "バチュル",
+    "types": [
+      "bug",
+      "electric"
+    ]
   },
   {
     "id": 596,
-    "name": "デンチュラ"
+    "name": "デンチュラ",
+    "types": [
+      "bug",
+      "electric"
+    ]
   },
   {
     "id": 597,
-    "name": "テッシード"
+    "name": "テッシード",
+    "types": [
+      "grass",
+      "steel"
+    ]
   },
   {
     "id": 598,
-    "name": "ナットレイ"
+    "name": "ナットレイ",
+    "types": [
+      "grass",
+      "steel"
+    ]
   },
   {
     "id": 599,
-    "name": "ギアル"
+    "name": "ギアル",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 600,
-    "name": "ギギアル"
+    "name": "ギギアル",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 601,
-    "name": "ギギギアル"
+    "name": "ギギギアル",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 602,
-    "name": "シビシラス"
+    "name": "シビシラス",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 603,
-    "name": "シビビール"
+    "name": "シビビール",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 604,
-    "name": "シビルドン"
+    "name": "シビルドン",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 605,
-    "name": "リグレー"
+    "name": "リグレー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 606,
-    "name": "オーベム"
+    "name": "オーベム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 607,
-    "name": "ヒトモシ"
+    "name": "ヒトモシ",
+    "types": [
+      "ghost",
+      "fire"
+    ]
   },
   {
     "id": 608,
-    "name": "ランプラー"
+    "name": "ランプラー",
+    "types": [
+      "ghost",
+      "fire"
+    ]
   },
   {
     "id": 609,
-    "name": "シャンデラ"
+    "name": "シャンデラ",
+    "types": [
+      "ghost",
+      "fire"
+    ]
   },
   {
     "id": 610,
-    "name": "キバゴ"
+    "name": "キバゴ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 611,
-    "name": "オノンド"
+    "name": "オノンド",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 612,
-    "name": "オノノクス"
+    "name": "オノノクス",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 613,
-    "name": "クマシュン"
+    "name": "クマシュン",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 614,
-    "name": "ツンベアー"
+    "name": "ツンベアー",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 615,
-    "name": "フリージオ"
+    "name": "フリージオ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 616,
-    "name": "チョボマキ"
+    "name": "チョボマキ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 617,
-    "name": "アギルダー"
+    "name": "アギルダー",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 618,
-    "name": "マッギョ"
+    "name": "マッギョ",
+    "types": [
+      "ground",
+      "electric"
+    ]
   },
   {
     "id": 619,
-    "name": "コジョフー"
+    "name": "コジョフー",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 620,
-    "name": "コジョンド"
+    "name": "コジョンド",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 621,
-    "name": "クリムガン"
+    "name": "クリムガン",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 622,
-    "name": "ゴビット"
+    "name": "ゴビット",
+    "types": [
+      "ground",
+      "ghost"
+    ]
   },
   {
     "id": 623,
-    "name": "ゴルーグ"
+    "name": "ゴルーグ",
+    "types": [
+      "ground",
+      "ghost"
+    ]
   },
   {
     "id": 624,
-    "name": "コマタナ"
+    "name": "コマタナ",
+    "types": [
+      "dark",
+      "steel"
+    ]
   },
   {
     "id": 625,
-    "name": "キリキザン"
+    "name": "キリキザン",
+    "types": [
+      "dark",
+      "steel"
+    ]
   },
   {
     "id": 626,
-    "name": "バッフロン"
+    "name": "バッフロン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 627,
-    "name": "ワシボン"
+    "name": "ワシボン",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 628,
-    "name": "ウォーグル"
+    "name": "ウォーグル",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 629,
-    "name": "バルチャイ"
+    "name": "バルチャイ",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 630,
-    "name": "バルジーナ"
+    "name": "バルジーナ",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 631,
-    "name": "クイタラン"
+    "name": "クイタラン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 632,
-    "name": "アイアント"
+    "name": "アイアント",
+    "types": [
+      "bug",
+      "steel"
+    ]
   },
   {
     "id": 633,
-    "name": "モノズ"
+    "name": "モノズ",
+    "types": [
+      "dark",
+      "dragon"
+    ]
   },
   {
     "id": 634,
-    "name": "ジヘッド"
+    "name": "ジヘッド",
+    "types": [
+      "dark",
+      "dragon"
+    ]
   },
   {
     "id": 635,
-    "name": "サザンドラ"
+    "name": "サザンドラ",
+    "types": [
+      "dark",
+      "dragon"
+    ]
   },
   {
     "id": 636,
-    "name": "メラルバ"
+    "name": "メラルバ",
+    "types": [
+      "bug",
+      "fire"
+    ]
   },
   {
     "id": 637,
-    "name": "ウルガモス"
+    "name": "ウルガモス",
+    "types": [
+      "bug",
+      "fire"
+    ]
   },
   {
     "id": 638,
-    "name": "コバルオン"
+    "name": "コバルオン",
+    "types": [
+      "steel",
+      "fighting"
+    ]
   },
   {
     "id": 639,
-    "name": "テラキオン"
+    "name": "テラキオン",
+    "types": [
+      "rock",
+      "fighting"
+    ]
   },
   {
     "id": 640,
-    "name": "ビリジオン"
+    "name": "ビリジオン",
+    "types": [
+      "grass",
+      "fighting"
+    ]
   },
   {
     "id": 641,
-    "name": "トルネロス"
+    "name": "トルネロス",
+    "types": [
+      "flying"
+    ]
   },
   {
     "id": 642,
-    "name": "ボルトロス"
+    "name": "ボルトロス",
+    "types": [
+      "electric",
+      "flying"
+    ]
   },
   {
     "id": 643,
-    "name": "レシラム"
+    "name": "レシラム",
+    "types": [
+      "dragon",
+      "fire"
+    ]
   },
   {
     "id": 644,
-    "name": "ゼクロム"
+    "name": "ゼクロム",
+    "types": [
+      "dragon",
+      "electric"
+    ]
   },
   {
     "id": 645,
-    "name": "ランドロス"
+    "name": "ランドロス",
+    "types": [
+      "ground",
+      "flying"
+    ]
   },
   {
     "id": 646,
-    "name": "キュレム"
+    "name": "キュレム",
+    "types": [
+      "dragon",
+      "ice"
+    ]
   },
   {
     "id": 647,
-    "name": "ケルディオ"
+    "name": "ケルディオ",
+    "types": [
+      "water",
+      "fighting"
+    ]
   },
   {
     "id": 648,
-    "name": "メロエッタ"
+    "name": "メロエッタ",
+    "types": [
+      "normal",
+      "psychic"
+    ]
   },
   {
     "id": 649,
-    "name": "ゲノセクト"
+    "name": "ゲノセクト",
+    "types": [
+      "bug",
+      "steel"
+    ]
   },
   {
     "id": 650,
-    "name": "ハリマロン"
+    "name": "ハリマロン",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 651,
-    "name": "ハリボーグ"
+    "name": "ハリボーグ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 652,
-    "name": "ブリガロン"
+    "name": "ブリガロン",
+    "types": [
+      "grass",
+      "fighting"
+    ]
   },
   {
     "id": 653,
-    "name": "フォッコ"
+    "name": "フォッコ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 654,
-    "name": "テールナー"
+    "name": "テールナー",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 655,
-    "name": "マフォクシー"
+    "name": "マフォクシー",
+    "types": [
+      "fire",
+      "psychic"
+    ]
   },
   {
     "id": 656,
-    "name": "ケロマツ"
+    "name": "ケロマツ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 657,
-    "name": "ゲコガシラ"
+    "name": "ゲコガシラ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 658,
-    "name": "ゲッコウガ"
+    "name": "ゲッコウガ",
+    "types": [
+      "water",
+      "dark"
+    ]
   },
   {
     "id": 659,
-    "name": "ホルビー"
+    "name": "ホルビー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 660,
-    "name": "ホルード"
+    "name": "ホルード",
+    "types": [
+      "normal",
+      "ground"
+    ]
   },
   {
     "id": 661,
-    "name": "ヤヤコマ"
+    "name": "ヤヤコマ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 662,
-    "name": "ヒノヤコマ"
+    "name": "ヒノヤコマ",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 663,
-    "name": "ファイアロー"
+    "name": "ファイアロー",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 664,
-    "name": "コフキムシ"
+    "name": "コフキムシ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 665,
-    "name": "コフーライ"
+    "name": "コフーライ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 666,
-    "name": "ビビヨン"
+    "name": "ビビヨン",
+    "types": [
+      "bug",
+      "flying"
+    ]
   },
   {
     "id": 667,
-    "name": "シシコ"
+    "name": "シシコ",
+    "types": [
+      "fire",
+      "normal"
+    ]
   },
   {
     "id": 668,
-    "name": "カエンジシ"
+    "name": "カエンジシ",
+    "types": [
+      "fire",
+      "normal"
+    ]
   },
   {
     "id": 669,
-    "name": "フラベベ"
+    "name": "フラベベ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 670,
-    "name": "フラエッテ"
+    "name": "フラエッテ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 671,
-    "name": "フラージェス"
+    "name": "フラージェス",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 672,
-    "name": "メェークル"
+    "name": "メェークル",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 673,
-    "name": "ゴーゴート"
+    "name": "ゴーゴート",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 674,
-    "name": "ヤンチャム"
+    "name": "ヤンチャム",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 675,
-    "name": "ゴロンダ"
+    "name": "ゴロンダ",
+    "types": [
+      "fighting",
+      "dark"
+    ]
   },
   {
     "id": 676,
-    "name": "トリミアン"
+    "name": "トリミアン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 677,
-    "name": "ニャスパー"
+    "name": "ニャスパー",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 678,
-    "name": "ニャオニクス"
+    "name": "ニャオニクス",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 679,
-    "name": "ヒトツキ"
+    "name": "ヒトツキ",
+    "types": [
+      "steel",
+      "ghost"
+    ]
   },
   {
     "id": 680,
-    "name": "ニダンギル"
+    "name": "ニダンギル",
+    "types": [
+      "steel",
+      "ghost"
+    ]
   },
   {
     "id": 681,
-    "name": "ギルガルド"
+    "name": "ギルガルド",
+    "types": [
+      "steel",
+      "ghost"
+    ]
   },
   {
     "id": 682,
-    "name": "シュシュプ"
+    "name": "シュシュプ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 683,
-    "name": "フレフワン"
+    "name": "フレフワン",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 684,
-    "name": "ペロッパフ"
+    "name": "ペロッパフ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 685,
-    "name": "ペロリーム"
+    "name": "ペロリーム",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 686,
-    "name": "マーイーカ"
+    "name": "マーイーカ",
+    "types": [
+      "dark",
+      "psychic"
+    ]
   },
   {
     "id": 687,
-    "name": "カラマネロ"
+    "name": "カラマネロ",
+    "types": [
+      "dark",
+      "psychic"
+    ]
   },
   {
     "id": 688,
-    "name": "カメテテ"
+    "name": "カメテテ",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 689,
-    "name": "ガメノデス"
+    "name": "ガメノデス",
+    "types": [
+      "rock",
+      "water"
+    ]
   },
   {
     "id": 690,
-    "name": "クズモー"
+    "name": "クズモー",
+    "types": [
+      "poison",
+      "water"
+    ]
   },
   {
     "id": 691,
-    "name": "ドラミドロ"
+    "name": "ドラミドロ",
+    "types": [
+      "poison",
+      "dragon"
+    ]
   },
   {
     "id": 692,
-    "name": "ウデッポウ"
+    "name": "ウデッポウ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 693,
-    "name": "ブロスター"
+    "name": "ブロスター",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 694,
-    "name": "エリキテル"
+    "name": "エリキテル",
+    "types": [
+      "electric",
+      "normal"
+    ]
   },
   {
     "id": 695,
-    "name": "エレザード"
+    "name": "エレザード",
+    "types": [
+      "electric",
+      "normal"
+    ]
   },
   {
     "id": 696,
-    "name": "チゴラス"
+    "name": "チゴラス",
+    "types": [
+      "rock",
+      "dragon"
+    ]
   },
   {
     "id": 697,
-    "name": "ガチゴラス"
+    "name": "ガチゴラス",
+    "types": [
+      "rock",
+      "dragon"
+    ]
   },
   {
     "id": 698,
-    "name": "アマルス"
+    "name": "アマルス",
+    "types": [
+      "rock",
+      "ice"
+    ]
   },
   {
     "id": 699,
-    "name": "アマルルガ"
+    "name": "アマルルガ",
+    "types": [
+      "rock",
+      "ice"
+    ]
   },
   {
     "id": 700,
-    "name": "ニンフィア"
+    "name": "ニンフィア",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 701,
-    "name": "ルチャブル"
+    "name": "ルチャブル",
+    "types": [
+      "fighting",
+      "flying"
+    ]
   },
   {
     "id": 702,
-    "name": "デデンネ"
+    "name": "デデンネ",
+    "types": [
+      "electric",
+      "fairy"
+    ]
   },
   {
     "id": 703,
-    "name": "メレシー"
+    "name": "メレシー",
+    "types": [
+      "rock",
+      "fairy"
+    ]
   },
   {
     "id": 704,
-    "name": "ヌメラ"
+    "name": "ヌメラ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 705,
-    "name": "ヌメイル"
+    "name": "ヌメイル",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 706,
-    "name": "ヌメルゴン"
+    "name": "ヌメルゴン",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 707,
-    "name": "クレッフィ"
+    "name": "クレッフィ",
+    "types": [
+      "steel",
+      "fairy"
+    ]
   },
   {
     "id": 708,
-    "name": "ボクレー"
+    "name": "ボクレー",
+    "types": [
+      "ghost",
+      "grass"
+    ]
   },
   {
     "id": 709,
-    "name": "オーロット"
+    "name": "オーロット",
+    "types": [
+      "ghost",
+      "grass"
+    ]
   },
   {
     "id": 710,
-    "name": "バケッチャ"
+    "name": "バケッチャ",
+    "types": [
+      "ghost",
+      "grass"
+    ]
   },
   {
     "id": 711,
-    "name": "パンプジン"
+    "name": "パンプジン",
+    "types": [
+      "ghost",
+      "grass"
+    ]
   },
   {
     "id": 712,
-    "name": "カチコール"
+    "name": "カチコール",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 713,
-    "name": "クレベース"
+    "name": "クレベース",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 714,
-    "name": "オンバット"
+    "name": "オンバット",
+    "types": [
+      "flying",
+      "dragon"
+    ]
   },
   {
     "id": 715,
-    "name": "オンバーン"
+    "name": "オンバーン",
+    "types": [
+      "flying",
+      "dragon"
+    ]
   },
   {
     "id": 716,
-    "name": "ゼルネアス"
+    "name": "ゼルネアス",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 717,
-    "name": "イベルタル"
+    "name": "イベルタル",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 718,
-    "name": "ジガルデ"
+    "name": "ジガルデ",
+    "types": [
+      "dragon",
+      "ground"
+    ]
   },
   {
     "id": 719,
-    "name": "ディアンシー"
+    "name": "ディアンシー",
+    "types": [
+      "rock",
+      "fairy"
+    ]
   },
   {
     "id": 720,
-    "name": "フーパ"
+    "name": "フーパ",
+    "types": [
+      "psychic",
+      "ghost"
+    ]
   },
   {
     "id": 721,
-    "name": "ボルケニオン"
+    "name": "ボルケニオン",
+    "types": [
+      "fire",
+      "water"
+    ]
   },
   {
     "id": 722,
-    "name": "モクロー"
+    "name": "モクロー",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 723,
-    "name": "フクスロー"
+    "name": "フクスロー",
+    "types": [
+      "grass",
+      "flying"
+    ]
   },
   {
     "id": 724,
-    "name": "ジュナイパー"
+    "name": "ジュナイパー",
+    "types": [
+      "grass",
+      "ghost"
+    ]
   },
   {
     "id": 725,
-    "name": "ニャビー"
+    "name": "ニャビー",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 726,
-    "name": "ニャヒート"
+    "name": "ニャヒート",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 727,
-    "name": "ガオガエン"
+    "name": "ガオガエン",
+    "types": [
+      "fire",
+      "dark"
+    ]
   },
   {
     "id": 728,
-    "name": "アシマリ"
+    "name": "アシマリ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 729,
-    "name": "オシャマリ"
+    "name": "オシャマリ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 730,
-    "name": "アシレーヌ"
+    "name": "アシレーヌ",
+    "types": [
+      "water",
+      "fairy"
+    ]
   },
   {
     "id": 731,
-    "name": "ツツケラ"
+    "name": "ツツケラ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 732,
-    "name": "ケララッパ"
+    "name": "ケララッパ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 733,
-    "name": "ドデカバシ"
+    "name": "ドデカバシ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 734,
-    "name": "ヤングース"
+    "name": "ヤングース",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 735,
-    "name": "デカグース"
+    "name": "デカグース",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 736,
-    "name": "アゴジムシ"
+    "name": "アゴジムシ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 737,
-    "name": "デンヂムシ"
+    "name": "デンヂムシ",
+    "types": [
+      "bug",
+      "electric"
+    ]
   },
   {
     "id": 738,
-    "name": "クワガノン"
+    "name": "クワガノン",
+    "types": [
+      "bug",
+      "electric"
+    ]
   },
   {
     "id": 739,
-    "name": "マケンカニ"
+    "name": "マケンカニ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 740,
-    "name": "ケケンカニ"
+    "name": "ケケンカニ",
+    "types": [
+      "fighting",
+      "ice"
+    ]
   },
   {
     "id": 741,
-    "name": "オドリドリ"
+    "name": "オドリドリ",
+    "types": [
+      "fire",
+      "flying"
+    ]
   },
   {
     "id": 742,
-    "name": "アブリー"
+    "name": "アブリー",
+    "types": [
+      "bug",
+      "fairy"
+    ]
   },
   {
     "id": 743,
-    "name": "アブリボン"
+    "name": "アブリボン",
+    "types": [
+      "bug",
+      "fairy"
+    ]
   },
   {
     "id": 744,
-    "name": "イワンコ"
+    "name": "イワンコ",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 745,
-    "name": "ルガルガン"
+    "name": "ルガルガン",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 746,
-    "name": "ヨワシ"
+    "name": "ヨワシ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 747,
-    "name": "ヒドイデ"
+    "name": "ヒドイデ",
+    "types": [
+      "poison",
+      "water"
+    ]
   },
   {
     "id": 748,
-    "name": "ドヒドイデ"
+    "name": "ドヒドイデ",
+    "types": [
+      "poison",
+      "water"
+    ]
   },
   {
     "id": 749,
-    "name": "ドロバンコ"
+    "name": "ドロバンコ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 750,
-    "name": "バンバドロ"
+    "name": "バンバドロ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 751,
-    "name": "シズクモ"
+    "name": "シズクモ",
+    "types": [
+      "water",
+      "bug"
+    ]
   },
   {
     "id": 752,
-    "name": "オニシズクモ"
+    "name": "オニシズクモ",
+    "types": [
+      "water",
+      "bug"
+    ]
   },
   {
     "id": 753,
-    "name": "カリキリ"
+    "name": "カリキリ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 754,
-    "name": "ラランテス"
+    "name": "ラランテス",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 755,
-    "name": "ネマシュ"
+    "name": "ネマシュ",
+    "types": [
+      "grass",
+      "fairy"
+    ]
   },
   {
     "id": 756,
-    "name": "マシェード"
+    "name": "マシェード",
+    "types": [
+      "grass",
+      "fairy"
+    ]
   },
   {
     "id": 757,
-    "name": "ヤトウモリ"
+    "name": "ヤトウモリ",
+    "types": [
+      "poison",
+      "fire"
+    ]
   },
   {
     "id": 758,
-    "name": "エンニュート"
+    "name": "エンニュート",
+    "types": [
+      "poison",
+      "fire"
+    ]
   },
   {
     "id": 759,
-    "name": "ヌイコグマ"
+    "name": "ヌイコグマ",
+    "types": [
+      "normal",
+      "fighting"
+    ]
   },
   {
     "id": 760,
-    "name": "キテルグマ"
+    "name": "キテルグマ",
+    "types": [
+      "normal",
+      "fighting"
+    ]
   },
   {
     "id": 761,
-    "name": "アマカジ"
+    "name": "アマカジ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 762,
-    "name": "アママイコ"
+    "name": "アママイコ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 763,
-    "name": "アマージョ"
+    "name": "アマージョ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 764,
-    "name": "キュワワー"
+    "name": "キュワワー",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 765,
-    "name": "ヤレユータン"
+    "name": "ヤレユータン",
+    "types": [
+      "normal",
+      "psychic"
+    ]
   },
   {
     "id": 766,
-    "name": "ナゲツケサル"
+    "name": "ナゲツケサル",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 767,
-    "name": "コソクムシ"
+    "name": "コソクムシ",
+    "types": [
+      "bug",
+      "water"
+    ]
   },
   {
     "id": 768,
-    "name": "グソクムシャ"
+    "name": "グソクムシャ",
+    "types": [
+      "bug",
+      "water"
+    ]
   },
   {
     "id": 769,
-    "name": "スナバァ"
+    "name": "スナバァ",
+    "types": [
+      "ghost",
+      "ground"
+    ]
   },
   {
     "id": 770,
-    "name": "シロデスナ"
+    "name": "シロデスナ",
+    "types": [
+      "ghost",
+      "ground"
+    ]
   },
   {
     "id": 771,
-    "name": "ナマコブシ"
+    "name": "ナマコブシ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 772,
-    "name": "タイプ：ヌル"
+    "name": "タイプ：ヌル",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 773,
-    "name": "シルヴァディ"
+    "name": "シルヴァディ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 774,
-    "name": "メテノ"
+    "name": "メテノ",
+    "types": [
+      "rock",
+      "flying"
+    ]
   },
   {
     "id": 775,
-    "name": "ネッコアラ"
+    "name": "ネッコアラ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 776,
-    "name": "バクガメス"
+    "name": "バクガメス",
+    "types": [
+      "fire",
+      "dragon"
+    ]
   },
   {
     "id": 777,
-    "name": "トゲデマル"
+    "name": "トゲデマル",
+    "types": [
+      "electric",
+      "steel"
+    ]
   },
   {
     "id": 778,
-    "name": "ミミッキュ"
+    "name": "ミミッキュ",
+    "types": [
+      "ghost",
+      "fairy"
+    ]
   },
   {
     "id": 779,
-    "name": "ハギギシリ"
+    "name": "ハギギシリ",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 780,
-    "name": "ジジーロン"
+    "name": "ジジーロン",
+    "types": [
+      "normal",
+      "dragon"
+    ]
   },
   {
     "id": 781,
-    "name": "ダダリン"
+    "name": "ダダリン",
+    "types": [
+      "ghost",
+      "grass"
+    ]
   },
   {
     "id": 782,
-    "name": "ジャラコ"
+    "name": "ジャラコ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 783,
-    "name": "ジャランゴ"
+    "name": "ジャランゴ",
+    "types": [
+      "dragon",
+      "fighting"
+    ]
   },
   {
     "id": 784,
-    "name": "ジャラランガ"
+    "name": "ジャラランガ",
+    "types": [
+      "dragon",
+      "fighting"
+    ]
   },
   {
     "id": 785,
-    "name": "カプ・コケコ"
+    "name": "カプ・コケコ",
+    "types": [
+      "electric",
+      "fairy"
+    ]
   },
   {
     "id": 786,
-    "name": "カプ・テテフ"
+    "name": "カプ・テテフ",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 787,
-    "name": "カプ・ブルル"
+    "name": "カプ・ブルル",
+    "types": [
+      "grass",
+      "fairy"
+    ]
   },
   {
     "id": 788,
-    "name": "カプ・レヒレ"
+    "name": "カプ・レヒレ",
+    "types": [
+      "water",
+      "fairy"
+    ]
   },
   {
     "id": 789,
-    "name": "コスモッグ"
+    "name": "コスモッグ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 790,
-    "name": "コスモウム"
+    "name": "コスモウム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 791,
-    "name": "ソルガレオ"
+    "name": "ソルガレオ",
+    "types": [
+      "psychic",
+      "steel"
+    ]
   },
   {
     "id": 792,
-    "name": "ルナアーラ"
+    "name": "ルナアーラ",
+    "types": [
+      "psychic",
+      "ghost"
+    ]
   },
   {
     "id": 793,
-    "name": "ウツロイド"
+    "name": "ウツロイド",
+    "types": [
+      "rock",
+      "poison"
+    ]
   },
   {
     "id": 794,
-    "name": "マッシブーン"
+    "name": "マッシブーン",
+    "types": [
+      "bug",
+      "fighting"
+    ]
   },
   {
     "id": 795,
-    "name": "フェローチェ"
+    "name": "フェローチェ",
+    "types": [
+      "bug",
+      "fighting"
+    ]
   },
   {
     "id": 796,
-    "name": "デンジュモク"
+    "name": "デンジュモク",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 797,
-    "name": "テッカグヤ"
+    "name": "テッカグヤ",
+    "types": [
+      "steel",
+      "flying"
+    ]
   },
   {
     "id": 798,
-    "name": "カミツルギ"
+    "name": "カミツルギ",
+    "types": [
+      "grass",
+      "steel"
+    ]
   },
   {
     "id": 799,
-    "name": "アクジキング"
+    "name": "アクジキング",
+    "types": [
+      "dark",
+      "dragon"
+    ]
   },
   {
     "id": 800,
-    "name": "ネクロズマ"
+    "name": "ネクロズマ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 801,
-    "name": "マギアナ"
+    "name": "マギアナ",
+    "types": [
+      "steel",
+      "fairy"
+    ]
   },
   {
     "id": 802,
-    "name": "マーシャドー"
+    "name": "マーシャドー",
+    "types": [
+      "fighting",
+      "ghost"
+    ]
   },
   {
     "id": 803,
-    "name": "ベベノム"
+    "name": "ベベノム",
+    "types": [
+      "poison"
+    ]
   },
   {
     "id": 804,
-    "name": "アーゴヨン"
+    "name": "アーゴヨン",
+    "types": [
+      "poison",
+      "dragon"
+    ]
   },
   {
     "id": 805,
-    "name": "ツンデツンデ"
+    "name": "ツンデツンデ",
+    "types": [
+      "rock",
+      "steel"
+    ]
   },
   {
     "id": 806,
-    "name": "ズガドーン"
+    "name": "ズガドーン",
+    "types": [
+      "fire",
+      "ghost"
+    ]
   },
   {
     "id": 807,
-    "name": "ゼラオラ"
+    "name": "ゼラオラ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 808,
-    "name": "メルタン"
+    "name": "メルタン",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 809,
-    "name": "メルメタル"
+    "name": "メルメタル",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 810,
-    "name": "サルノリ"
+    "name": "サルノリ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 811,
-    "name": "バチンキー"
+    "name": "バチンキー",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 812,
-    "name": "ゴリランダー"
+    "name": "ゴリランダー",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 813,
-    "name": "ヒバニー"
+    "name": "ヒバニー",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 814,
-    "name": "ラビフット"
+    "name": "ラビフット",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 815,
-    "name": "エースバーン"
+    "name": "エースバーン",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 816,
-    "name": "メッソン"
+    "name": "メッソン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 817,
-    "name": "ジメレオン"
+    "name": "ジメレオン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 818,
-    "name": "インテレオン"
+    "name": "インテレオン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 819,
-    "name": "ホシガリス"
+    "name": "ホシガリス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 820,
-    "name": "ヨクバリス"
+    "name": "ヨクバリス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 821,
-    "name": "ココガラ"
+    "name": "ココガラ",
+    "types": [
+      "flying"
+    ]
   },
   {
     "id": 822,
-    "name": "アオガラス"
+    "name": "アオガラス",
+    "types": [
+      "flying"
+    ]
   },
   {
     "id": 823,
-    "name": "アーマーガア"
+    "name": "アーマーガア",
+    "types": [
+      "flying",
+      "steel"
+    ]
   },
   {
     "id": 824,
-    "name": "サッチムシ"
+    "name": "サッチムシ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 825,
-    "name": "レドームシ"
+    "name": "レドームシ",
+    "types": [
+      "bug",
+      "psychic"
+    ]
   },
   {
     "id": 826,
-    "name": "イオルブ"
+    "name": "イオルブ",
+    "types": [
+      "bug",
+      "psychic"
+    ]
   },
   {
     "id": 827,
-    "name": "クスネ"
+    "name": "クスネ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 828,
-    "name": "フォクスライ"
+    "name": "フォクスライ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 829,
-    "name": "ヒメンカ"
+    "name": "ヒメンカ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 830,
-    "name": "ワタシラガ"
+    "name": "ワタシラガ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 831,
-    "name": "ウールー"
+    "name": "ウールー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 832,
-    "name": "バイウールー"
+    "name": "バイウールー",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 833,
-    "name": "カムカメ"
+    "name": "カムカメ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 834,
-    "name": "カジリガメ"
+    "name": "カジリガメ",
+    "types": [
+      "water",
+      "rock"
+    ]
   },
   {
     "id": 835,
-    "name": "ワンパチ"
+    "name": "ワンパチ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 836,
-    "name": "パルスワン"
+    "name": "パルスワン",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 837,
-    "name": "タンドン"
+    "name": "タンドン",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 838,
-    "name": "トロッゴン"
+    "name": "トロッゴン",
+    "types": [
+      "rock",
+      "fire"
+    ]
   },
   {
     "id": 839,
-    "name": "セキタンザン"
+    "name": "セキタンザン",
+    "types": [
+      "rock",
+      "fire"
+    ]
   },
   {
     "id": 840,
-    "name": "カジッチュ"
+    "name": "カジッチュ",
+    "types": [
+      "grass",
+      "dragon"
+    ]
   },
   {
     "id": 841,
-    "name": "アップリュー"
+    "name": "アップリュー",
+    "types": [
+      "grass",
+      "dragon"
+    ]
   },
   {
     "id": 842,
-    "name": "タルップル"
+    "name": "タルップル",
+    "types": [
+      "grass",
+      "dragon"
+    ]
   },
   {
     "id": 843,
-    "name": "スナヘビ"
+    "name": "スナヘビ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 844,
-    "name": "サダイジャ"
+    "name": "サダイジャ",
+    "types": [
+      "ground"
+    ]
   },
   {
     "id": 845,
-    "name": "ウッウ"
+    "name": "ウッウ",
+    "types": [
+      "flying",
+      "water"
+    ]
   },
   {
     "id": 846,
-    "name": "サシカマス"
+    "name": "サシカマス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 847,
-    "name": "カマスジョー"
+    "name": "カマスジョー",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 848,
-    "name": "エレズン"
+    "name": "エレズン",
+    "types": [
+      "electric",
+      "poison"
+    ]
   },
   {
     "id": 849,
-    "name": "ストリンダー"
+    "name": "ストリンダー",
+    "types": [
+      "electric",
+      "poison"
+    ]
   },
   {
     "id": 850,
-    "name": "ヤクデ"
+    "name": "ヤクデ",
+    "types": [
+      "fire",
+      "bug"
+    ]
   },
   {
     "id": 851,
-    "name": "マルヤクデ"
+    "name": "マルヤクデ",
+    "types": [
+      "fire",
+      "bug"
+    ]
   },
   {
     "id": 852,
-    "name": "タタッコ"
+    "name": "タタッコ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 853,
-    "name": "オトスパス"
+    "name": "オトスパス",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 854,
-    "name": "ヤバチャ"
+    "name": "ヤバチャ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 855,
-    "name": "ポットデス"
+    "name": "ポットデス",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 856,
-    "name": "ミブリム"
+    "name": "ミブリム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 857,
-    "name": "テブリム"
+    "name": "テブリム",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 858,
-    "name": "ブリムオン"
+    "name": "ブリムオン",
+    "types": [
+      "psychic",
+      "fairy"
+    ]
   },
   {
     "id": 859,
-    "name": "ベロバー"
+    "name": "ベロバー",
+    "types": [
+      "dark",
+      "fairy"
+    ]
   },
   {
     "id": 860,
-    "name": "ギモー"
+    "name": "ギモー",
+    "types": [
+      "dark",
+      "fairy"
+    ]
   },
   {
     "id": 861,
-    "name": "オーロンゲ"
+    "name": "オーロンゲ",
+    "types": [
+      "dark",
+      "fairy"
+    ]
   },
   {
     "id": 862,
-    "name": "タチフサグマ"
+    "name": "タチフサグマ",
+    "types": [
+      "dark",
+      "normal"
+    ]
   },
   {
     "id": 863,
-    "name": "ニャイキング"
+    "name": "ニャイキング",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 864,
-    "name": "サニゴーン"
+    "name": "サニゴーン",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 865,
-    "name": "ネギガナイト"
+    "name": "ネギガナイト",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 866,
-    "name": "バリコオル"
+    "name": "バリコオル",
+    "types": [
+      "ice",
+      "psychic"
+    ]
   },
   {
     "id": 867,
-    "name": "デスバーン"
+    "name": "デスバーン",
+    "types": [
+      "ground",
+      "ghost"
+    ]
   },
   {
     "id": 868,
-    "name": "マホミル"
+    "name": "マホミル",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 869,
-    "name": "マホイップ"
+    "name": "マホイップ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 870,
-    "name": "タイレーツ"
+    "name": "タイレーツ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 871,
-    "name": "バチンウニ"
+    "name": "バチンウニ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 872,
-    "name": "ユキハミ"
+    "name": "ユキハミ",
+    "types": [
+      "ice",
+      "bug"
+    ]
   },
   {
     "id": 873,
-    "name": "モスノウ"
+    "name": "モスノウ",
+    "types": [
+      "ice",
+      "bug"
+    ]
   },
   {
     "id": 874,
-    "name": "イシヘンジン"
+    "name": "イシヘンジン",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 875,
-    "name": "コオリッポ"
+    "name": "コオリッポ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 876,
-    "name": "イエッサン"
+    "name": "イエッサン",
+    "types": [
+      "psychic",
+      "normal"
+    ]
   },
   {
     "id": 877,
-    "name": "モルペコ"
+    "name": "モルペコ",
+    "types": [
+      "electric",
+      "dark"
+    ]
   },
   {
     "id": 878,
-    "name": "ゾウドウ"
+    "name": "ゾウドウ",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 879,
-    "name": "ダイオウドウ"
+    "name": "ダイオウドウ",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 880,
-    "name": "パッチラゴン"
+    "name": "パッチラゴン",
+    "types": [
+      "electric",
+      "dragon"
+    ]
   },
   {
     "id": 881,
-    "name": "パッチルドン"
+    "name": "パッチルドン",
+    "types": [
+      "electric",
+      "ice"
+    ]
   },
   {
     "id": 882,
-    "name": "ウオノラゴン"
+    "name": "ウオノラゴン",
+    "types": [
+      "water",
+      "dragon"
+    ]
   },
   {
     "id": 883,
-    "name": "ウオチルドン"
+    "name": "ウオチルドン",
+    "types": [
+      "water",
+      "ice"
+    ]
   },
   {
     "id": 884,
-    "name": "ジュラルドン"
+    "name": "ジュラルドン",
+    "types": [
+      "steel",
+      "dragon"
+    ]
   },
   {
     "id": 885,
-    "name": "ドラメシヤ"
+    "name": "ドラメシヤ",
+    "types": [
+      "dragon",
+      "ghost"
+    ]
   },
   {
     "id": 886,
-    "name": "ドロンチ"
+    "name": "ドロンチ",
+    "types": [
+      "dragon",
+      "ghost"
+    ]
   },
   {
     "id": 887,
-    "name": "ドラパルト"
+    "name": "ドラパルト",
+    "types": [
+      "dragon",
+      "ghost"
+    ]
   },
   {
     "id": 888,
-    "name": "ザシアン"
+    "name": "ザシアン",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 889,
-    "name": "ザマゼンタ"
+    "name": "ザマゼンタ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 890,
-    "name": "ムゲンダイナ"
+    "name": "ムゲンダイナ",
+    "types": [
+      "poison",
+      "dragon"
+    ]
   },
   {
     "id": 891,
-    "name": "ダクマ"
+    "name": "ダクマ",
+    "types": [
+      "fighting"
+    ]
   },
   {
     "id": 892,
-    "name": "ウーラオス"
+    "name": "ウーラオス",
+    "types": [
+      "fighting",
+      "dark"
+    ]
   },
   {
     "id": 893,
-    "name": "ザルード"
+    "name": "ザルード",
+    "types": [
+      "dark",
+      "grass"
+    ]
   },
   {
     "id": 894,
-    "name": "レジエレキ"
+    "name": "レジエレキ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 895,
-    "name": "レジドラゴ"
+    "name": "レジドラゴ",
+    "types": [
+      "dragon"
+    ]
   },
   {
     "id": 896,
-    "name": "ブリザポス"
+    "name": "ブリザポス",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 897,
-    "name": "レイスポス"
+    "name": "レイスポス",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 898,
-    "name": "バドレックス"
+    "name": "バドレックス",
+    "types": [
+      "psychic",
+      "grass"
+    ]
   },
   {
     "id": 899,
-    "name": "アヤシシ"
+    "name": "アヤシシ",
+    "types": [
+      "normal",
+      "psychic"
+    ]
   },
   {
     "id": 900,
-    "name": "バサギリ"
+    "name": "バサギリ",
+    "types": [
+      "bug",
+      "rock"
+    ]
   },
   {
     "id": 901,
-    "name": "ガチグマ"
+    "name": "ガチグマ",
+    "types": [
+      "ground",
+      "normal"
+    ]
   },
   {
     "id": 902,
-    "name": "イダイトウ"
+    "name": "イダイトウ",
+    "types": [
+      "water",
+      "ghost"
+    ]
   },
   {
     "id": 903,
-    "name": "オオニューラ"
+    "name": "オオニューラ",
+    "types": [
+      "fighting",
+      "poison"
+    ]
   },
   {
     "id": 904,
-    "name": "ハリーマン"
+    "name": "ハリーマン",
+    "types": [
+      "dark",
+      "poison"
+    ]
   },
   {
     "id": 905,
-    "name": "ラブトロス"
+    "name": "ラブトロス",
+    "types": [
+      "fairy",
+      "flying"
+    ]
   },
   {
     "id": 906,
-    "name": "ニャオハ"
+    "name": "ニャオハ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 907,
-    "name": "ニャローテ"
+    "name": "ニャローテ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 908,
-    "name": "マスカーニャ"
+    "name": "マスカーニャ",
+    "types": [
+      "grass",
+      "dark"
+    ]
   },
   {
     "id": 909,
-    "name": "ホゲータ"
+    "name": "ホゲータ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 910,
-    "name": "アチゲータ"
+    "name": "アチゲータ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 911,
-    "name": "ラウドボーン"
+    "name": "ラウドボーン",
+    "types": [
+      "fire",
+      "ghost"
+    ]
   },
   {
     "id": 912,
-    "name": "クワッス"
+    "name": "クワッス",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 913,
-    "name": "ウェルカモ"
+    "name": "ウェルカモ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 914,
-    "name": "ウェーニバル"
+    "name": "ウェーニバル",
+    "types": [
+      "water",
+      "fighting"
+    ]
   },
   {
     "id": 915,
-    "name": "グルトン"
+    "name": "グルトン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 916,
-    "name": "パフュートン"
+    "name": "パフュートン",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 917,
-    "name": "タマンチュラ"
+    "name": "タマンチュラ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 918,
-    "name": "ワナイダー"
+    "name": "ワナイダー",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 919,
-    "name": "マメバッタ"
+    "name": "マメバッタ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 920,
-    "name": "エクスレッグ"
+    "name": "エクスレッグ",
+    "types": [
+      "bug",
+      "dark"
+    ]
   },
   {
     "id": 921,
-    "name": "パモ"
+    "name": "パモ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 922,
-    "name": "パモット"
+    "name": "パモット",
+    "types": [
+      "electric",
+      "fighting"
+    ]
   },
   {
     "id": 923,
-    "name": "パーモット"
+    "name": "パーモット",
+    "types": [
+      "electric",
+      "fighting"
+    ]
   },
   {
     "id": 924,
-    "name": "ワッカネズミ"
+    "name": "ワッカネズミ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 925,
-    "name": "イッカネズミ"
+    "name": "イッカネズミ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 926,
-    "name": "パピモッチ"
+    "name": "パピモッチ",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 927,
-    "name": "バウッツェル"
+    "name": "バウッツェル",
+    "types": [
+      "fairy"
+    ]
   },
   {
     "id": 928,
-    "name": "ミニーブ"
+    "name": "ミニーブ",
+    "types": [
+      "grass",
+      "normal"
+    ]
   },
   {
     "id": 929,
-    "name": "オリーニョ"
+    "name": "オリーニョ",
+    "types": [
+      "grass",
+      "normal"
+    ]
   },
   {
     "id": 930,
-    "name": "オリーヴァ"
+    "name": "オリーヴァ",
+    "types": [
+      "grass",
+      "normal"
+    ]
   },
   {
     "id": 931,
-    "name": "イキリンコ"
+    "name": "イキリンコ",
+    "types": [
+      "normal",
+      "flying"
+    ]
   },
   {
     "id": 932,
-    "name": "コジオ"
+    "name": "コジオ",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 933,
-    "name": "ジオヅム"
+    "name": "ジオヅム",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 934,
-    "name": "キョジオーン"
+    "name": "キョジオーン",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 935,
-    "name": "カルボウ"
+    "name": "カルボウ",
+    "types": [
+      "fire"
+    ]
   },
   {
     "id": 936,
-    "name": "グレンアルマ"
+    "name": "グレンアルマ",
+    "types": [
+      "fire",
+      "psychic"
+    ]
   },
   {
     "id": 937,
-    "name": "ソウブレイズ"
+    "name": "ソウブレイズ",
+    "types": [
+      "fire",
+      "ghost"
+    ]
   },
   {
     "id": 938,
-    "name": "ズピカ"
+    "name": "ズピカ",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 939,
-    "name": "ハラバリー"
+    "name": "ハラバリー",
+    "types": [
+      "electric"
+    ]
   },
   {
     "id": 940,
-    "name": "カイデン"
+    "name": "カイデン",
+    "types": [
+      "electric",
+      "flying"
+    ]
   },
   {
     "id": 941,
-    "name": "タイカイデン"
+    "name": "タイカイデン",
+    "types": [
+      "electric",
+      "flying"
+    ]
   },
   {
     "id": 942,
-    "name": "オラチフ"
+    "name": "オラチフ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 943,
-    "name": "マフィティフ"
+    "name": "マフィティフ",
+    "types": [
+      "dark"
+    ]
   },
   {
     "id": 944,
-    "name": "シルシュルー"
+    "name": "シルシュルー",
+    "types": [
+      "poison",
+      "normal"
+    ]
   },
   {
     "id": 945,
-    "name": "タギングル"
+    "name": "タギングル",
+    "types": [
+      "poison",
+      "normal"
+    ]
   },
   {
     "id": 946,
-    "name": "アノクサ"
+    "name": "アノクサ",
+    "types": [
+      "grass",
+      "ghost"
+    ]
   },
   {
     "id": 947,
-    "name": "アノホラグサ"
+    "name": "アノホラグサ",
+    "types": [
+      "grass",
+      "ghost"
+    ]
   },
   {
     "id": 948,
-    "name": "ノノクラゲ"
+    "name": "ノノクラゲ",
+    "types": [
+      "ground",
+      "grass"
+    ]
   },
   {
     "id": 949,
-    "name": "リククラゲ"
+    "name": "リククラゲ",
+    "types": [
+      "ground",
+      "grass"
+    ]
   },
   {
     "id": 950,
-    "name": "ガケガニ"
+    "name": "ガケガニ",
+    "types": [
+      "rock"
+    ]
   },
   {
     "id": 951,
-    "name": "カプサイジ"
+    "name": "カプサイジ",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 952,
-    "name": "スコヴィラン"
+    "name": "スコヴィラン",
+    "types": [
+      "grass",
+      "fire"
+    ]
   },
   {
     "id": 953,
-    "name": "シガロコ"
+    "name": "シガロコ",
+    "types": [
+      "bug"
+    ]
   },
   {
     "id": 954,
-    "name": "ベラカス"
+    "name": "ベラカス",
+    "types": [
+      "bug",
+      "psychic"
+    ]
   },
   {
     "id": 955,
-    "name": "ヒラヒナ"
+    "name": "ヒラヒナ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 956,
-    "name": "クエスパトラ"
+    "name": "クエスパトラ",
+    "types": [
+      "psychic"
+    ]
   },
   {
     "id": 957,
-    "name": "カヌチャン"
+    "name": "カヌチャン",
+    "types": [
+      "fairy",
+      "steel"
+    ]
   },
   {
     "id": 958,
-    "name": "ナカヌチャン"
+    "name": "ナカヌチャン",
+    "types": [
+      "fairy",
+      "steel"
+    ]
   },
   {
     "id": 959,
-    "name": "デカヌチャン"
+    "name": "デカヌチャン",
+    "types": [
+      "fairy",
+      "steel"
+    ]
   },
   {
     "id": 960,
-    "name": "ウミディグダ"
+    "name": "ウミディグダ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 961,
-    "name": "ウミトリオ"
+    "name": "ウミトリオ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 962,
-    "name": "オトシドリ"
+    "name": "オトシドリ",
+    "types": [
+      "flying",
+      "dark"
+    ]
   },
   {
     "id": 963,
-    "name": "ナミイルカ"
+    "name": "ナミイルカ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 964,
-    "name": "イルカマン"
+    "name": "イルカマン",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 965,
-    "name": "ブロロン"
+    "name": "ブロロン",
+    "types": [
+      "steel",
+      "poison"
+    ]
   },
   {
     "id": 966,
-    "name": "ブロロローム"
+    "name": "ブロロローム",
+    "types": [
+      "steel",
+      "poison"
+    ]
   },
   {
     "id": 967,
-    "name": "モトトカゲ"
+    "name": "モトトカゲ",
+    "types": [
+      "dragon",
+      "normal"
+    ]
   },
   {
     "id": 968,
-    "name": "ミミズズ"
+    "name": "ミミズズ",
+    "types": [
+      "steel"
+    ]
   },
   {
     "id": 969,
-    "name": "キラーメ"
+    "name": "キラーメ",
+    "types": [
+      "rock",
+      "poison"
+    ]
   },
   {
     "id": 970,
-    "name": "キラフロル"
+    "name": "キラフロル",
+    "types": [
+      "rock",
+      "poison"
+    ]
   },
   {
     "id": 971,
-    "name": "ボチ"
+    "name": "ボチ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 972,
-    "name": "ハカドッグ"
+    "name": "ハカドッグ",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 973,
-    "name": "カラミンゴ"
+    "name": "カラミンゴ",
+    "types": [
+      "flying",
+      "fighting"
+    ]
   },
   {
     "id": 974,
-    "name": "アルクジラ"
+    "name": "アルクジラ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 975,
-    "name": "ハルクジラ"
+    "name": "ハルクジラ",
+    "types": [
+      "ice"
+    ]
   },
   {
     "id": 976,
-    "name": "ミガルーサ"
+    "name": "ミガルーサ",
+    "types": [
+      "water",
+      "psychic"
+    ]
   },
   {
     "id": 977,
-    "name": "ヘイラッシャ"
+    "name": "ヘイラッシャ",
+    "types": [
+      "water"
+    ]
   },
   {
     "id": 978,
-    "name": "シャリタツ"
+    "name": "シャリタツ",
+    "types": [
+      "dragon",
+      "water"
+    ]
   },
   {
     "id": 979,
-    "name": "コノヨザル"
+    "name": "コノヨザル",
+    "types": [
+      "fighting",
+      "ghost"
+    ]
   },
   {
     "id": 980,
-    "name": "ドオー"
+    "name": "ドオー",
+    "types": [
+      "poison",
+      "ground"
+    ]
   },
   {
     "id": 981,
-    "name": "リキキリン"
+    "name": "リキキリン",
+    "types": [
+      "normal",
+      "psychic"
+    ]
   },
   {
     "id": 982,
-    "name": "ノココッチ"
+    "name": "ノココッチ",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 983,
-    "name": "ドドゲザン"
+    "name": "ドドゲザン",
+    "types": [
+      "dark",
+      "steel"
+    ]
   },
   {
     "id": 984,
-    "name": "イダイナキバ"
+    "name": "イダイナキバ",
+    "types": [
+      "ground",
+      "fighting"
+    ]
   },
   {
     "id": 985,
-    "name": "サケブシッポ"
+    "name": "サケブシッポ",
+    "types": [
+      "fairy",
+      "psychic"
+    ]
   },
   {
     "id": 986,
-    "name": "アラブルタケ"
+    "name": "アラブルタケ",
+    "types": [
+      "grass",
+      "dark"
+    ]
   },
   {
     "id": 987,
-    "name": "ハバタクカミ"
+    "name": "ハバタクカミ",
+    "types": [
+      "ghost",
+      "fairy"
+    ]
   },
   {
     "id": 988,
-    "name": "チヲハウハネ"
+    "name": "チヲハウハネ",
+    "types": [
+      "bug",
+      "fighting"
+    ]
   },
   {
     "id": 989,
-    "name": "スナノケガワ"
+    "name": "スナノケガワ",
+    "types": [
+      "electric",
+      "ground"
+    ]
   },
   {
     "id": 990,
-    "name": "テツノワダチ"
+    "name": "テツノワダチ",
+    "types": [
+      "ground",
+      "steel"
+    ]
   },
   {
     "id": 991,
-    "name": "テツノツツミ"
+    "name": "テツノツツミ",
+    "types": [
+      "ice",
+      "water"
+    ]
   },
   {
     "id": 992,
-    "name": "テツノカイナ"
+    "name": "テツノカイナ",
+    "types": [
+      "fighting",
+      "electric"
+    ]
   },
   {
     "id": 993,
-    "name": "テツノコウベ"
+    "name": "テツノコウベ",
+    "types": [
+      "dark",
+      "flying"
+    ]
   },
   {
     "id": 994,
-    "name": "テツノドクガ"
+    "name": "テツノドクガ",
+    "types": [
+      "fire",
+      "poison"
+    ]
   },
   {
     "id": 995,
-    "name": "テツノイバラ"
+    "name": "テツノイバラ",
+    "types": [
+      "rock",
+      "electric"
+    ]
   },
   {
     "id": 996,
-    "name": "セビエ"
+    "name": "セビエ",
+    "types": [
+      "dragon",
+      "ice"
+    ]
   },
   {
     "id": 997,
-    "name": "セゴール"
+    "name": "セゴール",
+    "types": [
+      "dragon",
+      "ice"
+    ]
   },
   {
     "id": 998,
-    "name": "セグレイブ"
+    "name": "セグレイブ",
+    "types": [
+      "dragon",
+      "ice"
+    ]
   },
   {
     "id": 999,
-    "name": "コレクレー"
+    "name": "コレクレー",
+    "types": [
+      "ghost"
+    ]
   },
   {
     "id": 1000,
-    "name": "サーフゴー"
+    "name": "サーフゴー",
+    "types": [
+      "steel",
+      "ghost"
+    ]
   },
   {
     "id": 1001,
-    "name": "チオンジェン"
+    "name": "チオンジェン",
+    "types": [
+      "dark",
+      "grass"
+    ]
   },
   {
     "id": 1002,
-    "name": "パオジアン"
+    "name": "パオジアン",
+    "types": [
+      "dark",
+      "ice"
+    ]
   },
   {
     "id": 1003,
-    "name": "ディンルー"
+    "name": "ディンルー",
+    "types": [
+      "dark",
+      "ground"
+    ]
   },
   {
     "id": 1004,
-    "name": "イーユイ"
+    "name": "イーユイ",
+    "types": [
+      "dark",
+      "fire"
+    ]
   },
   {
     "id": 1005,
-    "name": "トドロクツキ"
+    "name": "トドロクツキ",
+    "types": [
+      "dragon",
+      "dark"
+    ]
   },
   {
     "id": 1006,
-    "name": "テツノブジン"
+    "name": "テツノブジン",
+    "types": [
+      "fairy",
+      "fighting"
+    ]
   },
   {
     "id": 1007,
-    "name": "コライドン"
+    "name": "コライドン",
+    "types": [
+      "fighting",
+      "dragon"
+    ]
   },
   {
     "id": 1008,
-    "name": "ミライドン"
+    "name": "ミライドン",
+    "types": [
+      "electric",
+      "dragon"
+    ]
   },
   {
     "id": 1009,
-    "name": "ウネルミナモ"
+    "name": "ウネルミナモ",
+    "types": [
+      "water",
+      "dragon"
+    ]
   },
   {
     "id": 1010,
-    "name": "テツノイサハ"
+    "name": "テツノイサハ",
+    "types": [
+      "grass",
+      "psychic"
+    ]
   },
   {
     "id": 1011,
-    "name": "カミッチュ"
+    "name": "カミッチュ",
+    "types": [
+      "grass",
+      "dragon"
+    ]
   },
   {
     "id": 1012,
-    "name": "チャデス"
+    "name": "チャデス",
+    "types": [
+      "grass",
+      "ghost"
+    ]
   },
   {
     "id": 1013,
-    "name": "ヤバソチャ"
+    "name": "ヤバソチャ",
+    "types": [
+      "grass",
+      "ghost"
+    ]
   },
   {
     "id": 1014,
-    "name": "イイネイヌ"
+    "name": "イイネイヌ",
+    "types": [
+      "poison",
+      "fighting"
+    ]
   },
   {
     "id": 1015,
-    "name": "マシマシラ"
+    "name": "マシマシラ",
+    "types": [
+      "poison",
+      "psychic"
+    ]
   },
   {
     "id": 1016,
-    "name": "キチキギス"
+    "name": "キチキギス",
+    "types": [
+      "poison",
+      "fairy"
+    ]
   },
   {
     "id": 1017,
-    "name": "オーガポン"
+    "name": "オーガポン",
+    "types": [
+      "grass"
+    ]
   },
   {
     "id": 1018,
-    "name": "ブリジュラス"
+    "name": "ブリジュラス",
+    "types": [
+      "steel",
+      "dragon"
+    ]
   },
   {
     "id": 1019,
-    "name": "カミツオロチ"
+    "name": "カミツオロチ",
+    "types": [
+      "grass",
+      "dragon"
+    ]
   },
   {
     "id": 1020,
-    "name": "ウガツホムラ"
+    "name": "ウガツホムラ",
+    "types": [
+      "fire",
+      "dragon"
+    ]
   },
   {
     "id": 1021,
-    "name": "タケルライコ"
+    "name": "タケルライコ",
+    "types": [
+      "electric",
+      "dragon"
+    ]
   },
   {
     "id": 1022,
-    "name": "テツノイワオ"
+    "name": "テツノイワオ",
+    "types": [
+      "rock",
+      "psychic"
+    ]
   },
   {
     "id": 1023,
-    "name": "テツノカシラ"
+    "name": "テツノカシラ",
+    "types": [
+      "steel",
+      "psychic"
+    ]
   },
   {
     "id": 1024,
-    "name": "テラパゴス"
+    "name": "テラパゴス",
+    "types": [
+      "normal"
+    ]
   },
   {
     "id": 1025,
-    "name": "モモワロウ"
+    "name": "モモワロウ",
+    "types": [
+      "poison",
+      "ghost"
+    ]
   }
 ]

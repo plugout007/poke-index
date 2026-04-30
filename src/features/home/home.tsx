@@ -1,49 +1,32 @@
 import {} from "./styled";
-import { useEffect, useState } from "react";
-import { fetchPokemonList } from "../../api/pokeApi";
-import { PokemonListResponse } from "../../types/pokemon";
-import { Box, Pagination } from "@mui/material";
+import { useState } from "react";
+import { Box, Pagination, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
 import PokeCard from "./comonents/poke-card";
-import { API_BASE_URL } from "../../config/api-config";
+import pokemonJa from "../../data/pokemonJa.json";
+import { normalizeText } from "../../utils/text";
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function Home() {
-  const [pokemonList, setPokemonList] = useState<
-    PokemonListResponse["results"]
-  >([]);
-
   const [page, setPage] = useState<number>(1);
-  const [totalPages, setTotalPages] = useState<number>(1);
+  const [search, setSearch] = useState<string>("");
 
-  const initOffset = 0; // 開始No - 1
   const initLimit = 20; // 最大表示数
-  const buildPokemonListUrl = (offset: number, limit: number): string => {
-    const params = new URLSearchParams({
-      offset: offset.toString(),
-      limit: limit.toString(),
-    });
-    return `${API_BASE_URL}/pokemon?${params.toString()}`;
-  };
 
-  useEffect(() => {
-    const fetchPokemon = async () => {
-      try {
-        const url = buildPokemonListUrl(
-          initOffset + (page - 1) * initLimit,
-          initLimit
-        );
-        const data = await fetchPokemonList(url);
-        setPokemonList(data.results);
-        setTotalPages(Math.ceil(POKE_INDEX_ID_MAX / initLimit));
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchPokemon();
-  }, [page]);
+  const start = (page - 1) * initLimit;
+  const end = start + initLimit;
+
+  const polemonList = pokemonJa.map(p =>( {
+    ...p,
+    normalizedName: normalizeText(p.name),
+  }));
+  const normalizedSearch = normalizeText(search);
+
+  const filtered = polemonList.filter(p => p.id <= POKE_INDEX_ID_MAX && p.normalizedName.includes(normalizedSearch));
+  const displayList = filtered.slice(start, end);
+  const totalPages = Math.ceil(filtered.length / initLimit);
 
   const handlePageChange = (
     _: React.ChangeEvent<unknown>,
@@ -54,24 +37,40 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Pokémon List</h1>
+      <h2>Pokémon List</h2>
+      <Box sx={{ mt: "10px" }}>
+        <TextField
+          label="ポケモン名で検索"
+          variant="outlined"
+          fullWidth
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          sx={{
+            backgroundColor: "background.paper",
+            borderRadius: 1,
+          }}
+        />
+      </Box>
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "space-between",
           rowGap: "10px",
+          mt: "20px",
         }}
       >
-        {pokemonList.map((pokemon) => {
-          if (pokemon.id <= POKE_INDEX_ID_MAX) {
-            return (
-              <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`} style={{ textDecoration: 'none' }}>
-                <PokeCard pokemon={pokemon} />
-              </Link>
-            );
-          }
-        })}
+      {displayList
+        .filter(pokemon => pokemon.id <= POKE_INDEX_ID_MAX)
+        .map(pokemon => (
+          <Link
+            key={pokemon.id}
+            to={`/pokemon/${pokemon.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <PokeCard pokemon={pokemon} />
+          </Link>
+        ))}
       </Box>
       <Box
         sx={{

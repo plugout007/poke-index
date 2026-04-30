@@ -27,11 +27,11 @@ export default function PokeDetailCard({ pokemon }: Props) {
         <Box>
           {pokemon.types.map((type) => (
             <Chip
-            key={type.en}
-            label={typeData[type.en as keyof typeof typeData]?.ja || type.ja}
+            key={type}
+            label={typeData[type as keyof typeof typeData]?.ja || type}
             sx={{
               margin: "5px",
-              backgroundColor: typeData[type.en as keyof typeof typeData]?.color || "#D3D3D3",
+              backgroundColor: typeData[type as keyof typeof typeData]?.color || "#D3D3D3",
               color: "#fff",
               fontWeight: "bold",
             }}

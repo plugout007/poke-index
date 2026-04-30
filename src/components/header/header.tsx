@@ -1,5 +1,4 @@
-import { Box } from '@mui/material';
-import P from '../p';
+import { Box, Typography } from '@mui/material';
 import theme from '../../config/theme-config';
 import { } from './styled';
 import { Link } from 'react-router-dom';
@@ -22,10 +21,16 @@ export default function Header() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        zIndex: 1000,
       }}
     >
       <Link to="/" style={{ textDecoration: 'none' }}>
-        <P v='h1' sx={{ color: theme.palette.basic.light }}>ポケモン図鑑</P>
+        <Typography
+          variant="h1"
+          sx={{ color: theme.palette.basic.light }}
+        >
+          ポケモン図鑑
+        </Typography>
       </Link>
     </Box>
   );

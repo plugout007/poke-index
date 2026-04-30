@@ -1,7 +1,6 @@
 import axios from "axios";
 import {
   PokemonListResponse,
-  FetchPokemon,
   FetchPokemonSpecies,
   Pokemon,
   PokemonTypeLangData,
@@ -10,7 +9,6 @@ import {
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
-import { typeData } from "../constants/pokemon";
 
 /**
  * ポケモンリストを取得する関数
@@ -243,19 +241,12 @@ const extractJa = (species: FetchPokemonSpecies) => {
   return { name, genus, flavor };
 };
 
-// タイプ・特性
-const extractTypes = (pokemon: FetchPokemon) => {
-  return pokemon.types.map((t) => ({
-    en: t.type.name,
-    ja: typeData[t.type.name as keyof typeof typeData]?.ja || "不明",
-  }));
-};
-
 export const getPokemon = async (id: number): Promise<Pokemon> => {
   const { pokemon, species } = await fetchPokemonRaw(id);
   
   const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
-  const pokemonTypes = extractTypes(pokemon);
+
+  const pokemonTypes = pokemon.types.map((t: { type: { name: string } }) => t.type.name || "不明",);
   
   // ポケモンの性別
   const pokemonGenderRate = species.gender_rate;

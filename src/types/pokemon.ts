@@ -1,3 +1,10 @@
+/** Pokemon List Item */
+export type PokemonListItem = {
+  id: number;
+  name: string;
+  types: string[];
+};
+
 /** Pokemon */
 export type Pokemon = {
   id: number;
@@ -5,7 +12,7 @@ export type Pokemon = {
   gender: string[];
   height: number;
   weight: number;
-  types: {en: string; ja: string}[];
+  types: string[];
   abilities: string[];
   url: string;
   imageUrl: string;

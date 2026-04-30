@@ -1,5 +1,4 @@
-import { Box } from '@mui/material';
-import P from '../p';
+import { Box, Typography } from '@mui/material';
 import theme from '../../config/theme-config';
 
 /**
@@ -25,7 +24,11 @@ export default function Footer() {
           alignItems: 'center',
         }}
       >
-        <P sx={{ fontSize: 12 ,color: theme.palette.basic.light }}>Copyright (C) 2024 poke index</P>
+        <Typography
+          sx={{ fontSize: 12 ,color: theme.palette.basic.light }}
+        >
+          Copyright (C) 2024 poke index
+        </Typography>
       </Box>
     </>
   );
