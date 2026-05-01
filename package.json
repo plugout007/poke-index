@@ -11,7 +11,8 @@
     "gen:gc": "hygen generic-component new",
     "gen:fc": "hygen feature-component new",
     "gen:s": "hygen store new",
-    "gen:t": "hygen type new"
+    "gen:t": "hygen type new",
+    "gen:pokemon": "tsx scripts/generatePokemonJa.ts"
   },
   "dependencies": {
     "@date-io/date-fns": "^3.0.0",
@@ -31,6 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/node": "^25.6.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
@@ -39,6 +41,8 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "hygen": "^6.2.11",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.11.0",
     "vite": "^5.4.10"
