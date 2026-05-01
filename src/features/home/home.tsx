@@ -1,17 +1,23 @@
 import {} from "./styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box, Pagination, TextField } from "@mui/material";
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
 import PokeCard from "./comonents/poke-card";
 import pokemonJa from "../../data/pokemonJa.json";
 import { normalizeText } from "../../utils/text";
+import TypeSelector from "./comonents/type-selector";
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+
+  useEffect(() => {
+    setPage(1); // 検索や選択されたタイプが変わったらページをリセット
+  }, [search, selectedTypes]);
 
   const initLimit = 20; // 最大表示数
 
@@ -24,7 +30,13 @@ export default function Home() {
   }));
   const normalizedSearch = normalizeText(search);
 
-  const filtered = polemonList.filter(p => p.id <= POKE_INDEX_ID_MAX && p.normalizedName.includes(normalizedSearch));
+  const filtered = polemonList.filter(p => {
+    const matchesSearch = p.normalizedName.includes(normalizedSearch);
+    const matchesTypes =
+      selectedTypes.length === 0 ||
+      selectedTypes.every(type => p.types.includes(type));
+    return p.id <= POKE_INDEX_ID_MAX && matchesSearch && matchesTypes;
+  });
   const displayList = filtered.slice(start, end);
   const totalPages = Math.ceil(filtered.length / initLimit);
 
@@ -42,21 +54,23 @@ export default function Home() {
         <TextField
           label="ポケモン名で検索"
           variant="outlined"
-          fullWidth
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           sx={{
+            width: "300px",
             backgroundColor: "background.paper",
             borderRadius: 1,
           }}
         />
       </Box>
+      <Box sx={{ mt: "15px" }}>
+        <TypeSelector selected={selectedTypes} setSelected={setSelectedTypes} />
+      </Box>
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-between",
-          rowGap: "10px",
+          gap: "10px",
           mt: "20px",
         }}
       >
@@ -78,6 +92,7 @@ export default function Home() {
           columnGap: "20px",
           justifyContent: "center",
           mt: "15px",
+          mb: "30px",
         }}
       >
         <Pagination

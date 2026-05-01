@@ -266,6 +266,10 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     pokemonAbilitiesUrl.map((url: string) => fetchLocalizedName(url, LANG))
   );
 
+  // ポケモンのイメージURL
+  const pokemonNormalImageUrl = pokemon.sprites.other["official-artwork"].front_default;
+  const pokemonShinyImageUrl = pokemon.sprites.other["official-artwork"].front_shiny;
+
   return {
     id: pokemon.id,
     name: pokemonNameJa || "データが存在しません",
@@ -275,7 +279,8 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     types: pokemonTypes,
     abilities: pokemonAbilityJa,
     url: `${API_BASE_URL}/pokemon/${id}`,
-    imageUrl: pokemon.sprites.front_default,
+    imageUrl: pokemonNormalImageUrl,
+    shinyImageUrl: pokemonShinyImageUrl,
     genus: pokemonGeneraJa || "データが存在しません",
     flavorText: pokemonFlavorTextJa || "データが存在しません",
   };

@@ -27,7 +27,7 @@ export default memo(function PokeCard({ pokemon }: Props) {
           component="div"
           sx={{ mt: "5px", fontSize: "18px" }}
         >
-          No.{pokemon.id}
+          No.{pokemon.id.toString().padStart(4, "0")}
         </Typography>
         <Typography variant="h5" component="div" sx={{ mt: "5px" }}>
           {pokemon.name}

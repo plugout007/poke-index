@@ -1,9 +1,11 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useEffect, useState } from "react";
 import { getPokemon } from "../../api/pokeApi";
 import {} from "./styled";
 import { useParams } from "react-router-dom";
 import { Pokemon } from "../../types/pokemon";
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { Link } from "react-router-dom";
 import NotFound from "../not-found";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
@@ -58,10 +60,41 @@ export default function PokemonPage() {
           mt: "10px",
         }}
       >
-        {prevId > 0 && <Link to={`/pokemon/${prevId}`}>prev</Link>}
-
+        {prevId > 0 && (
+          <IconButton
+            component={Link}
+            to={`/pokemon/${prevId}`}
+            sx={{
+              bgcolor: "background.paper",
+              boxShadow: 2,
+              "&:hover": {
+                bgcolor: "background.paper",
+              },
+              "&:active": {
+                bgcolor: "background.paper",
+              },
+            }}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+        )}
         {nextId <= POKE_INDEX_ID_MAX && (
-          <Link to={`/pokemon/${nextId}`}>next</Link>
+          <IconButton
+            component={Link}
+            to={`/pokemon/${nextId}`}
+            sx={{
+              bgcolor: "background.paper",
+              boxShadow: 2,
+              "&:hover": {
+                bgcolor: "background.paper",
+              },
+              "&:active": {
+                bgcolor: "background.paper",
+              },
+            }}
+          >
+            <ArrowForwardIcon />
+          </IconButton>
         )}
       </Box>
     </>

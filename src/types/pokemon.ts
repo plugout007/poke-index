@@ -16,6 +16,7 @@ export type Pokemon = {
   abilities: string[];
   url: string;
   imageUrl: string;
+  shinyImageUrl?: string;
   genus: string;
   flavorText: string;
 

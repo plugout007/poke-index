@@ -23,9 +23,8 @@ export default function Layout({ children}: Props) {
       <div>
         <Box
           sx={{
-            mb: '55px',
             width: '100%',
-            minHeight: '100vh',
+            minHeight: 'calc(100vh - 55px)',
             backgroundColor: '#fcffe6',
             borderRadius: isSpSize ? '0px' : '10px',
             overflowX: isSpSize ? 'hidden' : 'unset',

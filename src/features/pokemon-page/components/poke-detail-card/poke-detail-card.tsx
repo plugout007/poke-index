@@ -1,6 +1,8 @@
-import { Box, Card, CardContent, Chip, Typography } from '@mui/material';
+import { Box, Card, CardContent, Chip, Switch, Typography } from '@mui/material';
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { Pokemon } from '../../../../types/pokemon';
 import { typeData } from '../../../../constants/pokemon';
+import { useState } from 'react';
 
 type Props = {
   pokemon: Pokemon;
@@ -10,6 +12,8 @@ type Props = {
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function PokeDetailCard({ pokemon }: Props) {
+  const [isShiny, setIsShiny] = useState(false);
+  const imageUrl = isShiny && pokemon.shinyImageUrl ? pokemon.shinyImageUrl : pokemon.imageUrl;
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: 'background.paper' }}>
       <CardContent>
@@ -19,10 +23,32 @@ export default function PokeDetailCard({ pokemon }: Props) {
         <Typography variant="body2" color="text.secondary" sx={{mt: '5px'}}>
           {pokemon.genus}
         </Typography>
-        {/* TODO:imgタグではなくMUIに準ずる書き方にする */}
-        <img src={pokemon.imageUrl} alt={pokemon.name} />
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Switch
+            checked={isShiny}
+            onChange={(e) => setIsShiny(e.target.checked)}
+            disabled={!pokemon.shinyImageUrl}
+          />
+          <AutoAwesomeIcon
+            sx={{
+              color: isShiny ? "gold" : "grey.400",
+            }}
+          />
+        </Box>
+        <Box
+          component="img"
+          src={imageUrl}
+          alt={pokemon.name}
+          sx={{
+            width: 240,
+            height: 240,
+            display: "block",
+            mx: "auto",
+            filter: "drop-shadow(0 12px 16px rgba(0,0,0,0.2))",
+          }}
+        />
         <Typography variant="body2" color="text.secondary" sx={{mt: '5px'}}>
-          No.{pokemon.id} たかさ {pokemon.height}m おもさ {pokemon.weight}kg
+          No.{pokemon.id.toString().padStart(4, "0")} たかさ {pokemon.height}m おもさ {pokemon.weight}kg
         </Typography>
         <Box>
           {pokemon.types.map((type) => (
