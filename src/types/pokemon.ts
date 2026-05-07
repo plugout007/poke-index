@@ -20,6 +20,7 @@ export type Pokemon = {
   genus: string;
   flavorText: string;
 
+  // [未実装] 進化チェーン関連のプロパティ
   // evolutionChainSeed: string,
   // evolutionChainSeedImg: string,
   // evolutionChainFirst: string[],
@@ -27,7 +28,6 @@ export type Pokemon = {
   // evolutionChainSecond: string[],
   // evolutionChainSecondImg: string[],
   // varietiesUrl: string[],
-
   // evolutionChainFirstStage: { imageUrl: string; name: string; }[],
   // evolutionChainSecondStage: { imageUrl: string; name: string; }[],
 
