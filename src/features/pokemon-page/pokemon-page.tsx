@@ -47,7 +47,7 @@ export default function PokemonPage() {
         flexDirection: "column",
         justifyContent: "center",
         maxWidth: 768,
-        m: "20px auto 0",
+        m: "20px auto",
       }}
     >
       <Box

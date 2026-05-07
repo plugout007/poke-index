@@ -19,18 +19,6 @@ export type Pokemon = {
   shinyImageUrl?: string;
   genus: string;
   flavorText: string;
-
-  // [未実装] 進化チェーン関連のプロパティ
-  // evolutionChainSeed: string,
-  // evolutionChainSeedImg: string,
-  // evolutionChainFirst: string[],
-  // evolutionChainFirstImg: string[],
-  // evolutionChainSecond: string[],
-  // evolutionChainSecondImg: string[],
-  // varietiesUrl: string[],
-  // evolutionChainFirstStage: { imageUrl: string; name: string; }[],
-  // evolutionChainSecondStage: { imageUrl: string; name: string; }[],
-
 };
 
 export type PokemonListResponse = {
@@ -89,27 +77,6 @@ export type FetchPokemonSpecies = {
   varieties: PokemonVariety[];
 }
 
-/**
- * ポケモンの進化チェーンのレスポンス型
- */
-export type FetchPokemonEvolutionChainResponse = {
-  chain: EvolutionStage;
-}
-
-/**
- * 進化ステージの型
- * 進化先と種別情報を含む
- */
-type EvolutionStage = {
-  evolves_to: EvolutionStage[];
-  species: PokemonSpecies;
-}
-/**
- * ポケモン種別情報の型
- */
-type PokemonSpecies = {
-  url: string;
-}
 type PokemonVariety = {
   is_default: boolean;
   pokemon: {
@@ -183,13 +150,32 @@ type FlavorTextEntry = {
   }
 }
 
-export type PokemonEvolutionChainResponse = {
-  seed: string,
-  seedImg: string,
-  first: string[],
-  firstImg: string[],
-  second: string[],
-  secondImg: string[],
-  firstStage: { imageUrl: string; name: string; }[],
-  secondStage: { imageUrl: string; name: string; }[],
+export type PokemonEvolutionEdge = {
+  fromId: number;
+  toId: number;
+  baseFormId: number;
+  trigger: string | null;
+  minLevel: number | null;
+  item: string | null
 }
+
+export type ChainLink = {
+  species: {
+    name: string;
+    url: string;
+  };
+  evolves_to: ChainLink[];
+  evolution_details: {
+    base_form: {
+      name: string;
+      url: string;
+    } | null;
+    min_level: number | null;
+    trigger: {
+      name: string;
+    };
+    item: {
+      name: string;
+    } | null;
+  }[];
+};

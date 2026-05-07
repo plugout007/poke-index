@@ -4,8 +4,8 @@ import {
   FetchPokemonSpecies,
   Pokemon,
   PokemonTypeLangData,
-  // PokemonEvolutionChainResponse,
-  // FetchPokemonEvolutionChainResponse,
+  ChainLink,
+  PokemonEvolutionEdge,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
@@ -38,83 +38,139 @@ export const fetchPokemonList = async (
   return pokemonList;
 };
 
-// [未実装]進化データ取得
-// export const fetchPokemonEvolutionChain = async (
-//   url: string
-// ): Promise<PokemonEvolutionChainResponse> => {
-//   const response = await axios.get<FetchPokemonEvolutionChainResponse>(url);
-//   // 最初のポケモンの名前を取得
-//   const seedPokemonName = await getPokemonNameJp(
-//     response.data.chain.species.url
-//   );
-//   const seedPokemonId = extractIdFromUrl(response.data.chain.species.url);
-//   const seedPokemonResponse = await axios.get<FetchPokemon>(
-//     `${API_BASE_URL}/pokemon/${seedPokemonId}`
-//   );
-//   const seedPokemonImgUrl = seedPokemonResponse.data.sprites.front_default;
+// evolution chain url を取得する関数
+export const fetchPokemonEvolutionChainUrl = async (id: number): Promise<string> => {
+  const response = await axios.get(`${API_BASE_URL}/pokemon-species/${id}`);
+  return response.data.evolution_chain.url;
+};
 
-//   // 進化段階を格納する配列
-//   const firstStageNames: string[] = [];
-//   const firstStageNamesImgUrl: string[] = [];
-//   const secondStageNames: string[] = [];
-//   const secondStageNamesImgUrl: string[] = [];
+/**
+ * PokeAPI の進化チェーン(木構造)を
+ * UIで扱いやすい EvolutionEdge[] に変換する
+ *
+ */
+export const convertEvolutionChainToEdges = (
+  chain: ChainLink
+): PokemonEvolutionEdge[] => {
+  // 変換後の進化データを格納する配列
+  const edges: PokemonEvolutionEdge[] = [];
 
-//   const firstStage = [];
-//   const secondStage = [];
+  /**
+   * 進化チェーンを再帰的に巡回する
+   *
+   * node:
+   * 現在見ているポケモン
+   *
+   * evolves_to:
+   * 次に進化するポケモン一覧
+   *
+   * 再帰的に walk() を呼ぶことで
+   * ツリー全体を探索する
+   */
+  const walk = (node: ChainLink) => {
+    // 現在のポケモンID
+    const fromId = extractIdFromUrl(
+      node.species.url
+    );
 
-//   // 進化チェーンを解析
-//   if (response.data.chain.evolves_to) {
-//     for (const evolveFirst of response.data.chain.evolves_to) {
-//       // 第一段階のポケモン名を取得
-//       const evolveFirstPokemonName = await getPokemonNameJp(
-//         evolveFirst.species.url
-//       );
-//       firstStageNames.push(evolveFirstPokemonName);
+    // 次の進化先を順番に処理
+    for (const next of node.evolves_to) {
+      // 進化先ポケモンID
+      const toId = extractIdFromUrl(
+        next.species.url
+      );
 
-//       const evolveFirstPokemonId = extractIdFromUrl(evolveFirst.species.url);
-//       const evolveFirstPokemonResponse = await axios.get<FetchPokemon>(
-//         `${API_BASE_URL}/pokemon/${evolveFirstPokemonId}`
-//       );
-//       const evolveFirstPokemonImgUrl =
-//         evolveFirstPokemonResponse.data.sprites.front_default;
-//       firstStageNamesImgUrl.push(evolveFirstPokemonImgUrl);
+      // 進化条件
+      const detail = next.evolution_details[0];
 
-//       firstStage.push({imageUrl: evolveFirstPokemonImgUrl, name: evolveFirstPokemonName});
+      // edge形式へ変換
+      edges.push({
+        fromId: fromId,
+        toId: toId,
+        baseFormId: detail.base_form?.url ? extractIdFromUrl(detail.base_form.url)
+          : fromId,
+        trigger: detail?.trigger?.name ?? null,
+        minLevel: detail?.min_level ?? null,
+        item: detail?.item?.name ?? null,
+      });
 
-//       // 第二段階の進化を解析
-//       for (const evolveSecond of evolveFirst.evolves_to) {
-//         const evolveSecondPokemonName = await getPokemonNameJp(
-//           evolveSecond.species.url
-//         );
-//         secondStageNames.push(evolveSecondPokemonName);
+      // さらに次の進化先を探索
+      walk(next);
+    }
+  }
 
-//         const evolveSecondPokemonId = extractIdFromUrl(
-//           evolveSecond.species.url
-//         );
-//         const evolveSecondPokemonResponse = await axios.get<FetchPokemon>(
-//           `${API_BASE_URL}/pokemon/${evolveSecondPokemonId}`
-//         );
-//         const evolveSecondPokemonImgUrl =
-//           evolveSecondPokemonResponse.data.sprites.front_default;
-//         secondStageNamesImgUrl.push(evolveSecondPokemonImgUrl);
+  // 進化ツリーの探索開始
+  walk(chain);
 
-//         secondStage.push({imageUrl: evolveSecondPokemonImgUrl, name: evolveSecondPokemonName});
-//       }
-//     }
-//   }
+  return edges;
+}
 
-//   const pokemonEvolutionChain = {
-//     seed: seedPokemonName,
-//     seedImg: seedPokemonImgUrl,
-//     first: firstStageNames,
-//     firstImg: firstStageNamesImgUrl,
-//     second: secondStageNames,
-//     secondImg: secondStageNamesImgUrl,
-//     firstStage: firstStage,
-//     secondStage: secondStage,
-//   };
-//   return pokemonEvolutionChain;
-// };
+export const getEvolutionEdges = async (
+  speciesId: number
+): Promise<PokemonEvolutionEdge[]> => {
+  // species
+  const evolutionChainUrl =
+    await fetchPokemonEvolutionChainUrl(speciesId);
+
+  // evolution-chain
+  const chainRes =
+    await axios.get(
+      evolutionChainUrl
+    );
+
+  // edge変換
+  return convertEvolutionChainToEdges(
+    chainRes.data.chain
+  );
+}
+
+/**
+ * edges に指定ポケモンIDが含まれるか確認
+ */
+export const hasPokemonInEdges = (
+  pokemonId: number,
+  edges: PokemonEvolutionEdge[]
+) => {
+  return edges.some(
+    (edge) =>
+      edge.fromId === pokemonId ||
+      edge.toId === pokemonId
+  );
+};
+
+export const getPreviousEvolutionPokemonId =  (id: number, edges: PokemonEvolutionEdge[]) => {
+  // 現在のポケモンが進化先(toId)にあるエッジを探す
+  const edge = edges.find((e) => e.toId === id);
+  if (!edge) return null;
+  // TODO: リージョンフォーム用ページを作る前の暫定処理。画像はリージョンだがリンクは原種
+  return {
+    linkId: edge.fromId,
+    imageId: edge.fromId === edge.baseFormId ? edge.fromId : edge.baseFormId,
+  };
+}
+
+/**
+ * 指定したポケモンの進化先ID一覧を取得する
+ *
+ * 例:
+ * イーブイ(133)
+ * → [134, 135, 136 ...]
+ */
+export const getNextEvolutionPokemonIds = (
+  id: number,
+  edges: PokemonEvolutionEdge[]
+): number[] => {
+
+  // 現在のポケモンが進化元にある edge を探す
+  const nextEdges = edges.filter(
+    (e) => e.fromId === id && e.fromId === e.baseFormId
+  );
+
+  // 進化先ID一覧を返す
+  return nextEdges.map(
+    (edge) => edge.toId
+  );
+};
 
 /**
  * 指定した言語の名称を取得する関数
@@ -173,44 +229,15 @@ const getPokemonGender = (genderRate: number): string[] => {
 };
 
 /**
- * 指定されたURLからポケモンの日本語名を取得する関数
- *
- * @param url - ポケモンのAPI URL
- * @returns 日本語名（取得できない場合は空文字列）
- */
-// const getPokemonNameJp = async (url: string): Promise<string> => {
-//   try {
-//     const response = await axios.get(url);
-
-//     // 名前リストから日本語名を検索
-//     const nameEntry = response.data.names.find(
-//       (entry: { language: { name: string }; name: string }) =>
-//         entry.language.name === "ja" // 言語コードを直接記述
-//     );
-
-//     // 日本語名を返す（見つからない場合は空文字列）
-//     return nameEntry?.name ?? "";
-//   } catch (error) {
-//     console.error("Failed to fetch Pokemon name:", error);
-//     return ""; // エラー時は空文字列を返す
-//   }
-// };
-
-/**
  * URLからポケモンIDを抽出する関数
  * @param url - ポケモンAPIのURL
- * @returns 抽出したID（成功した場合）またはnull（失敗した場合）
+ * @returns 抽出したID（数値）
  */
-// const extractIdFromUrl = (url: string) => {
-//   try {
-//     // URLをスラッシュで分割し、最後から2番目の要素を取得
-//     const id = url.split("/").slice(-2, -1)[0];
-//     return id;
-//   } catch (error) {
-//     console.error(`エラー: ${error}`);
-//     return null;
-//   }
-// };
+const extractIdFromUrl = (url: string): number => {
+  // URLをスラッシュで分割し、最後から2番目の要素を取得
+  const id = url.split("/").slice(-2, -1)[0];
+  return Number(id);
+};
 
 // 取得
 export const fetchPokemonRaw = async (id: number) => {
