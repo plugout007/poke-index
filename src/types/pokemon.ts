@@ -179,3 +179,8 @@ export type ChainLink = {
     } | null;
   }[];
 };
+
+export type PokemonRegion = {
+  region: string;
+  baseFormId: number;
+}

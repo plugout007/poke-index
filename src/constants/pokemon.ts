@@ -1,3 +1,4 @@
+/** ポケモンのタイプデータ */
 export const typeData = {
   fire: { ja: "ほのお", color: "#F08030" },
   water: { ja: "みず", color: "#6890F0" },
@@ -18,6 +19,31 @@ export const typeData = {
   fairy: { ja: "フェアリー", color: "#EE99AC" },
   normal: { ja: "ノーマル", color: "#A8A878" },
 } as const;
+
+/** ポケモンのリージョンデータ */
+export const regionData = {
+  alola: { ja: "アローラ" },
+  galar: { ja: "ガラル" },
+  hisui: { ja: "ヒスイ" },
+  paldea: { ja: "パルデア" },
+} as const;
+
+/** リージョンパターン */
+export const regionPatterns = {
+  alola: /-alola$/,
+  galar: /-galar-/,
+  hisui: /-hisui$/,
+  paldea: /-paldea-/,
+} as const;
+
+/** 除外パターン */
+export const excludedPatterns = [
+  /-mega/,         // メガシンカ
+  /-gmax/,         // 巨大マックス
+  /-totem-/,       // ヌシポケモン
+  /-cap$/,         // No.25 ピカチュウのキャップ着用
+  /-zen/,          // No.555 ヒヒダルマのダルマモード
+];
 
 /** 現在のポケモンの種類の総数 */
 export const POKE_INDEX_ID_MAX = 1025;

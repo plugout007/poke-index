@@ -8,12 +8,13 @@ import {
 } from "@mui/material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { Link } from "react-router-dom";
-import { Pokemon, PokemonEvolutionEdge } from "../../../../types/pokemon";
+import { Pokemon, PokemonEvolutionEdge, PokemonRegion } from "../../../../types/pokemon";
 import { typeData } from "../../../../constants/pokemon";
 import { useEffect, useRef, useState } from "react";
 import {
   getEvolutionEdges,
   getNextEvolutionPokemonIds,
+  getPokemonRegions,
   getPreviousEvolutionPokemonId,
   hasPokemonInEdges,
 } from "../../../../api/pokeApi";
@@ -28,6 +29,7 @@ type Props = {
 export default function PokeDetailCard({ pokemon }: Props) {
   const [isShiny, setIsShiny] = useState(false);
   const [edges, setEdges] = useState<PokemonEvolutionEdge[]>([]);
+  const [regions, setRegions] = useState<PokemonRegion[]>([]);
   const imageUrl =
     isShiny && pokemon.shinyImageUrl ? pokemon.shinyImageUrl : pokemon.imageUrl;
 
@@ -48,9 +50,14 @@ export default function PokeDetailCard({ pokemon }: Props) {
 
       setEdges(evolutionEdges);
     };
-
     fetchEvolutionEdges();
+    const fetchedRegions = async () => {
+      const regions = await getPokemonRegions(pokemon.id);
+      setRegions(regions);
+    };
+    fetchedRegions();
   }, [pokemon.id]);
+  console.log(regions);
 
 
   const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, edges);
@@ -135,6 +142,21 @@ export default function PokeDetailCard({ pokemon }: Props) {
                 </Link>
               ))}
             </Box>
+        )}
+        {regions.length > 0 && (
+          <Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "10px" }}>
+              リージョンフォーム
+            </Typography>
+            {regions.map((region) => (
+              <Box>
+                <Typography key={region.region} variant="body2" color="text.secondary">
+                  {region.region}
+                </Typography>
+                <img  src={pokemonImageUrl(region.baseFormId)} />
+              </Box>
+            ))}
+          </Box>
         )}
         {/* {pokemon.varietiesUrl.length > 0 && (
           <Box>

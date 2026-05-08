@@ -6,9 +6,11 @@ import {
   PokemonTypeLangData,
   ChainLink,
   PokemonEvolutionEdge,
+  PokemonRegion,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
+import { excludedPatterns, regionData } from "../constants/pokemon";
 
 /**
  * ポケモンリストを取得する関数
@@ -171,6 +173,45 @@ export const getNextEvolutionPokemonIds = (
     (edge) => edge.toId
   );
 };
+
+/**
+ * リージョンフォームの有無の確認
+ * '-alola', '-galar', '-hisui', '-paldea'  などのサフィックスがついているかで判定
+ * '-alola'が含まれていたら配列に'alola'を追加。
+ * 何もないなら空配列を返す
+ */
+export const getPokemonRegions = async (id: number): Promise<PokemonRegion[]> => {
+  const regions: PokemonRegion[] = [];
+
+  const response = await axios.get(`${API_BASE_URL}/pokemon-species/${id}`);
+  const varieties = response.data.varieties;
+  // 配列データのpokemon.nameにリージョンフォームのサフィックスが含まれているか確認
+
+  for (const variety of varieties) {
+    const pokemonName = variety.pokemon.name;
+    const baseFormId = extractIdFromUrl(variety.pokemon.url);
+
+    for (const regionKey of Object.keys(regionData) as (keyof typeof regionData)[]) {
+
+      // リージョン確認
+      const hasRegion = pokemonName.includes(`-${regionKey}`);
+
+      // リージョン除外パターン確認
+      const isExcluded = excludedPatterns.some((pattern) =>
+        pattern.test(pokemonName)
+      );
+
+      if (hasRegion && !isExcluded) {
+        regions.push({
+          region: regionData[regionKey].ja,
+          baseFormId,
+        });
+      }
+    }
+  }
+  return regions;
+};
+
 
 /**
  * 指定した言語の名称を取得する関数
