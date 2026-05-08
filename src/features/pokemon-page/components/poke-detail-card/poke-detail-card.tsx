@@ -8,15 +8,12 @@ import {
 } from "@mui/material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { Link } from "react-router-dom";
-import { Pokemon, PokemonEvolutionEdge, PokemonRegion } from "../../../../types/pokemon";
+import { Pokemon } from "../../../../types/pokemon";
 import { typeData } from "../../../../constants/pokemon";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
-  getEvolutionEdges,
   getNextEvolutionPokemonIds,
-  getPokemonRegions,
   getPreviousEvolutionPokemonId,
-  hasPokemonInEdges,
 } from "../../../../api/pokeApi";
 
 type Props = {
@@ -28,40 +25,13 @@ type Props = {
  */
 export default function PokeDetailCard({ pokemon }: Props) {
   const [isShiny, setIsShiny] = useState(false);
-  const [edges, setEdges] = useState<PokemonEvolutionEdge[]>([]);
-  const [regions, setRegions] = useState<PokemonRegion[]>([]);
   const imageUrl =
     isShiny && pokemon.shinyImageUrl ? pokemon.shinyImageUrl : pokemon.imageUrl;
 
   const pokemonImageUrl = (id: number) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
 
-  const edgesRef = useRef<PokemonEvolutionEdge[]>([]);
-
-  useEffect(() => {
-    const fetchEvolutionEdges = async () => {
-      if (hasPokemonInEdges(pokemon.id, edgesRef.current)) {
-        setEdges(edgesRef.current);
-        return;
-      };
-
-      const evolutionEdges = await getEvolutionEdges(pokemon.id);
-
-      edgesRef.current = evolutionEdges;
-
-      setEdges(evolutionEdges);
-    };
-    fetchEvolutionEdges();
-    const fetchedRegions = async () => {
-      const regions = await getPokemonRegions(pokemon.id);
-      setRegions(regions);
-    };
-    fetchedRegions();
-  }, [pokemon.id]);
-  console.log(regions);
-
-
-  const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, edges);
-  const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, edges) || [];
+  const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, pokemon.evolutionEdge);
+  const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, pokemon.evolutionEdge) || [];
 
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: "background.paper" }}>
@@ -143,14 +113,14 @@ export default function PokeDetailCard({ pokemon }: Props) {
               ))}
             </Box>
         )}
-        {regions.length > 0 && (
+        {pokemon.regions.length > 0 && (
           <Box>
             <Typography variant="body2" color="text.secondary" sx={{ mt: "10px" }}>
               リージョンフォーム
             </Typography>
-            {regions.map((region) => (
-              <Box>
-                <Typography key={region.region} variant="body2" color="text.secondary">
+            {pokemon.regions.map((region, i) => (
+              <Box key={i}>
+                <Typography variant="body2" color="text.secondary">
                   {region.region}
                 </Typography>
                 <img  src={pokemonImageUrl(region.baseFormId)} />
@@ -158,16 +128,6 @@ export default function PokeDetailCard({ pokemon }: Props) {
             ))}
           </Box>
         )}
-        {/* {pokemon.varietiesUrl.length > 0 && (
-          <Box>
-            <Typography variant="body2" color="text.secondary" sx={{mt: '10px'}}>
-              {pokemon.name}のリージョンフォーム
-            </Typography>
-            {pokemon.varietiesUrl.map((img) => (
-              img ? <img src={img} alt={pokemon.name} key={img} /> : null
-            ))}
-          </Box>
-        )} */}
       </CardContent>
     </Card>
   );

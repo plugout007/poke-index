@@ -7,6 +7,7 @@ import {
   ChainLink,
   PokemonEvolutionEdge,
   PokemonRegion,
+  PokemonVariety,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
@@ -38,12 +39,6 @@ export const fetchPokemonList = async (
   };
 
   return pokemonList;
-};
-
-// evolution chain url を取得する関数
-export const fetchPokemonEvolutionChainUrl = async (id: number): Promise<string> => {
-  const response = await axios.get(`${API_BASE_URL}/pokemon-species/${id}`);
-  return response.data.evolution_chain.url;
 };
 
 /**
@@ -91,9 +86,6 @@ export const convertEvolutionChainToEdges = (
         toId: toId,
         baseFormId: detail.base_form?.url ? extractIdFromUrl(detail.base_form.url)
           : fromId,
-        trigger: detail?.trigger?.name ?? null,
-        minLevel: detail?.min_level ?? null,
-        item: detail?.item?.name ?? null,
       });
 
       // さらに次の進化先を探索
@@ -105,41 +97,11 @@ export const convertEvolutionChainToEdges = (
   walk(chain);
 
   return edges;
-}
-
-export const getEvolutionEdges = async (
-  speciesId: number
-): Promise<PokemonEvolutionEdge[]> => {
-  // species
-  const evolutionChainUrl =
-    await fetchPokemonEvolutionChainUrl(speciesId);
-
-  // evolution-chain
-  const chainRes =
-    await axios.get(
-      evolutionChainUrl
-    );
-
-  // edge変換
-  return convertEvolutionChainToEdges(
-    chainRes.data.chain
-  );
-}
-
-/**
- * edges に指定ポケモンIDが含まれるか確認
- */
-export const hasPokemonInEdges = (
-  pokemonId: number,
-  edges: PokemonEvolutionEdge[]
-) => {
-  return edges.some(
-    (edge) =>
-      edge.fromId === pokemonId ||
-      edge.toId === pokemonId
-  );
 };
 
+/**
+ * 指定したポケモンの進化前IDを取得する
+ */
 export const getPreviousEvolutionPokemonId =  (id: number, edges: PokemonEvolutionEdge[]) => {
   // 現在のポケモンが進化先(toId)にあるエッジを探す
   const edge = edges.find((e) => e.toId === id);
@@ -180,11 +142,9 @@ export const getNextEvolutionPokemonIds = (
  * '-alola'が含まれていたら配列に'alola'を追加。
  * 何もないなら空配列を返す
  */
-export const getPokemonRegions = async (id: number): Promise<PokemonRegion[]> => {
+const getPokemonRegions = (varieties: PokemonVariety[]) => {
   const regions: PokemonRegion[] = [];
 
-  const response = await axios.get(`${API_BASE_URL}/pokemon-species/${id}`);
-  const varieties = response.data.varieties;
   // 配列データのpokemon.nameにリージョンフォームのサフィックスが含まれているか確認
 
   for (const variety of varieties) {
@@ -284,10 +244,12 @@ const extractIdFromUrl = (url: string): number => {
 export const fetchPokemonRaw = async (id: number) => {
   const pokemon = await axios.get(`${API_BASE_URL}/pokemon/${id}`);
   const species = await axios.get(pokemon.data.species.url);
+  const chain = await axios.get(species.data.evolution_chain.url);
 
   return {
     pokemon: pokemon.data,
     species: species.data,
+    chain: chain.data.chain,
   };
 };
 
@@ -310,7 +272,7 @@ const extractJa = (species: FetchPokemonSpecies) => {
 };
 
 export const getPokemon = async (id: number): Promise<Pokemon> => {
-  const { pokemon, species } = await fetchPokemonRaw(id);
+  const { pokemon, species, chain } = await fetchPokemonRaw(id);
   
   const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
 
@@ -338,6 +300,11 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonNormalImageUrl = pokemon.sprites.other["official-artwork"].front_default;
   const pokemonShinyImageUrl = pokemon.sprites.other["official-artwork"].front_shiny;
 
+  // 進化系統
+  const pokemonEvolutionEdge = convertEvolutionChainToEdges(chain);
+
+  // リージョンフォーム
+  const pokemonRegions = getPokemonRegions(species.varieties);
   return {
     id: pokemon.id,
     name: pokemonNameJa || "データが存在しません",
@@ -351,5 +318,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     shinyImageUrl: pokemonShinyImageUrl,
     genus: pokemonGeneraJa || "データが存在しません",
     flavorText: pokemonFlavorTextJa || "データが存在しません",
+    evolutionEdge: pokemonEvolutionEdge,
+    regions: pokemonRegions,
   };
 };

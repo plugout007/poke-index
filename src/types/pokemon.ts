@@ -19,6 +19,8 @@ export type Pokemon = {
   shinyImageUrl?: string;
   genus: string;
   flavorText: string;
+  evolutionEdge: PokemonEvolutionEdge[];
+  regions: PokemonRegion[];
 };
 
 export type PokemonListResponse = {
@@ -27,7 +29,7 @@ export type PokemonListResponse = {
 
 export type PokemonDetail = {
   pokemon: Pokemon;
-  
+  chain: ChainLink;
 }
 
 /**
@@ -77,7 +79,7 @@ export type FetchPokemonSpecies = {
   varieties: PokemonVariety[];
 }
 
-type PokemonVariety = {
+export type PokemonVariety = {
   is_default: boolean;
   pokemon: {
     name: string;
@@ -154,9 +156,6 @@ export type PokemonEvolutionEdge = {
   fromId: number;
   toId: number;
   baseFormId: number;
-  trigger: string | null;
-  minLevel: number | null;
-  item: string | null
 }
 
 export type ChainLink = {
@@ -169,13 +168,6 @@ export type ChainLink = {
     base_form: {
       name: string;
       url: string;
-    } | null;
-    min_level: number | null;
-    trigger: {
-      name: string;
-    };
-    item: {
-      name: string;
     } | null;
   }[];
 };
