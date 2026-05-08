@@ -1,6 +1,5 @@
 import axios from "axios";
 import {
-  PokemonListResponse,
   FetchPokemonSpecies,
   Pokemon,
   PokemonTypeLangData,
@@ -12,34 +11,6 @@ import {
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
 import { excludedPatterns, regionData } from "../constants/pokemon";
-
-/**
- * ポケモンリストを取得する関数
- * @param limit - 取得するポケモンの数
- * @param offset - ページングの開始位置
- * @returns PokemonListResponse
- */
-export const fetchPokemonList = async (
-  url: string
-): Promise<PokemonListResponse> => {
-  const response = await axios.get<PokemonListResponse>(url);
-  // 各ポケモンの詳細データを取得
-  const pokemonPromises = response.data.results.map((pokemon) => {
-    const id = pokemon.url.split("/").filter(Boolean).pop(); // URLからIDを抽出
-    return id ? getPokemon(Number(id)) : null;
-  });
-
-  // 全てのプロミスを解決して返却
-  const pokemonListResults = await Promise.all(pokemonPromises);
-
-  const pokemonList = {
-    results: pokemonListResults.filter(
-      (pokemon): pokemon is Pokemon => pokemon !== null
-    ),
-  };
-
-  return pokemonList;
-};
 
 /**
  * PokeAPI の進化チェーン(木構造)を
@@ -245,8 +216,10 @@ export const fetchPokemonRaw = async (id: number) => {
   const pokemon = await axios.get(`${API_BASE_URL}/pokemon/${id}`);
   const species = await axios.get(pokemon.data.species.url);
   const chain = await axios.get(species.data.evolution_chain.url);
+  const pokemonId = extractIdFromUrl(pokemon.data.species.url);
 
   return {
+    pokemonId: pokemonId,
     pokemon: pokemon.data,
     species: species.data,
     chain: chain.data.chain,
@@ -272,7 +245,7 @@ const extractJa = (species: FetchPokemonSpecies) => {
 };
 
 export const getPokemon = async (id: number): Promise<Pokemon> => {
-  const { pokemon, species, chain } = await fetchPokemonRaw(id);
+  const { pokemon, species, chain, pokemonId } = await fetchPokemonRaw(id);
   
   const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
 
@@ -306,14 +279,13 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   // リージョンフォーム
   const pokemonRegions = getPokemonRegions(species.varieties);
   return {
-    id: pokemon.id,
+    id: pokemonId,
     name: pokemonNameJa || "データが存在しません",
     gender: pokemonGender,
     height: pokemonHeight,
     weight: pokemonWeight,
     types: pokemonTypes,
     abilities: pokemonAbilityJa,
-    url: `${API_BASE_URL}/pokemon/${id}`,
     imageUrl: pokemonNormalImageUrl,
     shinyImageUrl: pokemonShinyImageUrl,
     genus: pokemonGeneraJa || "データが存在しません",

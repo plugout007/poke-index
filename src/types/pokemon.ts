@@ -14,17 +14,12 @@ export type Pokemon = {
   weight: number;
   types: string[];
   abilities: string[];
-  url: string;
   imageUrl: string;
   shinyImageUrl?: string;
   genus: string;
   flavorText: string;
   evolutionEdge: PokemonEvolutionEdge[];
   regions: PokemonRegion[];
-};
-
-export type PokemonListResponse = {
-  results: Pokemon[];
 };
 
 export type PokemonDetail = {

@@ -123,7 +123,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
                 <Typography variant="body2" color="text.secondary">
                   {region.region}
                 </Typography>
-                <img  src={pokemonImageUrl(region.baseFormId)} />
+                <img src={pokemonImageUrl(region.baseFormId)} />
               </Box>
             ))}
           </Box>

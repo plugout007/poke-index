@@ -84,51 +84,53 @@ export default function PokemonPage() {
       >
         {selectedPokemon && <PokeDetailCard pokemon={selectedPokemon} />}
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          columnGap: "20px",
-          justifyContent: "center",
-          mt: "10px",
-        }}
-      >
-        {prevId > 0 && (
-          <IconButton
-            component={Link}
-            to={`/pokemon/${prevId}`}
-            sx={{
-              bgcolor: "background.paper",
-              boxShadow: 2,
-              "&:hover": {
+      {Number(pokemonId) <= POKE_INDEX_ID_MAX && (
+        <Box
+          sx={{
+            display: "flex",
+            columnGap: "20px",
+            justifyContent: "center",
+            mt: "10px",
+          }}
+        >
+          {prevId > 0 && (
+            <IconButton
+              component={Link}
+              to={`/pokemon/${prevId}`}
+              sx={{
                 bgcolor: "background.paper",
-              },
-              "&:active": {
+                boxShadow: 2,
+                "&:hover": {
+                  bgcolor: "background.paper",
+                },
+                "&:active": {
+                  bgcolor: "background.paper",
+                },
+              }}
+            >
+              <ChevronLeft />
+            </IconButton>
+          )}
+          {nextId <= POKE_INDEX_ID_MAX && (
+            <IconButton
+              component={Link}
+              to={`/pokemon/${nextId}`}
+              sx={{
                 bgcolor: "background.paper",
-              },
-            }}
-          >
-            <ChevronLeft />
-          </IconButton>
-        )}
-        {nextId <= POKE_INDEX_ID_MAX && (
-          <IconButton
-            component={Link}
-            to={`/pokemon/${nextId}`}
-            sx={{
-              bgcolor: "background.paper",
-              boxShadow: 2,
-              "&:hover": {
-                bgcolor: "background.paper",
-              },
-              "&:active": {
-                bgcolor: "background.paper",
-              },
-            }}
-          >
-            <ChevronRight />
-          </IconButton>
-        )}
-      </Box>
+                boxShadow: 2,
+                "&:hover": {
+                  bgcolor: "background.paper",
+                },
+                "&:active": {
+                  bgcolor: "background.paper",
+                },
+              }}
+            >
+              <ChevronRight />
+            </IconButton>
+          )}
+        </Box>
+      )}
     </Box>
   );
 }
