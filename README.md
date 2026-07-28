@@ -7,7 +7,7 @@ React + TypeScript + Vite を用いて開発しました。
 
 ## URL
 
-https://poke-index-bay.vercel.app/
+https://poke-index-six.vercel.app/
 
 ## 制作背景
 
