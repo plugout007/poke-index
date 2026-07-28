@@ -11,13 +11,22 @@ type Props = {
 */
 
 export default function TypeSelector({ selected, setSelected }: Props) {
+  const MAX_SELECT = 2;
   const types = Object.entries(typeData);
   const toggle = (key: string) => {
-    setSelected((prev: string[]) =>
-      prev.includes(key)
-        ? prev.filter(t => t !== key)
-        : [...prev, key]
-    );
+    setSelected((prev: string[]) => {
+      // 選択済みなら解除
+      if(prev.includes(key)) {
+        return prev.filter((t) => t !== key);
+      }
+
+      // MAX_SELECTまで
+      if (prev.length >= MAX_SELECT) {
+        return prev;
+      }
+
+      return [...prev, key]
+    });
   };
 
   return (
@@ -54,6 +63,10 @@ export default function TypeSelector({ selected, setSelected }: Props) {
             mr: '5px',
             mb: '5px',
           }}
+          disabled={
+            !selected.includes(key) &&
+            selected.length >= MAX_SELECT
+          }
         />
       ))}
     </Stack>

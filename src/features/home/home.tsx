@@ -1,6 +1,7 @@
 import {} from "./styled";
 import { useEffect, useState } from "react";
-import { Box, Pagination, TextField } from "@mui/material";
+import { Box, Button, Pagination, TextField } from "@mui/material";
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
 import PokeCard from "./comonents/poke-card";
@@ -47,6 +48,11 @@ export default function Home() {
     setPage(value); // ページ番号の変更
   };
 
+  const handleResetSearchConditions = () => {
+    setSearch('');
+    setSelectedTypes([]);
+  };
+
   return (
     <div>
       <h2>Pokémon List</h2>
@@ -65,6 +71,26 @@ export default function Home() {
       </Box>
       <Box sx={{ mt: "15px" }}>
         <TypeSelector selected={selectedTypes} setSelected={setSelectedTypes} />
+      </Box>
+      <Box sx={{ mt: "15px" }}>
+        <Button
+          startIcon={<RestartAltIcon />}
+          onClick={handleResetSearchConditions}
+          variant="outlined"
+          color="inherit"
+          sx={{
+            borderWidth: 2,
+            borderColor: '#bbb',
+            bgcolor: '#fff',
+            color: 'text.secondary',
+            '&:hover': {
+              bgcolor: 'grey.100',
+              borderColor: 'grey.500',
+            },
+          }}
+        >
+          検索条件を解除する
+        </Button>
       </Box>
       <Box
         sx={{

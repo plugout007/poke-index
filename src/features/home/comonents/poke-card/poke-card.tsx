@@ -32,7 +32,6 @@ export default memo(function PokeCard({ pokemon }: Props) {
         <Typography variant="h5" component="div" sx={{ mt: "5px" }}>
           {pokemon.name}
         </Typography>
-        {/* TODO:imgタグではなくMUIに準ずる書き方にする */}
         <Box display="flex" justifyContent="start">
           <img src={pokemonImageUrl} alt={pokemon.name} loading="lazy" />
         </Box>
