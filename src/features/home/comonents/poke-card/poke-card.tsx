@@ -15,9 +15,8 @@ export default memo(function PokeCard({ pokemon }: Props) {
   return (
     <Card
       sx={{
-        width: 240,
+        width: 220,
         margin: 2,
-        paddingLeft: "10px",
         bgcolor: "background.paper",
       }}
     >
@@ -29,13 +28,13 @@ export default memo(function PokeCard({ pokemon }: Props) {
         >
           No.{pokemon.id.toString().padStart(4, "0")}
         </Typography>
-        <Typography variant="h5" component="div" sx={{ mt: "5px" }}>
+        <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
           {pokemon.name}
         </Typography>
-        <Box display="flex" justifyContent="start">
+        <Box display="flex" justifyContent="center">
           <img src={pokemonImageUrl} alt={pokemon.name} loading="lazy" />
         </Box>
-        <Box>
+        <Box display="flex" justifyContent="center">
           {pokemon.types.map((type) => {
             const typeInfo = typeData[type as keyof typeof typeData];
 

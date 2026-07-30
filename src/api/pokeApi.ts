@@ -262,11 +262,20 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
 
 
   // ポケモンの特性
-  const pokemonAbilitiesUrl = pokemon.abilities.map(
-    (entry: { ability: { url: string } }) => entry.ability.url
+  const pokemonAbilities: { url: string, isHidden: boolean }[] = pokemon.abilities.map(
+    (entry: {
+      ability: { url: string };
+      is_hidden: boolean;
+    }) => ({
+      url: entry.ability.url,
+      isHidden: entry.is_hidden,
+    })
   );
   const pokemonAbilityJa = await Promise.all(
-    pokemonAbilitiesUrl.map((url: string) => fetchLocalizedName(url, LANG))
+    pokemonAbilities.map(async ({ url, isHidden }) => ({
+      name: await fetchLocalizedName(url, LANG),
+      isHidden,
+    }))
   );
 
   // ポケモンのイメージURL

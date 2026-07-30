@@ -13,7 +13,7 @@ export type Pokemon = {
   height: number;
   weight: number;
   types: string[];
-  abilities: string[];
+  abilities: { name: string, isHidden: boolean }[];
   imageUrl: string;
   shinyImageUrl?: string;
   genus: string;

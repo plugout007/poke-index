@@ -36,7 +36,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: "background.paper" }}>
       <CardContent>
-        <Typography variant="h4" component="div" sx={{ mt: "5px" }}>
+        <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
           {pokemon.name}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mt: "5px" }}>
@@ -85,12 +85,27 @@ export default function PokeDetailCard({ pokemon }: Props) {
             />
           ))}
         </Box>
-        <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
-          特性: {pokemon.abilities.join(", ")}
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mt: "10px" }}>
-          説明: {pokemon.flavorText}
-        </Typography>
+        <Box sx={{ mt: "10px" }}>
+            <Typography variant="h6">
+              特性
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
+              {pokemon.abilities
+                .map((ability) =>
+                  ability.isHidden ? `${ability.name}(隠れ)` : ability.name
+                )
+                .join(" / ")
+              }
+            </Typography>
+        </Box>
+        <Box sx={{ mt: "10px" }}>
+            <Typography variant="h6">
+              説明
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
+              {pokemon.flavorText}
+            </Typography>
+        </Box>
         {prevEvolutionId && (
           <Box sx={{ mt: "5px" }}>
               <Typography variant="h6" sx={{ mt: "10px" }}>
@@ -99,7 +114,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
               <Link to={`/pokemon/${prevEvolutionId.linkId}`} style={{ textDecoration: "none" }}>
                 <img  src={pokemonImageUrl(prevEvolutionId.imageId)} />
               </Link>
-            </Box>
+          </Box>
         )}
         {nextEvolutionIds.length > 0 && (
           <Box sx={{ mt: "5px" }}>
@@ -119,7 +134,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
               リージョンフォーム
             </Typography>
             {pokemon.regions.map((region, i) => (
-              <Box key={i}>
+              <Box key={i} sx={{ mt: "5px" }}>
                 <Typography variant="body2" color="text.secondary">
                   {region.region}
                 </Typography>

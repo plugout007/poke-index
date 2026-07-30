@@ -96,7 +96,7 @@ export default function Home() {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          gap: "10px",
+          gap: "20px",
           mt: "20px",
         }}
       >

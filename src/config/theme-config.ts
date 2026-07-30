@@ -21,26 +21,41 @@ const theme = createTheme({
   typography: {
     fontFamily: "'Noto Sans JP', sans-serif",
     h1: {
-      fontSize: 24,
+      fontSize: 30,
       fontWeight: 'bold',
       lineHeight: 1.2,
     },
     h2: {
-      fontSize: 21,
+      fontSize: 28,
       fontWeight: 'bold',
       lineHeight: 1.2,
     },
     h3: {
-      fontSize: 15,
+      fontSize: 24,
+      fontWeight: 'bold',
+      lineHeight: 1.2,
+    },
+    h4: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      lineHeight: 1.2,
+    },
+    h5: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      lineHeight: 1.2,
+    },
+    h6: {
+      fontSize: 14,
       fontWeight: 'bold',
       lineHeight: 1.2,
     },
     body1: {
-      fontSize: 15,
+      fontSize: 16,
       lineHeight: 1.2,
     },
     body2: {
-      fontSize: 12,
+      fontSize: 14,
       lineHeight: 1.2,
     },
   },
