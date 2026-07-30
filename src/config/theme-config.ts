@@ -19,7 +19,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Inter',
+    fontFamily: "'Noto Sans JP', sans-serif",
     h1: {
       fontSize: 24,
       fontWeight: 'bold',
