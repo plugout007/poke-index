@@ -93,7 +93,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
         </Typography>
         {prevEvolutionId && (
           <Box sx={{ mt: "5px" }}>
-              <Typography variant="h6" color="text.secondary" sx={{ mt: "10px" }}>
+              <Typography variant="h6" sx={{ mt: "10px" }}>
                 進化前
               </Typography>
               <Link to={`/pokemon/${prevEvolutionId.linkId}`} style={{ textDecoration: "none" }}>
@@ -103,7 +103,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
         )}
         {nextEvolutionIds.length > 0 && (
           <Box sx={{ mt: "5px" }}>
-              <Typography variant="h6" color="text.secondary" sx={{ mt: "10px" }}>
+              <Typography variant="h6" sx={{ mt: "10px" }}>
                 進化後
               </Typography>
               {nextEvolutionIds.map((id) => (
@@ -115,7 +115,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
         )}
         {pokemon.regions.length > 0 && (
           <Box sx={{ mt: "5px" }}>
-            <Typography variant="h6" color="text.secondary" sx={{ mt: "10px" }}>
+            <Typography variant="h6" sx={{ mt: "10px" }}>
               リージョンフォーム
             </Typography>
             {pokemon.regions.map((region, i) => (
