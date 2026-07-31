@@ -5,12 +5,13 @@ import type { Dispatch, SetStateAction } from "react";
 type Props = {
   selected: string[];
   setSelected: Dispatch<SetStateAction<string[]>>;
+  isOnlySingleType: boolean;
 };
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
 */
 
-export default function TypeSelector({ selected, setSelected }: Props) {
+export default function TypeSelector({ selected, setSelected, isOnlySingleType }: Props) {
   const MAX_SELECT = 2;
   const types = Object.entries(typeData);
   const toggle = (key: string) => {
@@ -65,7 +66,10 @@ export default function TypeSelector({ selected, setSelected }: Props) {
           }}
           disabled={
             !selected.includes(key) &&
-            selected.length >= MAX_SELECT
+            (
+              selected.length >= MAX_SELECT ||
+              (isOnlySingleType && selected.length >= 1)
+            )
           }
         />
       ))}

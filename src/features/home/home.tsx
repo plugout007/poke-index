@@ -1,6 +1,6 @@
 import {} from "./styled";
 import { useEffect, useState } from "react";
-import { Box, Button, Pagination, TextField } from "@mui/material";
+import { Box, Button, Checkbox, FormControlLabel, Pagination, TextField, Typography } from "@mui/material";
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
@@ -15,6 +15,7 @@ export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
   const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [isOnlySingleType, setIsOnlySingleType] = useState<boolean>(false);
 
   useEffect(() => {
     setPage(1); // 検索や選択されたタイプが変わったらページをリセット
@@ -33,10 +34,19 @@ export default function Home() {
 
   const filtered = polemonList.filter(p => {
     const matchesSearch = p.normalizedName.includes(normalizedSearch);
+
     const matchesTypes =
       selectedTypes.length === 0 ||
       selectedTypes.every(type => p.types.includes(type));
-    return p.id <= POKE_INDEX_ID_MAX && matchesSearch && matchesTypes;
+
+    const matchesSingleType = !isOnlySingleType || p.types.length === 1;
+
+    return (
+      p.id <= POKE_INDEX_ID_MAX &&
+      matchesSearch &&
+      matchesTypes &&
+      matchesSingleType
+    );
   });
   const displayList = filtered.slice(start, end);
   const totalPages = Math.ceil(filtered.length / initLimit);
@@ -48,56 +58,75 @@ export default function Home() {
     setPage(value); // ページ番号の変更
   };
 
+  // 検索条件を解除
   const handleResetSearchConditions = () => {
     setSearch('');
     setSelectedTypes([]);
+    setIsOnlySingleType(false);
   };
 
   return (
-    <div>
-      <h2>Pokémon List</h2>
-      <Box sx={{ mt: "10px" }}>
-        <TextField
-          label="ポケモン名で検索"
-          variant="outlined"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          sx={{
-            width: "300px",
-            backgroundColor: "background.paper",
-            borderRadius: 1,
-          }}
+    <Box sx={{ my: '40px' }}>
+      <Box sx={{
+        p: '20px',
+        bgcolor: '#fff',
+        borderRadius: '5px',
+        border: '2px solid #bbb',
+      }}>
+        <Typography variant="h2">Pokémon Search</Typography>
+        <Box sx={{ mt: "20px" }}>
+          <TextField
+            label="ポケモン名で検索"
+            variant="outlined"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            sx={{
+              width: "300px",
+              backgroundColor: "background.paper",
+              borderRadius: 1,
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "15px" }}>
+          <TypeSelector selected={selectedTypes} setSelected={setSelectedTypes} isOnlySingleType={isOnlySingleType}/>
+        </Box>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={isOnlySingleType}
+              onChange={(e) => setIsOnlySingleType(e.target.checked)}
+              disabled={selectedTypes.length >= 2}
+            />
+          }
+          label="単タイプのみ"
         />
-      </Box>
-      <Box sx={{ mt: "15px" }}>
-        <TypeSelector selected={selectedTypes} setSelected={setSelectedTypes} />
-      </Box>
-      <Box sx={{ mt: "15px" }}>
-        <Button
-          startIcon={<RestartAltIcon />}
-          onClick={handleResetSearchConditions}
-          variant="outlined"
-          color="inherit"
-          sx={{
-            borderWidth: 2,
-            borderColor: '#bbb',
-            bgcolor: '#fff',
-            color: 'text.secondary',
-            '&:hover': {
-              bgcolor: 'grey.100',
-              borderColor: 'grey.500',
-            },
-          }}
-        >
-          検索条件を解除する
-        </Button>
+        <Box sx={{ mt: "15px" }}>
+          <Button
+            startIcon={<RestartAltIcon />}
+            onClick={handleResetSearchConditions}
+            variant="outlined"
+            color="inherit"
+            sx={{
+              borderWidth: 1,
+              borderColor: '#bbb',
+              bgcolor: '#fff',
+              color: 'text.secondary',
+              '&:hover': {
+                bgcolor: 'grey.100',
+                borderColor: 'grey.500',
+              },
+            }}
+          >
+            検索条件を解除する
+          </Button>
+        </Box>
       </Box>
       <Box
         sx={{
           display: "flex",
           flexWrap: "wrap",
           gap: "20px",
-          mt: "20px",
+          mt: "30px",
         }}
       >
       {displayList
@@ -130,6 +159,6 @@ export default function Home() {
           sx={{ mt: 2 }} // 上に余白を追加
           />
       </Box>
-    </div>
+    </Box>
   );
 }
