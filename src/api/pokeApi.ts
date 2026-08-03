@@ -187,10 +187,11 @@ const fetchLocalizedFlavorText = async (
     const data = response.data;
 
     // 最後の要素を取り出す
-    const dataLang = data.flavor_text_entries
-      .filter((entry) => entry.language.name === lang)
-      .at(-1)
-      ?.flavor_text.replace(/\n/g, "　");
+    const jaEntries = data.flavor_text_entries.filter(
+      (entry) => entry.language.name === lang
+    );
+
+    const dataLang = jaEntries[jaEntries.length - 1]?.flavor_text?.replace(/\n/g, "　");
 
     return dataLang || "不明"; // 見つからなかった場合のデフォルト値
   } catch (error) {
