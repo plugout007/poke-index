@@ -3,6 +3,7 @@ import {
   FetchPokemonSpecies,
   Pokemon,
   PokemonTypeLangData,
+  PokemonFlavorTextLangData,
   ChainLink,
   PokemonEvolutionEdge,
   PokemonRegion,
@@ -171,6 +172,34 @@ const fetchLocalizedName = async (
 };
 
 /**
+ * 指定した言語の説明文を取得する関数
+ * @param {string} url - 情報を取得するURL
+ * @param {string} lang - 言語コード (例: "ja" for Japanese)
+ * @returns {Promise<string>} 日本語名またはデフォルト値 "不明"
+ */
+const fetchLocalizedFlavorText = async (
+  url: string,
+  lang: string = "ja"
+): Promise<string> => {
+  try {
+    // APIリクエストを送信
+    const response = await axios.get<PokemonFlavorTextLangData>(url);
+    const data = response.data;
+
+    // 最後の要素を取り出す
+    const dataLang = data.flavor_text_entries
+      .filter((entry) => entry.language.name === lang)
+      .at(-1)
+      ?.flavor_text.replace(/\n/g, "　");
+
+    return dataLang || "不明"; // 見つからなかった場合のデフォルト値
+  } catch (error) {
+    console.error("Error fetching type data:", error);
+    return "不明"; // エラー時のデフォルト値
+  }
+};
+
+/**
  * genderRateからポケモンの性別を取得する関数
  *
  * @param genderRate - ポケモンの性別比率を示す数値
@@ -188,13 +217,13 @@ const fetchLocalizedName = async (
  */
 const getPokemonGender = (genderRate: number): string[] => {
   if (genderRate === 8) {
-    return ["♀"];
+    return ["female"];
   } else if (genderRate === 0) {
-    return ["♂"];
+    return ["male"];
   } else if (genderRate === -1) {
-    return ["不明"];
+    return ["unknown"];
   } else if (genderRate > 0 && genderRate < 8) {
-    return ["♀", "♂"];
+    return ["female", "male"];
   } else {
     return ["データを取得できませんでした"];
   }
@@ -239,7 +268,7 @@ const extractJa = (species: FetchPokemonSpecies) => {
   const flavor =
     species.flavor_text_entries.find(
       (f) => f.language.name === LANG
-    )?.flavor_text ?? "";
+    )?.flavor_text.replace(/\n/g, "　") ?? "";
 
   return { name, genus, flavor };
 };
@@ -274,6 +303,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonAbilityJa = await Promise.all(
     pokemonAbilities.map(async ({ url, isHidden }) => ({
       name: await fetchLocalizedName(url, LANG),
+      flavorText: await fetchLocalizedFlavorText(url, LANG),
       isHidden,
     }))
   );

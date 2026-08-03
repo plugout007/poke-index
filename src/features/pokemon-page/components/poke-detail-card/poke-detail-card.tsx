@@ -33,15 +33,39 @@ export default function PokeDetailCard({ pokemon }: Props) {
   const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, pokemon.evolutionEdge);
   const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, pokemon.evolutionEdge) || [];
 
+  console.log(pokemon);
+
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: "background.paper" }}>
       <CardContent>
+        <Typography variant="h5" color="text.secondary" sx={{ mt: "5px" }}>
+          No.{pokemon.id.toString().padStart(4, "0")}
+        </Typography>
         <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
           {pokemon.name}
         </Typography>
         <Typography variant="body1" color="text.secondary" sx={{ mt: "5px" }}>
           {pokemon.genus}
         </Typography>
+        {pokemon.gender.length > 0 && (
+          <Box sx={{ display: "flex", gap: '8px', mt: "5px" }}>
+            {pokemon.gender.includes("female") && (
+              <Typography variant="h4" color="red">
+                ♀
+              </Typography>
+            )}
+            {pokemon.gender.includes("male") && (
+              <Typography variant="h4" color="blue">
+                ♂
+              </Typography>
+            )}
+            {pokemon.gender.includes("unknown") && (
+              <Typography variant="body2" color="text.secondary">
+                性別不明
+              </Typography>
+            )}
+          </Box>
+        )}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: "5px" }}>
           <Switch
             checked={isShiny}
@@ -66,10 +90,6 @@ export default function PokeDetailCard({ pokemon }: Props) {
             filter: "drop-shadow(0 12px 16px rgba(0,0,0,0.2))",
           }}
         />
-        <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
-          No.{pokemon.id.toString().padStart(4, "0")} たかさ {pokemon.height}m
-          おもさ {pokemon.weight}kg
-        </Typography>
         <Box sx={{ mt: "5px" }}>
           {pokemon.types.map((type) => (
             <Chip
@@ -85,30 +105,52 @@ export default function PokeDetailCard({ pokemon }: Props) {
             />
           ))}
         </Box>
-        <Box sx={{ mt: "10px" }}>
-            <Typography variant="h6">
+        <Box sx={{ display: "flex", mt: "16px", columnGap: "16px" }}>
+          <Box sx={{ width: '50%' }}>
+            <Typography variant="h5">
+              たかさ
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+              {pokemon.height}m
+            </Typography>
+          </Box>
+          <Box sx={{ width: '50%' }}>
+            <Typography variant="h5">
+              おもさ
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+              {pokemon.weight}kg
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+            <Typography variant="h5">
               特性
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
-              {pokemon.abilities
-                .map((ability) =>
-                  ability.isHidden ? `${ability.name}(隠れ)` : ability.name
-                )
-                .join(" / ")
-              }
-            </Typography>
+            {pokemon.abilities
+              .map((ability) =>(
+                <Box sx={{ mt: "8px", ml: "16px" }}>
+                  <Typography variant="h6">
+                    {ability.isHidden ? `${ability.name}(隠れ)` : ability.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mt: "4px" }}>
+                    {ability.flavorText}
+                  </Typography>
+                </Box>
+              ))
+            }
         </Box>
-        <Box sx={{ mt: "10px" }}>
-            <Typography variant="h6">
+        <Box sx={{ mt: "16px" }}>
+            <Typography variant="h5">
               説明
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px" }}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
               {pokemon.flavorText}
             </Typography>
         </Box>
         {prevEvolutionId && (
-          <Box sx={{ mt: "5px" }}>
-              <Typography variant="h6" sx={{ mt: "10px" }}>
+          <Box sx={{ mt: "16px" }}>
+              <Typography variant="h5">
                 進化前
               </Typography>
               <Link to={`/pokemon/${prevEvolutionId.linkId}`} style={{ textDecoration: "none" }}>
@@ -117,8 +159,8 @@ export default function PokeDetailCard({ pokemon }: Props) {
           </Box>
         )}
         {nextEvolutionIds.length > 0 && (
-          <Box sx={{ mt: "5px" }}>
-              <Typography variant="h6" sx={{ mt: "10px" }}>
+          <Box sx={{ mt: "16px" }}>
+              <Typography variant="h5">
                 進化後
               </Typography>
               {nextEvolutionIds.map((id) => (
@@ -129,8 +171,8 @@ export default function PokeDetailCard({ pokemon }: Props) {
             </Box>
         )}
         {pokemon.regions.length > 0 && (
-          <Box sx={{ mt: "5px" }}>
-            <Typography variant="h6" sx={{ mt: "10px" }}>
+          <Box sx={{ mt: "16px" }}>
+            <Typography variant="h5">
               リージョンフォーム
             </Typography>
             {pokemon.regions.map((region, i) => (

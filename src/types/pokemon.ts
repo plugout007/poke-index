@@ -13,7 +13,7 @@ export type Pokemon = {
   height: number;
   weight: number;
   types: string[];
-  abilities: { name: string, isHidden: boolean }[];
+  abilities: { name: string, flavorText: string, isHidden: boolean }[];
   imageUrl: string;
   shinyImageUrl?: string;
   genus: string;
@@ -116,9 +116,19 @@ type PokemonTypeLang = {
   };
   name: string;
 }
+type PokemonFlavorTextLang = {
+  language: {
+    name: string;
+  };
+  flavor_text: string;
+}
 
 export type PokemonTypeLangData = {
   names: PokemonTypeLang[];
+}
+
+export type PokemonFlavorTextLangData = {
+  flavor_text_entries: PokemonFlavorTextLang[];
 }
 
 type PokemonGenus = {
@@ -171,3 +181,5 @@ export type PokemonRegion = {
   region: string;
   baseFormId: number;
 }
+
+export type Gender = "male" | "female" | "unknown";
