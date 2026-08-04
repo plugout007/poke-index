@@ -4,6 +4,7 @@ import { routes } from '../config/routes-config';
 import NotFound from '../features/not-found';
 import Home from '../features/home';
 import PokemonPage from '../features/pokemon-page';
+import Compare from '../features/compare';
 
 /**
  * このコンポーネントはルートを定義する
@@ -14,6 +15,7 @@ const AppRoutes = () => {
   const routesConfig = [
     { ...routes.home, element: <Home /> },
     { ...routes.pokemon, element: <PokemonPage /> },
+    { ...routes.compare, element: <Compare /> },
     // { ...routes.forgotPassword, element: <ForgotPassword /> },
     // { ...routes.resetPassword, element: <ResetPassword /> },
     // { ...routes.mypage, element: <Mypage /> },

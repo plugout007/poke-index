@@ -26,13 +26,13 @@ export default function Home() {
   const start = (page - 1) * initLimit;
   const end = start + initLimit;
 
-  const polemonList = pokemonJa.map(p =>( {
+  const pokemonList = pokemonJa.map(p =>( {
     ...p,
     normalizedName: normalizeText(p.name),
   }));
   const normalizedSearch = normalizeText(search);
 
-  const filtered = polemonList.filter(p => {
+  const filtered = pokemonList.filter(p => {
     const matchesSearch = p.normalizedName.includes(normalizedSearch);
 
     const matchesTypes =
