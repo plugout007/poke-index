@@ -290,6 +290,23 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   // ポケモンの重さ
   const pokemonWeight = pokemon.weight / 10;
 
+  // ポケモンのステータスを取得
+  const pokemonHp = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "hp")?.base_stat || 0;
+  const pokemonAttack = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "attack")?.base_stat || 0;
+  const pokemonDefense = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "defense")?.base_stat || 0;
+  const pokemonSpecialAttack = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "special-attack")?.base_stat || 0;
+  const pokemonSpecialDefense = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "special-defense")?.base_stat || 0;
+  const pokemonSpeed = pokemon.stats.find((s: { stat: { name: string } }) => s.stat.name === "speed")?.base_stat || 0;
+
+  const pokemonStats = {
+    hp: pokemonHp,
+    attack: pokemonAttack,
+    defense: pokemonDefense,
+    specialAttack: pokemonSpecialAttack,
+    specialDefense: pokemonSpecialDefense,
+    speed: pokemonSpeed,
+  };
+
 
   // ポケモンの特性
   const pokemonAbilities: { url: string, isHidden: boolean }[] = pokemon.abilities.map(
@@ -326,6 +343,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     weight: pokemonWeight,
     types: pokemonTypes,
     abilities: pokemonAbilityJa,
+    stats: pokemonStats,
     imageUrl: pokemonNormalImageUrl,
     shinyImageUrl: pokemonShinyImageUrl,
     genus: pokemonGeneraJa || "データが存在しません",

@@ -20,6 +20,14 @@ export type Pokemon = {
   flavorText: string;
   evolutionEdge: PokemonEvolutionEdge[];
   regions: PokemonRegion[];
+  stats: {
+    hp: number;
+    attack: number;
+    defense: number;
+    specialAttack: number;
+    specialDefense: number;
+    speed: number;
+  };
 };
 
 export type PokemonDetail = {
@@ -96,7 +104,7 @@ type PokemonName = {
   name: string;
 }
 
-type PokemonType = {
+export type PokemonType = {
   type: {
     name: string;
     url: string;
@@ -183,3 +191,19 @@ export type PokemonRegion = {
 }
 
 export type Gender = "male" | "female" | "unknown";
+
+/** タイプによるダメージの関係性 */
+export type DamageRelations = {
+  /** 受けるダメージが効果抜群 */
+  double_damage_from: { name: string, url: string }[];
+  /** 与えるダメージが効果抜群 */
+  double_damage_to: { name: string, url: string }[];
+  /** 受けるダメージが半分 */
+  half_damage_from: { name: string, url: string }[];
+  /** 与えるダメージが半分 */
+  half_damage_to: { name: string, url: string }[];
+  /** 受けるダメージがない */
+  no_damage_from: { name: string, url: string }[];
+  /** 与えるダメージがない */
+  no_damage_to: { name: string, url: string }[];
+};

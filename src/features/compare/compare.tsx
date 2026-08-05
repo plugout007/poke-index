@@ -45,6 +45,9 @@ export default function Compare() {
     fetchPokemon();
   }, [name2]);
 
+  console.log(selectedPokemon1);
+  console.log(selectedPokemon2);
+
   return (
     <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", my: "40px", maxWidth: '1024px', mx: "auto" }}>
       {/* Pokemon 1 */}

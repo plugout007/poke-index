@@ -1,22 +1,31 @@
 import {
   Box,
+  Button,
   Card,
   CardContent,
   Chip,
+  LinearProgress,
   Typography,
 } from "@mui/material";
 import { Pokemon } from '../../../../types/pokemon';
 import { typeData } from "../../../../constants/pokemon";
 import { } from './styled';
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   pokemon: Pokemon;
 };
+const MAX_STAT = 255;
 
 /**
  * このコンポーネントはポケモンデータを表示する
  */
 export default function PokemonData({ pokemon }: Props) {
+  const navigate = useNavigate();
+
+  const handleNavigate = (pokemonId: number) => () => {
+    navigate(`/pokemon/${pokemonId}`);
+  };
 
   return (
     <Card sx={{ minWidth: 350, margin: 2, bgcolor: "background.paper" }}>
@@ -78,6 +87,120 @@ export default function PokemonData({ pokemon }: Props) {
         </Box>
         <Box sx={{ mt: "16px" }}>
           <Typography variant="h5">
+            HP
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.hp}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.hp / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
+            こうげき
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.attack}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.attack / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
+            ぼうぎょ
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.defense}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.defense / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
+            とくこう
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.specialAttack}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.specialAttack / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
+            とくぼう
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.specialDefense}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.specialDefense / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
+            すばやさ
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
+            {pokemon.stats.speed}
+          </Typography>
+          <LinearProgress
+            variant="determinate"
+            value={(pokemon.stats.speed / MAX_STAT) * 100}
+            sx={{
+              flex: 1,
+              width: 300,
+              height: 10,
+              borderRadius: 5,
+              mt: "5px",
+            }}
+          />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          <Typography variant="h5">
             たかさ
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: "5px", ml: "16px" }}>
@@ -109,8 +232,22 @@ export default function PokemonData({ pokemon }: Props) {
               ))
             }
         </Box>
-        <Box sx={{ mt: "16px" }}>
-          詳しいデータのボタンを表示する
+        <Box sx={{ display: "flex", justifyContent: "center", mt: "16px" }}>
+          <Button
+            onClick={handleNavigate(pokemon.id)}
+            color="inherit"
+            sx={{
+              borderWidth: 1,
+              bgcolor: '#e20e22',
+              color: '#fff',
+              '&:hover': {
+                bgcolor: '#990918',
+              },
+              px: '16px',
+            }}
+          >
+            詳細を見る
+          </Button>
         </Box>
       </CardContent>
     </Card>
