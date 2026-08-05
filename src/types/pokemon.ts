@@ -1,8 +1,10 @@
+import { typeData } from "../constants/pokemon";
+
 /** Pokemon List Item */
 export type PokemonListItem = {
   id: number;
   name: string;
-  types: string[];
+  types: PokemonTypeName[];
 };
 
 /** Pokemon */
@@ -12,7 +14,7 @@ export type Pokemon = {
   gender: string[];
   height: number;
   weight: number;
-  types: string[];
+  types: PokemonTypeName[];
   abilities: { name: string, flavorText: string, isHidden: boolean }[];
   imageUrl: string;
   shinyImageUrl?: string;
@@ -207,3 +209,5 @@ export type DamageRelations = {
   /** 与えるダメージがない */
   no_damage_to: { name: string, url: string }[];
 };
+
+export type PokemonTypeName = keyof typeof typeData;

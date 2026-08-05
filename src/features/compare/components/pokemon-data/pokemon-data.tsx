@@ -11,6 +11,7 @@ import { Pokemon } from '../../../../types/pokemon';
 import { typeData } from "../../../../constants/pokemon";
 import { } from './styled';
 import { useNavigate } from "react-router-dom";
+import { calcTypeMultiplier } from "../../../../utils/calcTypeMultiplier";
 
 type Props = {
   pokemon: Pokemon;
@@ -26,6 +27,8 @@ export default function PokemonData({ pokemon }: Props) {
   const handleNavigate = (pokemonId: number) => () => {
     navigate(`/pokemon/${pokemonId}`);
   };
+
+  const typeEffectiveness = calcTypeMultiplier(pokemon.types);
 
   return (
     <Card sx={{ minWidth: 350, margin: 2, bgcolor: "background.paper" }}>
@@ -70,7 +73,7 @@ export default function PokemonData({ pokemon }: Props) {
             filter: "drop-shadow(0 12px 16px rgba(0,0,0,0.2))",
           }}
         />
-        <Box sx={{ mt: "5px" }}>
+        <Box sx={{ mt: "16px" }}>
           {pokemon.types.map((type) => (
             <Chip
               key={type}
@@ -198,6 +201,43 @@ export default function PokemonData({ pokemon }: Props) {
               mt: "5px",
             }}
           />
+        </Box>
+        <Box sx={{ mt: "16px" }}>
+          {typeEffectiveness.length > 0 && (
+            <Box>
+              <Typography variant="h5">
+                タイプ相性
+              </Typography>
+              <Box sx={{ mt: "8px", pl: "16px" }}>
+                {typeEffectiveness.map((type) => (
+                  <Box key={type.type} sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    mt: "8px",
+                  }}>
+                    <Chip
+                      label={typeData[type.type as keyof typeof typeData]?.ja || type}
+                      sx={{
+                        backgroundColor:
+                          typeData[type.type as keyof typeof typeData]?.color || "#D3D3D3",
+                        color: "#fff",
+                        fontSize: "12px",
+                        borderRadius: "4px",
+                        width: "96px",
+                        height: "24px",
+                      }}
+                    />
+                    <Typography variant="body1" sx={{
+                      color: type.multiplier > 1 ? "red" : type.multiplier === 0 ? "#999" : "blue",
+                    }}>
+                      ×{type.multiplier}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          )}
         </Box>
         <Box sx={{ mt: "16px" }}>
           <Typography variant="h5">

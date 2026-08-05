@@ -61,7 +61,7 @@ const fetchBatch = async (start: number, end: number) => {
   return Promise.all(promises);
 };
 
-const getPokemonJaNames = async () => {
+const getPokemonTypeRelation = async () => {
   const results: PokemonType[] = [];
   const batchSize = 50;
 
@@ -78,16 +78,36 @@ const getPokemonJaNames = async () => {
 };
 
 const main = async () => {
-  const data = await getPokemonJaNames();
+  const data = await getPokemonTypeRelation();
+
+  const pokemonTypeChart: Record<string, Record<string, number>> = {};
+
+  data.forEach((type) => {
+    const relations: Record<string, number> = {};
+
+    type.damage_relations.double_damage_from.forEach((target) => {
+      relations[target] = 2;
+    });
+
+    type.damage_relations.half_damage_from.forEach((target) => {
+      relations[target] = 0.5;
+    });
+
+    type.damage_relations.no_damage_from.forEach((target) => {
+      relations[target] = 0;
+    });
+
+    pokemonTypeChart[type.name] = relations;
+  })
 
   const outputPath = path.resolve(
     __dirname,
-    "../src/data/pokemonTypeRelation.json"
+    "../src/data/pokemonTypeChart.json"
   );
 
   await fs.writeFile(
     outputPath,
-    JSON.stringify(data, null, 2),
+    JSON.stringify(pokemonTypeChart, null, 2),
     "utf-8"
   );
 

@@ -33,8 +33,6 @@ export default function PokeDetailCard({ pokemon }: Props) {
   const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, pokemon.evolutionEdge);
   const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, pokemon.evolutionEdge) || [];
 
-  console.log(pokemon);
-
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: "background.paper" }}>
       <CardContent>
