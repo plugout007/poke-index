@@ -229,9 +229,9 @@ export default function PokemonData({ pokemon }: Props) {
                       }}
                     />
                     <Typography variant="body1" sx={{
-                      color: type.multiplier > 1 ? "red" : type.multiplier === 0 ? "#999" : "blue",
+                      color: type.multiplier > 1 ? "red" : type.multiplier === 0 ? "#666" : "blue",
                     }}>
-                      ×{type.multiplier}
+                      {type.multiplier === 0 ? "無効" : `×${type.multiplier}`}
                     </Typography>
                   </Box>
                 ))}
