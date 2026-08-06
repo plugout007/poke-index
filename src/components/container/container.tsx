@@ -13,6 +13,13 @@ type Props = {
 export default function Container({ children }: Props) {
   const isSpSize = useIsSpSize();
   return (
-    <Box sx={{ p: isSpSize ? '64px 32px 64px 32px' : '64px 110px 64px 110px' }}>{children}</Box>
+    <Box
+      sx={{
+        px: '64px',
+        py: isSpSize ? '32px' : '64px',
+      }}
+    >
+        {children}
+    </Box>
   );
 }

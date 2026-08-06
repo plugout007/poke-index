@@ -46,9 +46,9 @@ export default function Compare() {
   }, [name2]);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", my: "40px", maxWidth: '1024px', mx: "auto" }}>
+    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", my: "40px", width: '100%', maxWidth: '1024px', mx: "auto" }}>
       {/* Pokemon 1 */}
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display="flex" flexDirection="column" alignItems="center" sx={{width: 'calc(50% - 16px)', minWidth: '350px'}} >
         <Autocomplete
           options={pokemonList}
           filterOptions={(options, state) => {
@@ -75,14 +75,14 @@ export default function Compare() {
             />
           )}
         />
-        <Box sx={{ mt: "16px" }}>
+        <Box sx={{ mt: "16px", width: '100%' }}>
           {selectedPokemon1 && (
             <PokemonData pokemon={selectedPokemon1} />
           )}
         </Box>
       </Box>
       {/* Pokemon 2 */}
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box display="flex" flexDirection="column" alignItems="center" sx={{width: 'calc(50% - 16px)', minWidth: '350px'}} >
         <Autocomplete
           options={pokemonList}
           filterOptions={(options, state) => {
@@ -109,7 +109,7 @@ export default function Compare() {
             />
           )}
         />
-        <Box sx={{ mt: "16px" }}>
+        <Box sx={{ mt: "16px", width: '100%' }}>
           {selectedPokemon2 && (
             <PokemonData pokemon={selectedPokemon2} />
           )}
