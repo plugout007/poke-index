@@ -18,6 +18,11 @@ export default memo(function PokeCard({ pokemon }: Props) {
         width: 220,
         margin: 2,
         bgcolor: "background.paper",
+        transition: "background-color 0.2s ease, box-shadow 0.2s ease",
+        "&:hover": {
+          bgcolor: "#f5f5f5",
+          boxShadow: 3,
+        },
       }}
     >
       <CardContent>

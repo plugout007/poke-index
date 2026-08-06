@@ -15,8 +15,8 @@ export default function Container({ children }: Props) {
   return (
     <Box
       sx={{
-        px: '64px',
-        py: isSpSize ? '32px' : '64px',
+        px: isSpSize ? '32px' : '64px',
+        py: '64px',
       }}
     >
         {children}
