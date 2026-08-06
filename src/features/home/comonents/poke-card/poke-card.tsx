@@ -1,7 +1,7 @@
-import { Box, Card, CardContent, Chip, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 import { memo } from "react";
-import { typeData } from "../../../../constants/pokemon";
 import { PokemonListItem } from "../../../../types/pokemon";
+import PokemonTypes from "../../../../components/pokemon-types";
 
 type Props = {
   pokemon: PokemonListItem;
@@ -40,22 +40,7 @@ export default memo(function PokeCard({ pokemon }: Props) {
           <img src={pokemonImageUrl} alt={pokemon.name} loading="lazy" />
         </Box>
         <Box display="flex" justifyContent="center">
-          {pokemon.types.map((type) => {
-            const typeInfo = typeData[type as keyof typeof typeData];
-
-            return (
-              <Chip
-                key={type}
-                label={typeInfo?.ja ?? type}
-                sx={{
-                  m: 5,
-                  backgroundColor: typeInfo?.color ?? "#D3D3D3",
-                  color: "#fff",
-                  fontWeight: "bold",
-                }}
-              />
-            );
-          })}
+          <PokemonTypes types={pokemon.types} />
         </Box>
       </CardContent>
     </Card>

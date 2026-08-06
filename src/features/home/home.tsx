@@ -8,13 +8,16 @@ import PokeCard from "./comonents/poke-card";
 import pokemonJa from "../../data/pokemonJa.json";
 import { normalizeText } from "../../utils/text";
 import TypeSelector from "./comonents/type-selector";
+import { PokemonListItem, PokemonTypeName } from "../../types/pokemon";
+
+const pokemonJaData = pokemonJa as PokemonListItem[];
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default function Home() {
   const [page, setPage] = useState<number>(1);
   const [search, setSearch] = useState<string>("");
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+  const [selectedTypes, setSelectedTypes] = useState<PokemonTypeName[]>([]);
   const [isOnlySingleType, setIsOnlySingleType] = useState<boolean>(false);
 
   useEffect(() => {
@@ -26,7 +29,7 @@ export default function Home() {
   const start = (page - 1) * initLimit;
   const end = start + initLimit;
 
-  const pokemonList = pokemonJa.map(p =>( {
+  const pokemonList = pokemonJaData.map(p =>( {
     ...p,
     normalizedName: normalizeText(p.name),
   }));

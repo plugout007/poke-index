@@ -4,7 +4,7 @@ import { typeData } from "../constants/pokemon";
 export type PokemonListItem = {
   id: number;
   name: string;
-  types: string[];
+  types: PokemonTypeName[];
 };
 
 /** Pokemon */

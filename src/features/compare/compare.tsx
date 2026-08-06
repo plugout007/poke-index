@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { } from './styled';
-import { Autocomplete, Box, TextField } from '@mui/material';
+import { Autocomplete, Box, TextField, Typography } from '@mui/material';
 import pokemonJa from "../../data/pokemonJa.json";
 import { normalizeText } from '../../utils/text';
 import { Pokemon } from "../../types/pokemon";
@@ -75,9 +75,11 @@ export default function Compare() {
             />
           )}
         />
-        <Box sx={{ mt: "16px", width: '100%' }}>
-          {selectedPokemon1 && (
+        <Box sx={{ mt: "16px", width: '100%', display: 'flex', justifyContent: 'center' }}>
+          {selectedPokemon1 ? (
             <PokemonData pokemon={selectedPokemon1} />
+          ) : (
+            <Typography variant="h5">ポケモンを選択</Typography>
           )}
         </Box>
       </Box>
@@ -109,9 +111,11 @@ export default function Compare() {
             />
           )}
         />
-        <Box sx={{ mt: "16px", width: '100%' }}>
-          {selectedPokemon2 && (
+        <Box sx={{ mt: "16px", width: '100%', display: 'flex', justifyContent: 'center' }}>
+          {selectedPokemon2 ? (
             <PokemonData pokemon={selectedPokemon2} />
+          ) : (
+            <Typography variant="h5">ポケモンを選択</Typography>
           )}
         </Box>
       </Box>

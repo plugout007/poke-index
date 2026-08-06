@@ -8,9 +8,14 @@ const pokemonTypeChartJson =
     Partial<Record<PokemonTypeName, number>>
   >;
 
+type TypeEffectiveness = {
+  type: PokemonTypeName;
+  multiplier: number;
+};
+
 export const calcTypeMultiplier = (
   defenseTypes: PokemonTypeName[],
-) => {
+): TypeEffectiveness[] => {
   const allTypes = Object.keys(typeData) as PokemonTypeName[];
 
   return allTypes

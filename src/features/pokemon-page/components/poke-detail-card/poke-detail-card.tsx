@@ -2,19 +2,20 @@ import {
   Box,
   Card,
   CardContent,
-  Chip,
   Switch,
   Typography,
 } from "@mui/material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import { Link } from "react-router-dom";
 import { Pokemon } from "../../../../types/pokemon";
-import { typeData } from "../../../../constants/pokemon";
 import { useState } from "react";
 import {
   getNextEvolutionPokemonIds,
   getPreviousEvolutionPokemonId,
 } from "../../../../api/pokeApi";
+import PokemonStats from "../../../../components/pokemon-stats";
+import PokemonTypes from "../../../../components/pokemon-types";
+import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
 
 type Props = {
   pokemon: Pokemon;
@@ -89,21 +90,13 @@ export default function PokeDetailCard({ pokemon }: Props) {
           }}
         />
         <Box sx={{ mt: "5px" }}>
-          {pokemon.types.map((type) => (
-            <Chip
-              key={type}
-              label={typeData[type as keyof typeof typeData]?.ja || type}
-              sx={{
-                margin: "5px",
-                backgroundColor:
-                  typeData[type as keyof typeof typeData]?.color || "#D3D3D3",
-                color: "#fff",
-                fontWeight: "bold",
-              }}
-            />
-          ))}
+          <PokemonTypes types={pokemon.types} />
         </Box>
-        <Box sx={{ display: "flex", mt: "16px", columnGap: "16px" }}>
+        <Box sx={{ display: "flex", columnGap: "32px", mt: "16px" }}>
+          <PokemonStats stats={pokemon.stats} />
+          <PokemonTypeEffectiveness types={pokemon.types} />
+        </Box>
+        <Box sx={{ display: "flex", mt: "24px", columnGap: "16px" }}>
           <Box sx={{ width: '50%' }}>
             <Typography variant="h5">
               たかさ
@@ -121,7 +114,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ mt: "16px" }}>
+        <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
               特性
             </Typography>
@@ -138,7 +131,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
               ))
             }
         </Box>
-        <Box sx={{ mt: "16px" }}>
+        <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
               説明
             </Typography>
@@ -147,7 +140,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
             </Typography>
         </Box>
         {prevEvolutionId && (
-          <Box sx={{ mt: "16px" }}>
+          <Box sx={{ mt: "24px" }}>
               <Typography variant="h5">
                 進化前
               </Typography>
@@ -157,7 +150,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
           </Box>
         )}
         {nextEvolutionIds.length > 0 && (
-          <Box sx={{ mt: "16px" }}>
+          <Box sx={{ mt: "24px" }}>
               <Typography variant="h5">
                 進化後
               </Typography>
@@ -169,7 +162,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
             </Box>
         )}
         {pokemon.regions.length > 0 && (
-          <Box sx={{ mt: "16px" }}>
+          <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
               リージョンフォーム
             </Typography>

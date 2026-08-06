@@ -1,10 +1,11 @@
 import { Chip, Stack } from "@mui/material";
 import { typeData } from "../../../../constants/pokemon";
 import type { Dispatch, SetStateAction } from "react";
+import { PokemonTypeName } from "../../../../types/pokemon";
 
 type Props = {
-  selected: string[];
-  setSelected: Dispatch<SetStateAction<string[]>>;
+  selected: PokemonTypeName[];
+  setSelected: Dispatch<SetStateAction<PokemonTypeName[]>>;
   isOnlySingleType: boolean;
 };
 /**
@@ -13,9 +14,12 @@ type Props = {
 
 export default function TypeSelector({ selected, setSelected, isOnlySingleType }: Props) {
   const MAX_SELECT = 2;
-  const types = Object.entries(typeData);
-  const toggle = (key: string) => {
-    setSelected((prev: string[]) => {
+  const types = Object.entries(typeData) as [
+    PokemonTypeName,
+    typeof typeData[PokemonTypeName]
+  ][];
+  const toggle = (key: PokemonTypeName) => {
+    setSelected((prev: PokemonTypeName[]) => {
       // 選択済みなら解除
       if(prev.includes(key)) {
         return prev.filter((t) => t !== key);
