@@ -4,6 +4,7 @@ import CastformForms from '../castform-forms';
 import UnownForms from '../unown-forms';
 import { } from './styled';
 import WormadamForms from "../wormadam-forms";
+import CherrimForms from "../cherrim-forms";
 
 type Props = {
   pokemonId: number;
@@ -27,6 +28,9 @@ export default function PokemonForms({ pokemonId }: Props) {
       break;
     case 413: // ミノマダムのポケモンID
       content = <WormadamForms />;
+      break;
+    case 421: // チェリムのポケモンID
+      content = <CherrimForms />
       break;
     default:
       return null;
