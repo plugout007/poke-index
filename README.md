@@ -57,6 +57,10 @@ https://poke-index-six.vercel.app/
 - ローディング・エラー状態のUI改善
 - パフォーマンス最適化
 
+## 更新情報
+
+### 2026-08-18
+- [アンノーン](https://poke-index-six.vercel.app/pokemon/201)のフォルム情報表示機能を追加
 
 ## GitHub
 

@@ -16,6 +16,7 @@ import {
 import PokemonStats from "../../../../components/pokemon-stats";
 import PokemonTypes from "../../../../components/pokemon-types";
 import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
+import UnownForms from "../unown-forms";
 
 type Props = {
   pokemon: Pokemon;
@@ -119,8 +120,8 @@ export default function PokeDetailCard({ pokemon }: Props) {
               特性
             </Typography>
             {pokemon.abilities
-              .map((ability) =>(
-                <Box sx={{ mt: "8px", ml: "16px" }}>
+              .map((ability, id) =>(
+                <Box key={id} sx={{ mt: "8px", ml: "16px" }}>
                   <Typography variant="h6">
                     {ability.isHidden ? `${ability.name}(隠れ)` : ability.name}
                   </Typography>
@@ -139,6 +140,12 @@ export default function PokeDetailCard({ pokemon }: Props) {
               {pokemon.flavorText}
             </Typography>
         </Box>
+        {/* アンノーンのフォルム情報 */}
+        {pokemon.id === 201 && (
+          <Box sx={{ mt: "24px" }}>
+            <UnownForms />
+          </Box>
+        )}
         {prevEvolutionId && (
           <Box sx={{ mt: "24px" }}>
               <Typography variant="h5">
