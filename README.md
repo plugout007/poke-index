@@ -62,6 +62,7 @@ https://poke-index-six.vercel.app/
 ### 2026-08-18
 - [アンノーン](https://poke-index-six.vercel.app/pokemon/201)のフォルム情報表示機能を追加
 - [ポワルン](https://poke-index-six.vercel.app/pokemon/351)のフォルム情報表示機能を追加
+- [ミノムッチ](https://poke-index-six.vercel.app/pokemon/412)のフォルム情報表示機能を追加
 
 ## GitHub
 
