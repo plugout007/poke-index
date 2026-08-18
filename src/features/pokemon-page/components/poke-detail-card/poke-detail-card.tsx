@@ -17,6 +17,7 @@ import PokemonStats from "../../../../components/pokemon-stats";
 import PokemonTypes from "../../../../components/pokemon-types";
 import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
 import UnownForms from "../unown-forms";
+import CastformForms from "../castform-forms";
 
 type Props = {
   pokemon: Pokemon;
@@ -144,6 +145,12 @@ export default function PokeDetailCard({ pokemon }: Props) {
         {pokemon.id === 201 && (
           <Box sx={{ mt: "24px" }}>
             <UnownForms />
+          </Box>
+        )}
+        {/* ポワルンのフォルム情報 */}
+        {pokemon.id === 351 && (
+          <Box sx={{ mt: "24px" }}>
+            <CastformForms />
           </Box>
         )}
         {prevEvolutionId && (
