@@ -6,6 +6,7 @@ import WormadamForms from "../wormadam-forms";
 import CherrimForms from "../cherrim-forms";
 import DeoxysForms from "../deoxys-forms";
 import ShellosForms from "../shellos-forms";
+import GastrodonForms from "../gastrodon-forms";
 
 type Props = {
   pokemonId: number;
@@ -38,6 +39,9 @@ export default function PokemonForms({ pokemonId }: Props) {
       break;
     case 422: // カラナクシのポケモンID
       content = <ShellosForms />
+      break;
+    case 423: // トリトドンのポケモンID
+      content = <GastrodonForms />
       break;
     default:
       return null;

@@ -68,7 +68,8 @@ https://poke-index-six.vercel.app/
 
 ### 2026-08-18
 - [デオキシス](https://poke-index-six.vercel.app/pokemon/386)のフォルム情報表示機能を追加
-
+- [カラナクシ](https://poke-index-six.vercel.app/pokemon/422)のフォルム情報表示機能を追加
+- [トリトドン](https://poke-index-six.vercel.app/pokemon/423)のフォルム情報表示機能を追加
 
 ## GitHub
 
