@@ -66,6 +66,10 @@ https://poke-index-six.vercel.app/
 - [ミノマダム](https://poke-index-six.vercel.app/pokemon/413)のフォルム情報表示機能を追加
 - [チェリム](https://poke-index-six.vercel.app/pokemon/421)のフォルム情報表示機能を追加
 
+### 2026-08-18
+- [デオキシス](https://poke-index-six.vercel.app/pokemon/386)のフォルム情報表示機能を追加
+
+
 ## GitHub
 
 https://github.com/plugout007/poke-index

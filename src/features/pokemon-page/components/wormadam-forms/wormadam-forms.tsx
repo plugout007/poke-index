@@ -22,7 +22,7 @@ export default function WormadamForms() {
       name: "wormadam-wormadam-trash",
       formNameJa: "ゴミのミノ",
     },
-  ]
+  ];
   return (
     <>
       <Typography variant="h5">
