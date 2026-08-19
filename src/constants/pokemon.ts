@@ -45,5 +45,13 @@ export const excludedPatterns = [
   /-zen/,          // No.555 ヒヒダルマのダルマモード
 ];
 
+/** メガシンカパターン */
+export const megaEvolutionPatterns = [
+  /-mega/,
+  /-mega-x/,
+  /-mega-y/,
+  /-mega-z/,
+];
+
 /** 現在のポケモンの種類の総数 */
 export const POKE_INDEX_ID_MAX = 1025;

@@ -178,6 +178,21 @@ export default function PokeDetailCard({ pokemon }: Props) {
             ))}
           </Box>
         )}
+        {pokemon.megaPokemons.length > 0 && (
+          <Box sx={{ mt: "24px" }}>
+            <Typography variant="h5">
+              メガシンカ
+            </Typography>
+            {pokemon.megaPokemons.map((megaPokemon, i) => (
+              <Box key={i} sx={{ mt: "5px" }}>
+                <Typography variant="body2" color="text.secondary">
+                  {megaPokemon.type}
+                </Typography>
+                <img src={pokemonImageUrl(megaPokemon.baseFormId)} />
+              </Box>
+            ))}
+          </Box>
+        )}
       </CardContent>
     </Card>
   );

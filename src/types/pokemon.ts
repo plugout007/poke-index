@@ -22,6 +22,7 @@ export type Pokemon = {
   flavorText: string;
   evolutionEdge: PokemonEvolutionEdge[];
   regions: PokemonRegion[];
+  megaPokemons: MegaPokemon[];
   stats: {
     hp: number;
     attack: number;
@@ -189,6 +190,11 @@ export type ChainLink = {
 
 export type PokemonRegion = {
   region: string;
+  baseFormId: number;
+}
+
+export type MegaPokemon = {
+  type: string;
   baseFormId: number;
 }
 

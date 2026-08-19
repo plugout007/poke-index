@@ -8,6 +8,7 @@ import {
   PokemonEvolutionEdge,
   PokemonRegion,
   PokemonVariety,
+  MegaPokemon,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
@@ -142,6 +143,31 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
     }
   }
   return regions;
+};
+
+/**
+ * メガシンカの有無の確認
+ */
+const getMegaPokemons = (varieties: PokemonVariety[]) => {
+  const megaPokemon: MegaPokemon[] = [];
+
+  for (const variety of varieties) {
+    const pokemonName = variety.pokemon.name;
+    const baseFormId = extractIdFromUrl(variety.pokemon.url);
+
+    if (pokemonName.includes("-mega")) {
+      const megaType = pokemonName.split("-mega")[1];
+
+      megaPokemon.push({
+        type: megaType
+          ? megaType.replace("-", "").toUpperCase()
+          : "",
+        baseFormId,
+      });
+    }
+  }
+
+  return megaPokemon;
 };
 
 
@@ -335,6 +361,9 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
 
   // リージョンフォーム
   const pokemonRegions = getPokemonRegions(species.varieties);
+  // メガシンカ
+  const megaPokemons = getMegaPokemons(species.varieties);
+
   return {
     id: pokemonId,
     name: pokemonNameJa || "データが存在しません",
@@ -350,5 +379,6 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     flavorText: pokemonFlavorTextJa || "データが存在しません",
     evolutionEdge: pokemonEvolutionEdge,
     regions: pokemonRegions,
+    megaPokemons: megaPokemons,
   };
 };
