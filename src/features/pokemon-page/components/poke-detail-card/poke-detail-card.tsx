@@ -30,7 +30,11 @@ export default function PokeDetailCard({ pokemon }: Props) {
   const imageUrl =
     isShiny && pokemon.shinyImageUrl ? pokemon.shinyImageUrl : pokemon.imageUrl;
 
-  const pokemonImageUrl = (id: number) => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+  const pokemonImageUrl = (id: number) => {
+    // メガジガルデの画像が取得できないのでポケモンホームの画像を取得する
+    if(id === 10301 ) return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10301.png"
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+  };
 
   const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, pokemon.evolutionEdge);
   const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, pokemon.evolutionEdge) || [];
@@ -188,7 +192,12 @@ export default function PokeDetailCard({ pokemon }: Props) {
                 <Typography variant="body2" color="text.secondary">
                   {megaPokemon.type}
                 </Typography>
-                <img src={pokemonImageUrl(megaPokemon.baseFormId)} />
+                <Box
+                  component='img'
+                  src={pokemonImageUrl(megaPokemon.baseFormId)}
+                  alt={megaPokemon.type}
+                  sx={{ width: '96px', height: '96px', objectFit: "contain"}}
+                />
               </Box>
             ))}
           </Box>

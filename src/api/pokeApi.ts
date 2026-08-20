@@ -8,7 +8,6 @@ import {
   PokemonEvolutionEdge,
   PokemonRegion,
   PokemonVariety,
-  MegaPokemon,
   PokemonFormResponse,
   PokemonFormLang,
 } from "../types/pokemon";
@@ -150,26 +149,31 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
 /**
  * メガシンカの有無の確認
  */
-const getMegaPokemons = (varieties: PokemonVariety[]) => {
-  const megaPokemon: MegaPokemon[] = [];
+const getMegaPokemons = async (varieties: PokemonVariety[], id: number) => {
+  if(varieties.length <= 1) return [];
+  const megaVarieties = varieties.filter((variety) =>
+    variety.pokemon.name.includes("-mega")
+  );
 
-  for (const variety of varieties) {
-    const pokemonName = variety.pokemon.name;
-    const baseFormId = extractIdFromUrl(variety.pokemon.url);
+  const megaPokemons = await Promise.all(
+    megaVarieties.map(async (variety) => {
+      const response = await axios.get(variety.pokemon.url);
+      const formResponse = await axios.get(response.data.forms[0].url);
 
-    if (pokemonName.includes("-mega")) {
-      const megaType = pokemonName.split("-mega")[1];
+      const formNameJa = formResponse.data.form_names.find(
+        (formName: PokemonFormLang) => formName.language.name === 'ja'
+      );
+      return {
+        type: formNameJa?.name,
+        baseFormId: extractIdFromUrl(variety.pokemon.url),
+      }
+    })
+  );
 
-      megaPokemon.push({
-        type: megaType
-          ? megaType.replace("-", "").toUpperCase()
-          : "",
-        baseFormId,
-      });
-    }
-  }
+  // メガニャオニクスの例外処理。同じ画像が取得されるため最後のを削除
+  if (id === 678) megaPokemons.splice(1, 1);
 
-  return megaPokemon;
+  return megaPokemons;
 };
 
 /** フォルム違いの取得（ステータスなど変化無し） */
@@ -394,7 +398,8 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   // リージョンフォーム
   const pokemonRegions = getPokemonRegions(species.varieties);
   // メガシンカ
-  const megaPokemons = getMegaPokemons(species.varieties);
+  const megaPokemons = await getMegaPokemons(species.varieties, pokemonId);
+  console.log(megaPokemons);
   // フォルム違い（ステータスなど変化無し）
   const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
 
