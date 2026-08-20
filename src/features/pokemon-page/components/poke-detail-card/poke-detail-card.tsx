@@ -193,6 +193,23 @@ export default function PokeDetailCard({ pokemon }: Props) {
             ))}
           </Box>
         )}
+        {pokemon.formPokemons.length > 0 && (
+          <Box sx={{ mt: "24px" }}>
+            <Typography variant="h5">
+              {`${pokemon.name}のフォルム情報`}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 8, mt: '8px'}}>
+              {pokemon.formPokemons.map((formPokemon, i) => (
+                <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '150px' }}>
+                  <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
+                    {formPokemon.name}
+                  </Typography>
+                  <img src={formPokemon.imageUrl} />
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
       </CardContent>
     </Card>
   );

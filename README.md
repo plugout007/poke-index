@@ -56,6 +56,10 @@ https://poke-index-six.vercel.app/
     - リージョンフォームの画像からリンクを貼っていない
 - ローディング・エラー状態のUI改善
 - パフォーマンス最適化
+- 詳細画面でメガシンカの画像が複数表示されることがある不具合を確認
+  - ニャオニクス
+  - マギアナ
+  - シャリタツ
 
 ## 更新情報
 
@@ -66,11 +70,14 @@ https://poke-index-six.vercel.app/
 - [ミノマダム](https://poke-index-six.vercel.app/pokemon/413)のフォルム情報表示機能を追加
 - [チェリム](https://poke-index-six.vercel.app/pokemon/421)のフォルム情報表示機能を追加
 
-### 2026-08-18
+### 2026-08-19
 - [デオキシス](https://poke-index-six.vercel.app/pokemon/386)のフォルム情報表示機能を追加
 - [カラナクシ](https://poke-index-six.vercel.app/pokemon/422)のフォルム情報表示機能を追加
 - [トリトドン](https://poke-index-six.vercel.app/pokemon/423)のフォルム情報表示機能を追加
 - メガシンカの情報表示機能を追加
+
+### 2026-08-20
+- フォルム違いの情報を取得（ステータスに変化の無いポケモンを対象）
 
 ## GitHub
 

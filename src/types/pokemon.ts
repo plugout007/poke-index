@@ -23,6 +23,7 @@ export type Pokemon = {
   evolutionEdge: PokemonEvolutionEdge[];
   regions: PokemonRegion[];
   megaPokemons: MegaPokemon[];
+  formPokemons: FormPokemon[];
   stats: {
     hp: number;
     attack: number;
@@ -196,6 +197,24 @@ export type PokemonRegion = {
 export type MegaPokemon = {
   type: string;
   baseFormId: number;
+}
+
+export type FormPokemon = {
+  name: string;
+  imageUrl: string;
+}
+
+export type PokemonFormResponse = {
+  name: string;
+  url: string;
+}
+
+export type PokemonFormLang = {
+  language : {
+    name: string;
+    url: string;
+  };
+  name: string;
 }
 
 export type Gender = "male" | "female" | "unknown";

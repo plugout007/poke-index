@@ -9,6 +9,8 @@ import {
   PokemonRegion,
   PokemonVariety,
   MegaPokemon,
+  PokemonFormResponse,
+  PokemonFormLang,
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
@@ -168,6 +170,36 @@ const getMegaPokemons = (varieties: PokemonVariety[]) => {
   }
 
   return megaPokemon;
+};
+
+/** フォルム違いの取得（ステータスなど変化無し） */
+const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
+  const femaleId = [592, 593, 668];  // 592: プルリル 593: ブルンゲル 668: カエンジシ
+  if(forms.length <= 1) return [];
+  const pokemonForms = await Promise.all(
+    forms.map(async (form) => {
+      const response = await axios.get(form.url);
+      
+      const formNameJa = response.data.form_names.find(
+        (formName: PokemonFormLang) => formName.language.name === 'ja'
+      );
+      
+      let imageUrl = '';
+      if(femaleId.includes(id) && form.name.includes('female')) {
+        imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/female/${id}.png`
+      } else if (response.data.sprites.front_default) {
+        imageUrl = response.data.sprites.front_default
+      } else {
+        imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+      }
+
+      return {
+        name: formNameJa?.name,
+        imageUrl: imageUrl,
+      };
+    })
+  );
+  return pokemonForms;
 };
 
 
@@ -363,6 +395,8 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonRegions = getPokemonRegions(species.varieties);
   // メガシンカ
   const megaPokemons = getMegaPokemons(species.varieties);
+  // フォルム違い（ステータスなど変化無し）
+  const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
 
   return {
     id: pokemonId,
@@ -380,5 +414,6 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     evolutionEdge: pokemonEvolutionEdge,
     regions: pokemonRegions,
     megaPokemons: megaPokemons,
+    formPokemons: formPokemons
   };
 };
