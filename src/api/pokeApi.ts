@@ -13,7 +13,7 @@ import {
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
-import { excludedPatterns, regionData } from "../constants/pokemon";
+import { excludedPatterns, excludedPatternsWithCap, regionData, regionPatterns } from "../constants/pokemon";
 
 /**
  * PokeAPI の進化チェーン(木構造)を
@@ -131,7 +131,7 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
       const hasRegion = pokemonName.includes(`-${regionKey}`);
 
       // リージョン除外パターン確認
-      const isExcluded = excludedPatterns.some((pattern) =>
+      const isExcluded = excludedPatternsWithCap.some((pattern) =>
         pattern.test(pokemonName)
       );
 
@@ -204,6 +204,47 @@ const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
     })
   );
   return pokemonForms;
+};
+/** バラエティ違いの取得（ステータスなど変化有） */
+const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
+  if(varieties.length <= 1) return [];
+  const pokemonVarietiesResponse = await Promise.all(
+    varieties
+      .filter((variety) => !variety.is_default)
+      .map(async (variety) => {
+        const response = await axios.get(variety.pokemon.url);
+        const formResponse = await axios.get(response.data.forms[0].url);
+        
+        const formNameJa = formResponse.data.form_names.find(
+          (formName: PokemonFormLang) => formName.language.name === 'ja'
+        );
+        
+        const imageUrl = response.data.sprites.front_default;
+
+        return {
+          name: formResponse.data.name,
+          nameJa: formNameJa?.name,
+          imageUrl: imageUrl,
+        };
+      })
+  );
+  const pokemonVarieties = [];
+  for (const response of pokemonVarietiesResponse) {
+    if (!response) continue; // undefinedをスキップ
+    const hasRegion = regionPatterns.some((pattern) =>
+      pattern.test(response.name)
+    );
+    const isExcluded = excludedPatterns.some((pattern) =>
+      pattern.test(response.name)
+    );
+    if (!hasRegion && !isExcluded && response.imageUrl) {
+      pokemonVarieties.push({
+        name: response.nameJa,
+        imageUrl: response.imageUrl,
+      });
+    }
+  }
+  return pokemonVarieties;
 };
 
 
@@ -399,9 +440,10 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonRegions = getPokemonRegions(species.varieties);
   // メガシンカ
   const megaPokemons = await getMegaPokemons(species.varieties, pokemonId);
-  console.log(megaPokemons);
   // フォルム違い（ステータスなど変化無し）
   const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
+  // バラエティ違い（ステータスなど変化有）
+  const varietyPokemons = await getPokemonVarieties(species.varieties);
 
   return {
     id: pokemonId,
@@ -419,6 +461,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     evolutionEdge: pokemonEvolutionEdge,
     regions: pokemonRegions,
     megaPokemons: megaPokemons,
-    formPokemons: formPokemons
+    formPokemons: formPokemons,
+    varietyPokemons: varietyPokemons
   };
 };

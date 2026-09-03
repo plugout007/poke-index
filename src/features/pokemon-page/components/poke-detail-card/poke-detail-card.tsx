@@ -16,7 +16,7 @@ import {
 import PokemonStats from "../../../../components/pokemon-stats";
 import PokemonTypes from "../../../../components/pokemon-types";
 import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
-import PokemonForms from "../pokemon-forms";
+// import PokemonForms from "../pokemon-forms";
 
 type Props = {
   pokemon: Pokemon;
@@ -166,7 +166,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
               ))}
             </Box>
         )}
-        <PokemonForms pokemonId={pokemon.id} />
+        {/* <PokemonForms pokemonId={pokemon.id} /> */}
         {pokemon.regions.length > 0 && (
           <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
@@ -214,6 +214,23 @@ export default function PokeDetailCard({ pokemon }: Props) {
                     {formPokemon.name}
                   </Typography>
                   <img src={formPokemon.imageUrl} />
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
+        {pokemon.varietyPokemons.length > 0 && (
+          <Box sx={{ mt: "24px" }}>
+            <Typography variant="h5">
+              {`${pokemon.name}のフォルム情報`}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 8, mt: '8px'}}>
+              {pokemon.varietyPokemons.map((varietyPokemon, i) => (
+                <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '150px' }}>
+                  <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
+                    {varietyPokemon.name || pokemon.name}
+                  </Typography>
+                  <img src={varietyPokemon.imageUrl} />
                 </Box>
               ))}
             </Box>

@@ -24,6 +24,7 @@ export type Pokemon = {
   regions: PokemonRegion[];
   megaPokemons: MegaPokemon[];
   formPokemons: FormPokemon[];
+  varietyPokemons: VarietyPokemon[];
   stats: {
     hp: number;
     attack: number;
@@ -200,6 +201,11 @@ export type MegaPokemon = {
 }
 
 export type FormPokemon = {
+  name: string;
+  imageUrl: string;
+}
+
+export type VarietyPokemon = {
   name: string;
   imageUrl: string;
 }

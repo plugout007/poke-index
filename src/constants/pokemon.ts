@@ -29,21 +29,25 @@ export const regionData = {
 } as const;
 
 /** リージョンパターン */
-export const regionPatterns = {
-  alola: /-alola$/,
-  galar: /-galar-/,
-  hisui: /-hisui$/,
-  paldea: /-paldea-/,
-} as const;
+export const regionPatterns = [
+  /-alola$/,
+  /-galar/,
+  /-hisui$/,
+  /-paldea/,
+] as const;
 
 /** 除外パターン */
 export const excludedPatterns = [
   /-mega/,         // メガシンカ
   /-gmax/,         // 巨大マックス
   /-totem-/,       // ヌシポケモン
-  /-cap$/,         // No.25 ピカチュウのキャップ着用
   /-zen/,          // No.555 ヒヒダルマのダルマモード
 ];
+
+export const excludedPatternsWithCap = [
+  ...excludedPatterns,
+  /-cap$/,         // No.25 ピカチュウのキャップ着用
+]
 
 /** メガシンカパターン */
 export const megaEvolutionPatterns = [
