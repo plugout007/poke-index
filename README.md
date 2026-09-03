@@ -79,6 +79,9 @@ https://poke-index-six.vercel.app/
 ### 2026-08-20
 - フォルム違いの情報を取得（ステータスに変化の無いポケモンを対象）
 
+### 2026-09-03
+- バージョン違いの情報を取得（ステータスが変化するポケモンを対象）
+
 ## GitHub
 
 https://github.com/plugout007/poke-index
