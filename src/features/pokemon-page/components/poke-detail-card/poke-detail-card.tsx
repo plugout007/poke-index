@@ -16,7 +16,6 @@ import {
 import PokemonStats from "../../../../components/pokemon-stats";
 import PokemonTypes from "../../../../components/pokemon-types";
 import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
-// import PokemonForms from "../pokemon-forms";
 
 type Props = {
   pokemon: Pokemon;
@@ -166,7 +165,6 @@ export default function PokeDetailCard({ pokemon }: Props) {
               ))}
             </Box>
         )}
-        {/* <PokemonForms pokemonId={pokemon.id} /> */}
         {pokemon.regions.length > 0 && (
           <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
