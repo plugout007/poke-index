@@ -10,6 +10,7 @@ export type PokemonListItem = {
 /** Pokemon */
 export type Pokemon = {
   id: number;
+  baseFormId: number;
   name: string;
   gender: string[];
   height: number;
@@ -174,6 +175,7 @@ export type PokemonEvolutionEdge = {
   fromId: number;
   toId: number;
   baseFormId: number;
+  evolvedFormId: number;
 }
 
 export type ChainLink = {
@@ -184,6 +186,10 @@ export type ChainLink = {
   evolves_to: ChainLink[];
   evolution_details: {
     base_form: {
+      name: string;
+      url: string;
+    } | null;
+    evolved_form: {
       name: string;
       url: string;
     } | null;

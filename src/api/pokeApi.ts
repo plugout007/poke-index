@@ -13,7 +13,7 @@ import {
 } from "../types/pokemon";
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
-import { excludedPatterns, excludedPatternsWithCap, regionData, regionPatterns } from "../constants/pokemon";
+import { excludedPatterns, excludedPatternsWithCap, POKE_INDEX_ID_MAX, regionData, regionPatterns } from "../constants/pokemon";
 
 /**
  * PokeAPI の進化チェーン(木構造)を
@@ -52,15 +52,17 @@ export const convertEvolutionChainToEdges = (
       );
 
       // 進化条件
-      const detail = next.evolution_details[0];
-
-      // edge形式へ変換
-      edges.push({
-        fromId: fromId,
-        toId: toId,
-        baseFormId: detail.base_form?.url ? extractIdFromUrl(detail.base_form.url)
-          : fromId,
-      });
+      for (const detail of next.evolution_details) {
+        // edge形式へ変換
+        edges.push({
+          fromId: fromId,
+          toId: toId,
+          baseFormId: detail.base_form?.url ? extractIdFromUrl(detail.base_form.url)
+            : fromId,
+          evolvedFormId: detail.evolved_form?.url ? extractIdFromUrl(detail.evolved_form.url)
+            : toId,
+        });
+      }
 
       // さらに次の進化先を探索
       walk(next);
@@ -77,14 +79,11 @@ export const convertEvolutionChainToEdges = (
  * 指定したポケモンの進化前IDを取得する
  */
 export const getPreviousEvolutionPokemonId =  (id: number, edges: PokemonEvolutionEdge[]) => {
-  // 現在のポケモンが進化先(toId)にあるエッジを探す
-  const edge = edges.find((e) => e.toId === id);
+  // 現在のポケモンが進化先にあるエッジを探す
+  const edge = edges.find((e) => e.evolvedFormId === id);
   if (!edge) return null;
-  // TODO: リージョンフォーム用ページを作る前の暫定処理。画像はリージョンだがリンクは原種
-  return {
-    linkId: edge.fromId,
-    imageId: edge.fromId === edge.baseFormId ? edge.fromId : edge.baseFormId,
-  };
+
+  return edge.baseFormId;
 }
 
 /**
@@ -99,15 +98,14 @@ export const getNextEvolutionPokemonIds = (
   edges: PokemonEvolutionEdge[]
 ): number[] => {
 
-  // 現在のポケモンが進化元にある edge を探す
-  const nextEdges = edges.filter(
-    (e) => e.fromId === id && e.fromId === e.baseFormId
-  );
-
   // 進化先ID一覧を返す
-  return nextEdges.map(
-    (edge) => edge.toId
-  );
+  return [
+    ...new Set(
+      edges
+        .filter((e) => id === e.baseFormId)
+        .map((e) => e.evolvedFormId)
+    ),
+  ];
 };
 
 /**
@@ -118,13 +116,13 @@ export const getNextEvolutionPokemonIds = (
  */
 const getPokemonRegions = (varieties: PokemonVariety[]) => {
   const regions: PokemonRegion[] = [];
-
+  
   // 配列データのpokemon.nameにリージョンフォームのサフィックスが含まれているか確認
-
+  
   for (const variety of varieties) {
     const pokemonName = variety.pokemon.name;
     const baseFormId = extractIdFromUrl(variety.pokemon.url);
-
+    
     for (const regionKey of Object.keys(regionData) as (keyof typeof regionData)[]) {
 
       // リージョン確認
@@ -143,6 +141,14 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
       }
     }
   }
+  // NOTE: リージョンフォームがある場合、原種の情報も先頭に追加する
+  if(regions.length > 0) {
+    const hasDefault = varieties.find((variety) => variety.is_default);
+    regions.unshift({
+      region: "原種",
+      baseFormId: extractIdFromUrl(hasDefault?.pokemon.url || ""),
+    });
+  }
   return regions;
 };
 
@@ -151,6 +157,8 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
  */
 const getMegaPokemons = async (varieties: PokemonVariety[], id: number) => {
   if(varieties.length <= 1) return [];
+  // NOTE: 2026/09 原種のみメガシンカする
+  if(id > POKE_INDEX_ID_MAX) return [];
   const megaVarieties = varieties.filter((variety) =>
     variety.pokemon.name.includes("-mega")
   );
@@ -206,11 +214,12 @@ const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
   return pokemonForms;
 };
 /** バラエティ違いの取得（ステータスなど変化有） */
+// BUG: 
 const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
+  console.log("varieties", varieties);
   if(varieties.length <= 1) return [];
   const pokemonVarietiesResponse = await Promise.all(
     varieties
-      .filter((variety) => !variety.is_default)
       .map(async (variety) => {
         const response = await axios.get(variety.pokemon.url);
         const formResponse = await axios.get(response.data.forms[0].url);
@@ -231,6 +240,7 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
   const pokemonVarieties = [];
   for (const response of pokemonVarietiesResponse) {
     if (!response) continue; // undefinedをスキップ
+    if (!response.nameJa) continue; // undefinedをスキップ
     const hasRegion = regionPatterns.some((pattern) =>
       pattern.test(response.name)
     );
@@ -439,7 +449,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   // リージョンフォーム
   const pokemonRegions = getPokemonRegions(species.varieties);
   // メガシンカ
-  const megaPokemons = await getMegaPokemons(species.varieties, pokemonId);
+  const megaPokemons = await getMegaPokemons(species.varieties, id);
   // フォルム違い（ステータスなど変化無し）
   const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
   // バラエティ違い（ステータスなど変化有）
@@ -447,6 +457,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
 
   return {
     id: pokemonId,
+    baseFormId: id,
     name: pokemonNameJa || "データが存在しません",
     gender: pokemonGender,
     height: pokemonHeight,

@@ -35,8 +35,8 @@ export default function PokeDetailCard({ pokemon }: Props) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   };
 
-  const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.id, pokemon.evolutionEdge);
-  const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.id, pokemon.evolutionEdge) || [];
+  const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.baseFormId, pokemon.evolutionEdge);
+  const nextEvolutionIds = getNextEvolutionPokemonIds(pokemon.baseFormId, pokemon.evolutionEdge) || [];
 
   return (
     <Card sx={{ maxWidth: 768, margin: 2, bgcolor: "background.paper" }}>
@@ -148,8 +148,8 @@ export default function PokeDetailCard({ pokemon }: Props) {
               <Typography variant="h5">
                 進化前
               </Typography>
-              <Link to={`/pokemon/${prevEvolutionId.linkId}`} style={{ textDecoration: "none" }}>
-                <img  src={pokemonImageUrl(prevEvolutionId.imageId)} />
+              <Link to={`/pokemon/${prevEvolutionId}`} style={{ textDecoration: "none" }}>
+                <img  src={pokemonImageUrl(prevEvolutionId)} />
               </Link>
           </Box>
         )}
@@ -171,12 +171,14 @@ export default function PokeDetailCard({ pokemon }: Props) {
               リージョンフォーム
             </Typography>
             {pokemon.regions.map((region, i) => (
-              <Box key={i} sx={{ mt: "5px" }}>
-                <Typography variant="body2" color="text.secondary">
-                  {region.region}
-                </Typography>
-                <img src={pokemonImageUrl(region.baseFormId)} />
-              </Box>
+              region.baseFormId !== pokemon.baseFormId && (<Box key={i} sx={{ mt: "5px" }}>
+                <Link to={`/pokemon/${region.baseFormId}`} style={{ textDecoration: "none" }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {region.region}
+                  </Typography>
+                  <img src={pokemonImageUrl(region.baseFormId)} />
+                </Link>
+              </Box>)
             ))}
           </Box>
         )}

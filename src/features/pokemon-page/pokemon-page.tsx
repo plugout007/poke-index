@@ -20,7 +20,7 @@ export default function PokemonPage() {
   const id = pokemonId ? Number(pokemonId) : null;
 
   const isInvalid =
-    id === null || !Number.isInteger(id) || id <= 0 || id > POKE_INDEX_ID_MAX;
+    id === null || !Number.isInteger(id) || id <= 0;
 
   useEffect(() => {
     if (id === null) return;
