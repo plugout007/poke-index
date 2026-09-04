@@ -216,7 +216,6 @@ const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
 /** バラエティ違いの取得（ステータスなど変化有） */
 // BUG: 
 const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
-  console.log("varieties", varieties);
   if(varieties.length <= 1) return [];
   const pokemonVarietiesResponse = await Promise.all(
     varieties
