@@ -99,7 +99,7 @@ export default function PokemonData({ pokemon }: Props) {
             </Typography>
             {pokemon.abilities
               .map((ability) =>(
-                <Box sx={{ mt: "8px", ml: "16px" }}>
+                <Box sx={{ mt: "8px", ml: "16px" }} key={ability.name}>
                   <Typography variant="h6">
                     {ability.isHidden ? `${ability.name}(隠れ)` : ability.name}
                   </Typography>
