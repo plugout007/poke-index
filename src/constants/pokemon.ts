@@ -39,6 +39,7 @@ export const regionPatterns = [
 /** 除外パターン */
 export const excludedPatterns = [
   /-mega/,         // メガシンカ
+  /-primal/,       // ゲンシカイキ
   /-gmax/,         // 巨大マックス
   /-totem-/,       // ヌシポケモン
   /-zen/,          // No.555 ヒヒダルマのダルマモード
@@ -55,6 +56,7 @@ export const megaEvolutionPatterns = [
   /-mega-x/,
   /-mega-y/,
   /-mega-z/,
+  /-primal/,
 ];
 
 /** 現在のポケモンの種類の総数 */

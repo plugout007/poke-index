@@ -160,7 +160,8 @@ const getMegaPokemons = async (varieties: PokemonVariety[], id: number) => {
   // NOTE: 2026/09 原種のみメガシンカする
   if(id > POKE_INDEX_ID_MAX) return [];
   const megaVarieties = varieties.filter((variety) =>
-    variety.pokemon.name.includes("-mega")
+    variety.pokemon.name.includes("-mega") ||
+    variety.pokemon.name.includes("-primal")
   );
 
   const megaPokemons = await Promise.all(
@@ -187,7 +188,9 @@ const getMegaPokemons = async (varieties: PokemonVariety[], id: number) => {
 /** フォルム違いの取得（ステータスなど変化無し） */
 const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
   const femaleId = [592, 593, 668];  // 592: プルリル 593: ブルンゲル 668: カエンジシ
+  const mothimId = 414; // 414: ガーメイル
   if(forms.length <= 1) return [];
+  if(id === mothimId) return []; // ガーメイルはフォルム違い無し
   const pokemonForms = await Promise.all(
     forms.map(async (form) => {
       const response = await axios.get(form.url);
@@ -214,7 +217,6 @@ const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
   return pokemonForms;
 };
 /** バラエティ違いの取得（ステータスなど変化有） */
-// BUG: 
 const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
   if(varieties.length <= 1) return [];
   const pokemonVarietiesResponse = await Promise.all(
@@ -230,6 +232,7 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
         const imageUrl = response.data.sprites.front_default;
 
         return {
+          baseFormId: response.data.id,
           name: formResponse.data.name,
           nameJa: formNameJa?.name,
           imageUrl: imageUrl,
@@ -240,6 +243,18 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
   for (const response of pokemonVarietiesResponse) {
     if (!response) continue; // undefinedをスキップ
     if (!response.nameJa) continue; // undefinedをスキップ
+    // グラードン・カイオーガはゲンシカイキを表示するため通常形態を除外
+    if (response.name === "kyogre" || response.name === "groudon") continue;
+    // あかいはなフラエッテは別処理
+    if (response.name === "floette-red") {
+      pokemonVarieties.push({
+        baseFormId: response.baseFormId,
+        name: 'フラエッテ',
+        imageUrl: response.imageUrl,
+        baseVarietyId: extractIdFromUrl(response.imageUrl),
+      });
+      continue;
+    };
     const hasRegion = regionPatterns.some((pattern) =>
       pattern.test(response.name)
     );
@@ -248,8 +263,10 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
     );
     if (!hasRegion && !isExcluded && response.imageUrl) {
       pokemonVarieties.push({
+        baseFormId: response.baseFormId,
         name: response.nameJa,
         imageUrl: response.imageUrl,
+        baseVarietyId: extractIdFromUrl(response.imageUrl),
       });
     }
   }
@@ -391,6 +408,15 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   
   const { name: pokemonNameJa, genus: pokemonGeneraJa, flavor: pokemonFlavorTextJa } = extractJa(species);
 
+  // ポケモンの表示名
+  const formResponse = await axios.get(pokemon.forms[0].url);
+  const formNameJa = formResponse.data.form_names.find(
+    (formName: PokemonFormLang) =>
+      formName.language.name === 'ja'
+  );
+  const formName = formNameJa?.name || "";
+  const pokemonName = formName?.includes('メガ') ? formName : formName ? `${pokemonNameJa} (${formName})` : pokemonNameJa || "データが存在しません";
+
   const pokemonTypes = pokemon.types.map((t: { type: { name: string } }) => t.type.name || "不明",);
   
   // ポケモンの性別
@@ -457,7 +483,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   return {
     id: pokemonId,
     baseFormId: id,
-    name: pokemonNameJa || "データが存在しません",
+    name: pokemonName,
     gender: pokemonGender,
     height: pokemonHeight,
     weight: pokemonWeight,

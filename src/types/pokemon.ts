@@ -212,6 +212,7 @@ export type FormPokemon = {
 }
 
 export type VarietyPokemon = {
+  baseFormId: number;
   name: string;
   imageUrl: string;
 }

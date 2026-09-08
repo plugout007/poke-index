@@ -171,14 +171,16 @@ export default function PokeDetailCard({ pokemon }: Props) {
               リージョンフォーム
             </Typography>
             {pokemon.regions.map((region, i) => (
-              region.baseFormId !== pokemon.baseFormId && (<Box key={i} sx={{ mt: "5px" }}>
-                <Link to={`/pokemon/${region.baseFormId}`} style={{ textDecoration: "none" }}>
-                  <Typography variant="body2" color="text.secondary">
-                    {region.region}
-                  </Typography>
-                  <img src={pokemonImageUrl(region.baseFormId)} />
-                </Link>
-              </Box>)
+              region.baseFormId !== pokemon.baseFormId && (
+                <Box key={i} sx={{ mt: "5px" }}>
+                  <Link to={`/pokemon/${region.baseFormId}`} style={{ textDecoration: "none" }}>
+                    <Typography variant="body2" color="text.secondary">
+                      {region.region}
+                    </Typography>
+                    <img src={pokemonImageUrl(region.baseFormId)} />
+                  </Link>
+                </Box>
+              )
             ))}
           </Box>
         )}
@@ -189,15 +191,17 @@ export default function PokeDetailCard({ pokemon }: Props) {
             </Typography>
             {pokemon.megaPokemons.map((megaPokemon, i) => (
               <Box key={i} sx={{ mt: "5px" }}>
-                <Typography variant="body2" color="text.secondary">
-                  {megaPokemon.type}
-                </Typography>
-                <Box
-                  component='img'
-                  src={pokemonImageUrl(megaPokemon.baseFormId)}
-                  alt={megaPokemon.type}
-                  sx={{ width: '96px', height: '96px', objectFit: "contain"}}
-                />
+                <Link to={`/pokemon/${megaPokemon.baseFormId}`} style={{ textDecoration: "none" }}>
+                  <Typography variant="body2" color="text.secondary">
+                    {megaPokemon.type}
+                  </Typography>
+                  <Box
+                    component='img'
+                    src={pokemonImageUrl(megaPokemon.baseFormId)}
+                    alt={megaPokemon.type}
+                    sx={{ width: '96px', height: '96px', objectFit: "contain"}}
+                  />
+                </Link>
               </Box>
             ))}
           </Box>
@@ -227,10 +231,12 @@ export default function PokeDetailCard({ pokemon }: Props) {
             <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 8, mt: '8px'}}>
               {pokemon.varietyPokemons.map((varietyPokemon, i) => (
                 <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '150px' }}>
-                  <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
-                    {varietyPokemon.name || pokemon.name}
-                  </Typography>
-                  <img src={varietyPokemon.imageUrl} />
+                  <Link to={`/pokemon/${varietyPokemon.baseFormId}`} style={{ textDecoration: "none" }}>
+                    <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
+                      {varietyPokemon.name || pokemon.name}
+                    </Typography>
+                    <img src={varietyPokemon.imageUrl} />
+                  </Link>
                 </Box>
               ))}
             </Box>
