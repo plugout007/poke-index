@@ -1,16 +1,18 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
+import StarIcon from '@mui/icons-material/Star';
 import { memo } from "react";
 import { PokemonListItem } from "../../../../types/pokemon";
 import PokemonTypes from "../../../../components/pokemon-types";
 
 type Props = {
   pokemon: PokemonListItem;
+  isFavorite: boolean;
 };
 
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
-export default memo(function PokeCard({ pokemon }: Props) {
+export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
   const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
   return (
     <Card
@@ -26,16 +28,23 @@ export default memo(function PokeCard({ pokemon }: Props) {
       }}
     >
       <CardContent>
-        <Typography
-          variant="h5"
-          component="div"
-          sx={{ mt: "5px", fontSize: "18px" }}
-        >
-          No.{pokemon.id.toString().padStart(4, "0")}
-        </Typography>
-        <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
-          {pokemon.name}
-        </Typography>
+        <Box display="flex" justifyContent="space-between">
+          <Box>
+            <Typography
+              variant="h5"
+              component="div"
+              sx={{ mt: "5px", fontSize: "18px" }}
+            >
+              No.{pokemon.id.toString().padStart(4, "0")}
+            </Typography>
+            <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
+              {pokemon.name}
+            </Typography>
+          </Box>
+          {isFavorite && (
+            <StarIcon sx={{ color: "gold", fontSize: 30, mt: "5px" }} />
+          )}
+        </Box>
         <Box display="flex" justifyContent="center">
           <img src={pokemonImageUrl} alt={pokemon.name} loading="lazy" />
         </Box>

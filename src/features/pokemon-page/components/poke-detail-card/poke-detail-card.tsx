@@ -6,9 +6,10 @@ import {
   Typography,
 } from "@mui/material";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import StarIcon from '@mui/icons-material/Star';
 import { Link } from "react-router-dom";
 import { Pokemon } from "../../../../types/pokemon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getNextEvolutionPokemonIds,
   getPreviousEvolutionPokemonId,
@@ -26,8 +27,39 @@ type Props = {
  */
 export default function PokeDetailCard({ pokemon }: Props) {
   const [isShiny, setIsShiny] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
   const imageUrl =
     isShiny && pokemon.shinyImageUrl ? pokemon.shinyImageUrl : pokemon.imageUrl;
+
+  useEffect(() => {
+    const favorites = localStorage.getItem("favorites");
+
+    if (!favorites) {
+      setIsFavorite(false);
+      return;
+    }
+
+    const favoriteIds: number[] = JSON.parse(favorites);
+
+    setIsFavorite(favoriteIds.includes(pokemon.baseFormId));
+  }, [pokemon.baseFormId]);
+
+  const toggleFavorite = () => {
+    const favorites: number[] = JSON.parse(
+      localStorage.getItem("favorites") ?? "[]"
+    );
+
+    const newFavorites = favorites.includes(pokemon.baseFormId)
+      ? favorites.filter((id) => id !== pokemon.baseFormId)
+      : [...favorites, pokemon.baseFormId];
+
+    localStorage.setItem(
+      "favorites",
+      JSON.stringify(newFavorites)
+    );
+
+    setIsFavorite(newFavorites.includes(pokemon.baseFormId));
+  };
 
   const pokemonImageUrl = (id: number) => {
     // メガジガルデの画像が取得できないのでポケモンホームの画像を取得する
@@ -78,6 +110,17 @@ export default function PokeDetailCard({ pokemon }: Props) {
           <AutoAwesomeIcon
             sx={{
               color: isShiny ? "gold" : "grey.400",
+            }}
+          />
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, mt: "5px" }}>
+          <Switch
+            checked={isFavorite}
+            onChange={toggleFavorite}
+          />
+          <StarIcon
+            sx={{
+              color: isFavorite ? "gold" : "grey.400",
             }}
           />
         </Box>

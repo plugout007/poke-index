@@ -19,10 +19,14 @@ export default function Home() {
   const [search, setSearch] = useState<string>("");
   const [selectedTypes, setSelectedTypes] = useState<PokemonTypeName[]>([]);
   const [isOnlySingleType, setIsOnlySingleType] = useState<boolean>(false);
+  const [isFavoriteId, setIsFavoriteId] = useState<boolean>(false);
+
+  const localFavotites = localStorage.getItem("favorites");
+  const favorites: number[] = localFavotites ? JSON.parse(localFavotites) : [];
 
   useEffect(() => {
     setPage(1); // 検索や選択されたタイプが変わったらページをリセット
-  }, [search, selectedTypes]);
+  }, [search, selectedTypes, isOnlySingleType, isFavoriteId]);
 
   const initLimit = 20; // 最大表示数
 
@@ -44,11 +48,14 @@ export default function Home() {
 
     const matchesSingleType = !isOnlySingleType || p.types.length === 1;
 
+    const matchesFavorite = !isFavoriteId || favorites.includes(p.id);
+
     return (
       p.id <= POKE_INDEX_ID_MAX &&
       matchesSearch &&
       matchesTypes &&
-      matchesSingleType
+      matchesSingleType &&
+      matchesFavorite
     );
   });
   const displayList = filtered.slice(start, end);
@@ -66,6 +73,7 @@ export default function Home() {
     setSearch('');
     setSelectedTypes([]);
     setIsOnlySingleType(false);
+    setIsFavoriteId(false);
   };
 
   return (
@@ -93,16 +101,29 @@ export default function Home() {
         <Box sx={{ mt: "15px" }}>
           <TypeSelector selected={selectedTypes} setSelected={setSelectedTypes} isOnlySingleType={isOnlySingleType}/>
         </Box>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={isOnlySingleType}
-              onChange={(e) => setIsOnlySingleType(e.target.checked)}
-              disabled={selectedTypes.length >= 2}
-            />
-          }
-          label="単タイプのみ"
-        />
+        <Box>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={isOnlySingleType}
+                onChange={(e) => setIsOnlySingleType(e.target.checked)}
+                disabled={selectedTypes.length >= 2}
+              />
+            }
+            label="単タイプのみ"
+          />
+        </Box>
+        <Box>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={isFavoriteId}
+                onChange={(e) => setIsFavoriteId(e.target.checked)}
+              />
+            }
+            label="お気に入りのみ表示"
+          />
+        </Box>
         <Box sx={{ mt: "15px" }}>
           <Button
             startIcon={<RestartAltIcon />}
@@ -140,7 +161,7 @@ export default function Home() {
             to={`/pokemon/${pokemon.id}`}
             style={{ textDecoration: "none" }}
           >
-            <PokeCard pokemon={pokemon} />
+            <PokeCard pokemon={pokemon} isFavorite={favorites.includes(pokemon.id)} />
           </Link>
         ))}
       </Box>
