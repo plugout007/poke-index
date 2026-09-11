@@ -1,5 +1,11 @@
 import { typeData } from "../constants/pokemon";
 
+/** NamedResource */
+export type NamedResource = {
+  name: string;
+  url: string;
+};
+
 /** Pokemon List Item */
 export type PokemonListItem = {
   id: number;
@@ -9,29 +15,53 @@ export type PokemonListItem = {
 
 /** Pokemon */
 export type Pokemon = {
+  /** ポケモン図鑑ID（フォームによって重複する） */
   id: number;
+  /** ポケモンの基本フォームを識別するID */
   baseFormId: number;
+  /** ポケモンの表示名 */
   name: string;
+  /** ポケモンの性別 */
   gender: string[];
+  /** ポケモンの高さ */
   height: number;
+  /** ポケモンの重さ */
   weight: number;
+  /** ポケモンのタイプ */
   types: PokemonTypeName[];
+  /** ポケモンの特性 */
   abilities: { name: string, flavorText: string, isHidden: boolean }[];
+  /** ポケモンの画像URL */
   imageUrl: string;
+  /** ポケモンの色違い画像URL */
   shinyImageUrl?: string;
+  /** ポケモンの分類名 */
   genus: string;
+  /** ポケモンの説明文 */
   flavorText: string;
+  /** 進化系統データ */
   evolutionEdge: PokemonEvolutionEdge[];
+  /** リージョンフォームデータ */
   regions: PokemonRegion[];
+  /** メガシンカデータ */
   megaPokemons: MegaPokemon[];
+  /** フォルム違いデータ */
   formPokemons: FormPokemon[];
+  /** バラエティ違いデータ */
   varietyPokemons: VarietyPokemon[];
+  /** ポケモンのステータス */
   stats: {
+    /** HP */
     hp: number;
+    /** こうげき */
     attack: number;
+    /** ぼうぎょ */
     defense: number;
+    /** とくこう */
     specialAttack: number;
+    /** とくぼう */
     specialDefense: number;
+    /** すばやさ */
     speed: number;
   };
 };
@@ -43,20 +73,12 @@ export type PokemonDetail = {
 
 /**
  * ポケモンの基本的な情報
- * 
- * @property {number} id - ポケモンのID
- * @property {number} height - ポケモンの高さ
- * @property {number} weight - ポケモンの重さ
- * @property {object} sprites - ポケモンの画像に関連する情報
- * @property {string} sprites.front_default - ポケモンの通常の画像のURL
  */
 export type FetchPokemon = {
   id: number;        // ポケモンの一意のID
   height: number;    // ポケモンの高さ
   weight: number;    // ポケモンの体重
-  species: {
-    url: string;
-  }
+  species: NamedResource;
   sprites: {
     front_default: string; // 通常の画像のURL
     other: {
@@ -71,10 +93,6 @@ export type FetchPokemon = {
 
 /**
  * ポケモンの言語別の情報
- * 
- * @property {number} id - ポケモンのID
- * @property {PokemonName[]} names - 言語別のポケモンの名前
- * @property {FlavorTextEntry[]} sprites.front_default - 言語別のフレーバーテキスト
  */
 export type FetchPokemonSpecies = {
   id: number;
@@ -90,50 +108,31 @@ export type FetchPokemonSpecies = {
 
 export type PokemonVariety = {
   is_default: boolean;
-  pokemon: {
-    name: string;
-    url: string;
-  }
+  pokemon: NamedResource;
 }
 
 /**
  * 言語別のポケモンの名前
- * 
- * @property {Object} language - 言語に関する情報
- * @property {string} language.name - 言語名
- * @property {string} name - ポケモンの名前
  */
 type PokemonName = {
-  language: {
-    name: string;
-  };
+  language: NamedResource;
   name: string;
 }
 
 export type PokemonType = {
-  type: {
-    name: string;
-    url: string;
-  }
+  type: NamedResource;
 }
 
 type PokemonAbility = {
-  ability: {
-    name: string;
-    url: string;
-  }
+  ability: NamedResource;
 }
 
 type PokemonTypeLang = {
-  language: {
-    name: string;
-  };
+  language: NamedResource;
   name: string;
 }
 type PokemonFlavorTextLang = {
-  language: {
-    name: string;
-  };
+  language: NamedResource;
   flavor_text: string;
 }
 
@@ -146,29 +145,17 @@ export type PokemonFlavorTextLangData = {
 }
 
 type PokemonGenus = {
-  language: {
-    name: string;
-  };
+  language: NamedResource;
   genus: string;
 }
 
 /**
  * 言語別のフレーバーテキスト（ゲーム内でのポケモンの説明）
- * 
- * @property {string} flavor_text - フレーバーテキスト（ポケモンの説明）
- * @property {Object} language - 言語に関する情報
- * @property {string} language.name - 言語名
- * @property {Object} version - ゲームバージョンに関する情報
- * @property {string} version.name - ゲームバージョン名
  */
 type FlavorTextEntry = {
   flavor_text: string;
-  language: {
-    name: string;
-  };
-  version: {
-    name: string;
-  }
+  language: NamedResource;
+  version: NamedResource;
 }
 
 export type PokemonEvolutionEdge = {
@@ -179,20 +166,11 @@ export type PokemonEvolutionEdge = {
 }
 
 export type ChainLink = {
-  species: {
-    name: string;
-    url: string;
-  };
+  species: NamedResource;
   evolves_to: ChainLink[];
   evolution_details: {
-    base_form: {
-      name: string;
-      url: string;
-    } | null;
-    evolved_form: {
-      name: string;
-      url: string;
-    } | null;
+    base_form: NamedResource | null;
+    evolved_form: NamedResource | null;
   }[];
 };
 
@@ -217,16 +195,10 @@ export type VarietyPokemon = {
   imageUrl: string;
 }
 
-export type PokemonFormResponse = {
-  name: string;
-  url: string;
-}
+export type PokemonFormResponse = NamedResource
 
 export type PokemonFormLang = {
-  language : {
-    name: string;
-    url: string;
-  };
+  language : NamedResource;
   name: string;
 }
 
@@ -235,17 +207,17 @@ export type Gender = "male" | "female" | "unknown";
 /** タイプによるダメージの関係性 */
 export type DamageRelations = {
   /** 受けるダメージが効果抜群 */
-  double_damage_from: { name: string, url: string }[];
+  double_damage_from: NamedResource[];
   /** 与えるダメージが効果抜群 */
-  double_damage_to: { name: string, url: string }[];
+  double_damage_to: NamedResource[];
   /** 受けるダメージが半分 */
-  half_damage_from: { name: string, url: string }[];
+  half_damage_from: NamedResource[];
   /** 与えるダメージが半分 */
-  half_damage_to: { name: string, url: string }[];
+  half_damage_to: NamedResource[];
   /** 受けるダメージがない */
-  no_damage_from: { name: string, url: string }[];
+  no_damage_from: NamedResource[];
   /** 与えるダメージがない */
-  no_damage_to: { name: string, url: string }[];
+  no_damage_to: NamedResource[];
 };
 
 export type PokemonTypeName = keyof typeof typeData;
