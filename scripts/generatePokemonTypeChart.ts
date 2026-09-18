@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import { DamageRelations } from "../src/types/pokemon.ts";
+import { POKE_TYPE_ID_MAX } from "../src/constants/pokemon.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,9 +27,6 @@ export type PokemonType = {
 
 const getTypeName = (types: { name: string }[]) =>
   types.map((type) => type.name);
-
-/** 現在のポケモンのタイプの総数（ステラを除く） */
-export const POKE_TYPE_ID_MAX = 18;
 
 const fetchBatch = async (start: number, end: number) => {
   const promises: Promise<PokemonType>[] = [];

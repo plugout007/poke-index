@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+import { POKE_INDEX_ID_MAX } from "../src/constants/pokemon.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,9 +28,6 @@ export type Pokemon = {
   name: string;
   types: string[];
 };
-
-/** 現在のポケモンの種類の総数 */
-export const POKE_INDEX_ID_MAX = 1025;
 
 const fetchBatch = async (start: number, end: number) => {
   const promises: Promise<Pokemon>[] = [];

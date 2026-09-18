@@ -61,3 +61,6 @@ export const megaEvolutionPatterns = [
 
 /** 現在のポケモンの種類の総数 */
 export const POKE_INDEX_ID_MAX = 1025;
+
+/** 現在のポケモンのタイプの総数（ステラを除く） */
+export const POKE_TYPE_ID_MAX = 18;
