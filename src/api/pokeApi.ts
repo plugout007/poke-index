@@ -93,7 +93,6 @@ export const convertEvolutionChainToEdges = async (
 export const getPreviousEvolutionPokemonId =  (id: number, edges: PokemonEvolutionEdge[]) => {
   // 現在のポケモンが進化先にあるエッジを探す
   const edge = edges.find((e) => e.evolvedId === id);
-  console.log(edges);
   if (!edge) return null;
 
   return edge.baseId;
@@ -505,8 +504,10 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     stats: pokemonStats,
     imageUrl: pokemonNormalImageUrl,
     shinyImageUrl: pokemonShinyImageUrl,
-    genus: pokemonGeneraJa || "データが存在しません",
-    flavorText: pokemonFlavorTextJa || "データが存在しません",
+    // NOTE: genus、flavorTextはspeciesから取得しているため、
+    // リージョンフォーム・メガシンカ・フォルム違いではデータが存在しない場合がある
+    genus: id <= POKE_INDEX_ID_MAX && pokemonGeneraJa ? pokemonGeneraJa : "データが存在しません",
+    flavorText: id <= POKE_INDEX_ID_MAX && pokemonFlavorTextJa ? pokemonFlavorTextJa : "データが存在しません",
     evolutionEdge: pokemonEvolutionEdge,
     regions: pokemonRegions,
     megaPokemons: megaPokemons,

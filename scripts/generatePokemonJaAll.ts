@@ -1,30 +1,11 @@
 import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
-import { NamedResource } from "../src/types/pokemon.js";
+import { FetchPokemon, FetchPokemonForm, FetchPokemonSpecies, NamedResource } from "../src/types/pokemon.js";
 import { extractIdFromUrl, extractJa } from "../src/api/pokeApi.js"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-type PokeSpeciesResponse = {
-  names: {
-    name: string;
-    language: NamedResource;
-  }[];
-};
-
-type PokePokemonResponse = {
-  types: {
-    type: NamedResource;
-  }[];
-};
-
-export type Pokemon = {
-  id: number;
-  name: string;
-  types: string[];
-};
 
 type PokemonListResponse = {
   count: number;
@@ -55,16 +36,16 @@ const fetchBatch = async (pokemons: NamedResource[]) => {
           throw new Error(`pokemon fetch失敗: ${pokemon.name}`);
         }
 
-        const data = await response.json();
+        const data = await response.json() as FetchPokemon;
         const pokemonId = extractIdFromUrl(data.species.url);
-        if(pokemonId === 25 && ![pokemonId, 10199].includes(data.id) ) return;
+        if(pokemonId === 25 && ![pokemonId, 10199].includes(data.id) ) return null;
 
         const speciesResponse = await fetch(data.species.url);
-        const speciesData = await speciesResponse.json();
+        const speciesData = await speciesResponse.json() as FetchPokemonSpecies;
         const { name: pokemonNameJa } = extractJa(speciesData);
 
         const formResponse = await fetch(data.forms[0].url);
-        const formData = await formResponse.json();
+        const formData = await formResponse.json() as FetchPokemonForm;
 
         const formNameJa = formData.form_names?.find(
           (formName) =>
@@ -91,7 +72,9 @@ const fetchBatch = async (pokemons: NamedResource[]) => {
 
 const main = async () => {
   const pokemons = await fetchPokemons();
-  const results = await fetchBatch(pokemons);
+  const results = (await fetchBatch(pokemons)).filter(
+    (pokemon) => pokemon !== null
+  );
   const sortedResults = results.sort((a, b) => a.id - b.id);
 
 

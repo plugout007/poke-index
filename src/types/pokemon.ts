@@ -9,6 +9,7 @@ export type NamedResource = {
 /** Pokemon List Item */
 export type PokemonListItem = {
   id: number;
+  baseFormId: number;
   name: string;
   types: PokemonTypeName[];
 };
@@ -79,6 +80,7 @@ export type FetchPokemon = {
   height: number;    // ポケモンの高さ
   weight: number;    // ポケモンの体重
   species: NamedResource;
+  forms: NamedResource[];
   sprites: {
     front_default: string; // 通常の画像のURL
     other: {
@@ -109,6 +111,13 @@ export type FetchPokemonSpecies = {
 export type PokemonVariety = {
   is_default: boolean;
   pokemon: NamedResource;
+}
+
+export type FetchPokemonForm = {
+  form_names: {
+    name: string;
+    language: NamedResource;
+  }[];
 }
 
 /**

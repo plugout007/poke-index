@@ -5,12 +5,12 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
 import PokeCard from "./components/poke-card";
-import pokemonJa from "../../data/pokemonJa.json";
+import pokemonJaAll from "../../data/pokemonJaAll.json";
 import { normalizeText } from "../../utils/text";
 import TypeSelector from "./components/type-selector";
 import { PokemonListItem, PokemonTypeName } from "../../types/pokemon";
 
-const pokemonJaData = pokemonJa as PokemonListItem[];
+const pokemonJaData = pokemonJaAll as PokemonListItem[];
 /**
  * このコンポーネントはxxx画面全体の機能を提供する
  */
@@ -157,11 +157,11 @@ export default function Home() {
         .filter(pokemon => pokemon.id <= POKE_INDEX_ID_MAX)
         .map(pokemon => (
           <Link
-            key={pokemon.id}
-            to={`/pokemon/${pokemon.id}`}
+            key={pokemon.baseFormId}
+            to={`/pokemon/${pokemon.baseFormId}`}
             style={{ textDecoration: "none" }}
           >
-            <PokeCard pokemon={pokemon} isFavorite={favorites.includes(pokemon.id)} />
+            <PokeCard pokemon={pokemon} isFavorite={favorites.includes(pokemon.baseFormId)} />
           </Link>
         ))}
       </Box>

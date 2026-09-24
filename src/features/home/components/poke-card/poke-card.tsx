@@ -13,7 +13,7 @@ type Props = {
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
-  const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`;
+  const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.baseFormId}.png`;
   return (
     <Card
       sx={{
