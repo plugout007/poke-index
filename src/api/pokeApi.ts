@@ -20,9 +20,9 @@ import { excludedPatterns, excludedPatternsWithCap, POKE_INDEX_ID_MAX, regionDat
  * UIで扱いやすい EvolutionEdge[] に変換する
  *
  */
-export const convertEvolutionChainToEdges = (
+export const convertEvolutionChainToEdges = async (
   chain: ChainLink
-): PokemonEvolutionEdge[] => {
+): Promise<PokemonEvolutionEdge[]> => {
   // 変換後の進化データを格納する配列
   const edges: PokemonEvolutionEdge[] = [];
 
@@ -38,7 +38,7 @@ export const convertEvolutionChainToEdges = (
    * 再帰的に walk() を呼ぶことで
    * ツリー全体を探索する
    */
-  const walk = (node: ChainLink) => {
+  const walk = async (node: ChainLink) => {
     // 現在のポケモンID
     const fromId = extractIdFromUrl(
       node.species.url
@@ -53,24 +53,36 @@ export const convertEvolutionChainToEdges = (
 
       // 進化条件
       for (const detail of next.evolution_details) {
+        // 進化前ポケモンformId
+        const requiredPokemonFormUrl = detail.required_pokemon_form?.url || '';
+        let baseId = fromId;
+        if (requiredPokemonFormUrl) {
+          const baseResponse = await axios.get(requiredPokemonFormUrl)
+          baseId = extractIdFromUrl(baseResponse.data.pokemon.url);
+        }
+        // 進化後ポケモンformId
+        const evolvedPokemonFormUrl = detail.evolved_pokemon_form?.url || '';
+        let evolvedId = toId;
+        if(evolvedPokemonFormUrl) {
+          const evolvedResponse = await axios.get(evolvedPokemonFormUrl)
+          evolvedId = extractIdFromUrl(evolvedResponse.data.pokemon.url);
+        }
         // edge形式へ変換
         edges.push({
-          fromId: fromId,
-          toId: toId,
-          baseFormId: detail.base_form?.url ? extractIdFromUrl(detail.base_form.url)
-            : fromId,
-          evolvedFormId: detail.evolved_form?.url ? extractIdFromUrl(detail.evolved_form.url)
-            : toId,
+          fromId,
+          toId,
+          baseId,
+          evolvedId,
         });
       }
 
       // さらに次の進化先を探索
-      walk(next);
+      await walk(next);
     }
   }
 
   // 進化ツリーの探索開始
-  walk(chain);
+  await walk(chain);
 
   return edges;
 };
@@ -80,10 +92,11 @@ export const convertEvolutionChainToEdges = (
  */
 export const getPreviousEvolutionPokemonId =  (id: number, edges: PokemonEvolutionEdge[]) => {
   // 現在のポケモンが進化先にあるエッジを探す
-  const edge = edges.find((e) => e.evolvedFormId === id);
+  const edge = edges.find((e) => e.evolvedId === id);
+  console.log(edges);
   if (!edge) return null;
 
-  return edge.baseFormId;
+  return edge.baseId;
 }
 
 /**
@@ -102,8 +115,8 @@ export const getNextEvolutionPokemonIds = (
   return [
     ...new Set(
       edges
-        .filter((e) => id === e.baseFormId)
-        .map((e) => e.evolvedFormId)
+        .filter((e) => id === e.baseId)
+        .map((e) => e.evolvedId)
     ),
   ];
 };
@@ -364,7 +377,7 @@ const getPokemonGender = (genderRate: number): string[] => {
  * @param url - ポケモンAPIのURL
  * @returns 抽出したID（数値）
  */
-const extractIdFromUrl = (url: string): number => {
+export const extractIdFromUrl = (url: string): number => {
   // URLをスラッシュで分割し、最後から2番目の要素を取得
   const id = url.split("/").slice(-2, -1)[0];
   return Number(id);
@@ -386,7 +399,7 @@ export const fetchPokemonRaw = async (id: number) => {
 };
 
 // ローカライズ
-const extractJa = (species: FetchPokemonSpecies) => {
+export const extractJa = (species: FetchPokemonSpecies) => {
   const name =
     species.names.find((n) => n.language.name === LANG)?.name ?? "";
 
@@ -469,7 +482,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonShinyImageUrl = pokemon.sprites.other["official-artwork"].front_shiny;
 
   // 進化系統
-  const pokemonEvolutionEdge = convertEvolutionChainToEdges(chain);
+  const pokemonEvolutionEdge = await convertEvolutionChainToEdges(chain);
 
   // リージョンフォーム
   const pokemonRegions = getPokemonRegions(species.varieties);

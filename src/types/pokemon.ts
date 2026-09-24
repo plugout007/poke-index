@@ -161,16 +161,16 @@ type FlavorTextEntry = {
 export type PokemonEvolutionEdge = {
   fromId: number;
   toId: number;
-  baseFormId: number;
-  evolvedFormId: number;
+  baseId: number;
+  evolvedId: number;
 }
 
 export type ChainLink = {
   species: NamedResource;
   evolves_to: ChainLink[];
   evolution_details: {
-    base_form: NamedResource | null;
-    evolved_form: NamedResource | null;
+    required_pokemon_form: NamedResource | null;
+    evolved_pokemon_form: NamedResource | null;
   }[];
 };
 

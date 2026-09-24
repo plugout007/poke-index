@@ -4,10 +4,10 @@ import { Box, Button, Checkbox, FormControlLabel, Pagination, TextField, Typogra
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { Link } from "react-router-dom";
 import { POKE_INDEX_ID_MAX } from "../../constants/pokemon";
-import PokeCard from "./comonents/poke-card";
+import PokeCard from "./components/poke-card";
 import pokemonJa from "../../data/pokemonJa.json";
 import { normalizeText } from "../../utils/text";
-import TypeSelector from "./comonents/type-selector";
+import TypeSelector from "./components/type-selector";
 import { PokemonListItem, PokemonTypeName } from "../../types/pokemon";
 
 const pokemonJaData = pokemonJa as PokemonListItem[];
