@@ -48,7 +48,7 @@ export default function Home() {
 
     const matchesSingleType = !isOnlySingleType || p.types.length === 1;
 
-    const matchesFavorite = !isFavoriteId || favorites.includes(p.id);
+    const matchesFavorite = !isFavoriteId || favorites.includes(p.baseFormId);
 
     return (
       p.id <= POKE_INDEX_ID_MAX &&
