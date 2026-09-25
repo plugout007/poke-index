@@ -17,6 +17,7 @@ import {
 import PokemonStats from "../../../../components/pokemon-stats";
 import PokemonTypes from "../../../../components/pokemon-types";
 import PokemonTypeEffectiveness from "../../../../components/pokemon-type-effectiveness";
+import { getPokemonImageUrl } from "../../../../utils/getPokemonImageUrl";
 
 type Props = {
   pokemon: Pokemon;
@@ -59,12 +60,6 @@ export default function PokeDetailCard({ pokemon }: Props) {
     );
 
     setIsFavorite(newFavorites.includes(pokemon.baseFormId));
-  };
-
-  const pokemonImageUrl = (id: number) => {
-    // メガジガルデの画像が取得できないのでポケモンホームの画像を取得する
-    if(id === 10301 ) return "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/10301.png"
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
   };
 
   const prevEvolutionId = getPreviousEvolutionPokemonId(pokemon.baseFormId, pokemon.evolutionEdge);
@@ -192,7 +187,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
                 進化前
               </Typography>
               <Link to={`/pokemon/${prevEvolutionId}`} style={{ textDecoration: "none" }}>
-                <img  src={pokemonImageUrl(prevEvolutionId)} />
+                <img  src={getPokemonImageUrl(prevEvolutionId)} />
               </Link>
           </Box>
         )}
@@ -203,7 +198,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
               </Typography>
               {nextEvolutionIds.map((id) => (
                 <Link key={id} to={`/pokemon/${id}`} style={{ textDecoration: "none" }}>
-                  <img  src={pokemonImageUrl(id)} />
+                  <img  src={getPokemonImageUrl(id)} />
                 </Link>
               ))}
             </Box>
@@ -220,7 +215,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
                     <Typography variant="body2" color="text.secondary">
                       {region.region}
                     </Typography>
-                    <img src={pokemonImageUrl(region.baseFormId)} />
+                    <img src={getPokemonImageUrl(region.baseFormId)} />
                   </Link>
                 </Box>
               )
@@ -240,7 +235,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
                   </Typography>
                   <Box
                     component='img'
-                    src={pokemonImageUrl(megaPokemon.baseFormId)}
+                    src={getPokemonImageUrl(megaPokemon.baseFormId)}
                     alt={megaPokemon.type}
                     sx={{ width: '96px', height: '96px', objectFit: "contain"}}
                   />
@@ -254,7 +249,7 @@ export default function PokeDetailCard({ pokemon }: Props) {
             <Typography variant="h5">
               {`${pokemon.name}のフォルム情報`}
             </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 8, mt: '8px'}}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 16, mt: '8px'}}>
               {pokemon.formPokemons.map((formPokemon, i) => (
                 <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '150px' }}>
                   <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
@@ -271,11 +266,11 @@ export default function PokeDetailCard({ pokemon }: Props) {
             <Typography variant="h5">
               {`${pokemon.name}のフォルム情報`}
             </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 8, mt: '8px'}}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', columnGap: 2, rowGap: 16, mt: '8px'}}>
               {pokemon.varietyPokemons.map((varietyPokemon, i) => (
                 <Box key={i} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '150px' }}>
                   <Link to={`/pokemon/${varietyPokemon.baseFormId}`} style={{ textDecoration: "none" }}>
-                    <Typography variant="body1" color="text.secondary" sx={{ height: '20px' }}>
+                    <Typography variant="body1" color="text.secondary" sx={{ height: '40px' }}>
                       {varietyPokemon.name || pokemon.name}
                     </Typography>
                     <img src={varietyPokemon.imageUrl} />

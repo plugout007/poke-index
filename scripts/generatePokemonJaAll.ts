@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { FetchPokemon, FetchPokemonForm, FetchPokemonSpecies, NamedResource } from "../src/types/pokemon.js";
 import { extractIdFromUrl, extractJa } from "../src/api/pokeApi.js"
+import { getDisplayPokemonName } from "../src/utils/getDisplayPokemonName.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -38,7 +39,41 @@ const fetchBatch = async (pokemons: NamedResource[]) => {
 
         const data = await response.json() as FetchPokemon;
         const pokemonId = extractIdFromUrl(data.species.url);
+
+        // ピカチュウは原種とキョダイマックスのみ表示
         if(pokemonId === 25 && ![pokemonId, 10199].includes(data.id) ) return null;
+        // ヌシポケモンは非表示
+        if(data.name.includes('-totem')) return null;
+        // メガニャオニクスのメスは非表示
+        if(data.id === 10326) return null;
+        // メテノで赤色以外は非表示
+        if (
+          // りゅうせいのすがたを除外
+          (data.id >= 10130 && data.id <= 10135) ||
+          // コアを除外
+          (data.id >= 10137 && data.id <= 10142)
+        ) {
+          return null;
+        }
+        // ミミッキュ（ばれたすがた）は非表示
+        if(data.id === 10143) return null;
+        // メガマギアナ（500ねんまえのいろ）は非表示
+        if(data.id === 10318) return null;
+        // ウッウ(うのみのすがた)とウッウ (まるのみのすがた)は非表示
+        if(data.id === 10182 || data.id === 10183) return null;
+        // ザルード (とうちゃん)は非表示
+        if(data.id === 10192) return null;
+        // イッカネズミ (３びきかぞく)は非表示
+        if(data.id === 10257) return null;
+        // シャリタツはそったすがた以外は非表示
+        if(data.id === 10258 || data.id === 10259) return null;
+        // メガシャリタツはそったすがた以外は非表示
+        if(data.id === 10323 || data.id === 10324) return null;
+        // ノココッチ (みつふしフォルム)は非表示
+        if(data.id === 10255) return null;
+        // コライドン、ミライドンの他のフォルムは非表示
+        if(data.id >= 10264 && data.id <= 10271) return null;
+
 
         const speciesResponse = await fetch(data.species.url);
         const speciesData = await speciesResponse.json() as FetchPokemonSpecies;
@@ -52,13 +87,13 @@ const fetchBatch = async (pokemons: NamedResource[]) => {
             formName.language.name === 'ja'
         );
         const formName = formNameJa?.name || "";
-        const pokemonName = formName?.includes('メガ') ? formName : formName ? `${pokemonNameJa} (${formName})` : pokemonNameJa || "データが存在しません";
 
+        const displayPokemonName = getDisplayPokemonName(data.id, pokemonNameJa, formName);
 
         return {
           id: pokemonId,
           baseFormId: data.id,
-          name: pokemonName,
+          name: displayPokemonName,
           types: data.types.map((t) => t.type.name),
         };
       })

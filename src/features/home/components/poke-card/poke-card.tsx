@@ -3,6 +3,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { memo } from "react";
 import { PokemonListItem } from "../../../../types/pokemon";
 import PokemonTypes from "../../../../components/pokemon-types";
+import { getPokemonImageUrl } from "../../../../utils/getPokemonImageUrl";
 
 type Props = {
   pokemon: PokemonListItem;
@@ -13,7 +14,6 @@ type Props = {
  * このコンポーネントはxxx画面全体の機能を提供する
  */
 export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
-  const pokemonImageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.baseFormId}.png`;
   return (
     <Card
       sx={{
@@ -46,7 +46,7 @@ export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
           )}
         </Box>
         <Box display="flex" justifyContent="center">
-          <img src={pokemonImageUrl} alt={pokemon.name} loading="lazy" />
+          <img src={getPokemonImageUrl(pokemon.baseFormId)} alt={pokemon.name} loading="lazy" width={96} height={96}/>
         </Box>
         <Box display="flex" justifyContent="center">
           <PokemonTypes types={pokemon.types} />

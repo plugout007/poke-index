@@ -14,6 +14,7 @@ import {
 import { API_BASE_URL } from "../config/api-config";
 import { LANG } from "../config/app-config";
 import { excludedPatterns, excludedPatternsWithCap, POKE_INDEX_ID_MAX, regionData, regionPatterns } from "../constants/pokemon";
+import { getDisplayPokemonName } from "../utils/getDisplayPokemonName";
 
 /**
  * PokeAPI の進化チェーン(木構造)を
@@ -267,6 +268,27 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
       });
       continue;
     };
+    // ジガルデ (１０％フォルム・スワームチェンジ)は別処理
+    if (response.baseFormId === 10118) {
+      pokemonVarieties.push({
+        baseFormId: response.baseFormId,
+        name: '１０％フォルム・スワームチェンジ',
+        imageUrl: response.imageUrl,
+        baseVarietyId: extractIdFromUrl(response.imageUrl),
+      });
+      continue;
+    };
+    // ジガルデ (５０％フォルム・スワームチェンジ)は別処理
+    if (response.baseFormId === 10119) {
+      pokemonVarieties.push({
+        baseFormId: response.baseFormId,
+        name: '５０％フォルム・スワームチェンジ',
+        imageUrl: response.imageUrl,
+        baseVarietyId: extractIdFromUrl(response.imageUrl),
+      });
+      continue;
+    };
+
     const hasRegion = regionPatterns.some((pattern) =>
       pattern.test(response.name)
     );
@@ -427,7 +449,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
       formName.language.name === 'ja'
   );
   const formName = formNameJa?.name || "";
-  const pokemonName = formName?.includes('メガ') ? formName : formName ? `${pokemonNameJa} (${formName})` : pokemonNameJa || "データが存在しません";
+  const pokemonName = getDisplayPokemonName(id, pokemonNameJa, formName);
 
   const pokemonTypes = pokemon.types.map((t: { type: { name: string } }) => t.type.name || "不明",);
   

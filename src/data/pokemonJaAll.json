@@ -277,15 +277,6 @@
     ]
   },
   {
-    "id": 20,
-    "baseFormId": 10093,
-    "name": "ラッタ",
-    "types": [
-      "dark",
-      "normal"
-    ]
-  },
-  {
     "id": 21,
     "baseFormId": 21,
     "name": "オニスズメ",
@@ -1333,15 +1324,6 @@
     ]
   },
   {
-    "id": 105,
-    "baseFormId": 10149,
-    "name": "ガラガラ",
-    "types": [
-      "fire",
-      "ghost"
-    ]
-  },
-  {
     "id": 106,
     "baseFormId": 106,
     "name": "サワムラー",
@@ -2372,7 +2354,7 @@
   {
     "id": 201,
     "baseFormId": 201,
-    "name": "アンノーン (Ａ)",
+    "name": "アンノーン",
     "types": [
       "psychic"
     ]
@@ -7082,7 +7064,7 @@
   {
     "id": 658,
     "baseFormId": 10116,
-    "name": "ゲッコウガ",
+    "name": "ゲッコウガ (きずなへんげ)",
     "types": [
       "water",
       "dark"
@@ -7310,14 +7292,6 @@
   {
     "id": 678,
     "baseFormId": 10314,
-    "name": "メガニャオニクス",
-    "types": [
-      "psychic"
-    ]
-  },
-  {
-    "id": 678,
-    "baseFormId": 10326,
     "name": "メガニャオニクス",
     "types": [
       "psychic"
@@ -7799,7 +7773,7 @@
   {
     "id": 718,
     "baseFormId": 10118,
-    "name": "ジガルデ (１０％フォルム)",
+    "name": "ジガルデ (１０％フォルム・スワームチェンジ)",
     "types": [
       "dragon",
       "ground"
@@ -7808,7 +7782,7 @@
   {
     "id": 718,
     "baseFormId": 10119,
-    "name": "ジガルデ (５０％フォルム)",
+    "name": "ジガルデ (５０％フォルム・スワームチェンジ)",
     "types": [
       "dragon",
       "ground"
@@ -8016,14 +7990,6 @@
     ]
   },
   {
-    "id": 735,
-    "baseFormId": 10121,
-    "name": "デカグース",
-    "types": [
-      "normal"
-    ]
-  },
-  {
     "id": 736,
     "baseFormId": 736,
     "name": "アゴジムシ",
@@ -8043,15 +8009,6 @@
   {
     "id": 738,
     "baseFormId": 738,
-    "name": "クワガノン",
-    "types": [
-      "bug",
-      "electric"
-    ]
-  },
-  {
-    "id": 738,
-    "baseFormId": 10122,
     "name": "クワガノン",
     "types": [
       "bug",
@@ -8139,15 +8096,6 @@
     ]
   },
   {
-    "id": 743,
-    "baseFormId": 10150,
-    "name": "アブリボン",
-    "types": [
-      "bug",
-      "fairy"
-    ]
-  },
-  {
     "id": 744,
     "baseFormId": 744,
     "name": "イワンコ",
@@ -8158,7 +8106,7 @@
   {
     "id": 744,
     "baseFormId": 10151,
-    "name": "イワンコ",
+    "name": "イワンコ (マイペース)",
     "types": [
       "rock"
     ]
@@ -8256,15 +8204,6 @@
     ]
   },
   {
-    "id": 752,
-    "baseFormId": 10153,
-    "name": "オニシズクモ",
-    "types": [
-      "water",
-      "bug"
-    ]
-  },
-  {
     "id": 753,
     "baseFormId": 753,
     "name": "カリキリ",
@@ -8275,14 +8214,6 @@
   {
     "id": 754,
     "baseFormId": 754,
-    "name": "ラランテス",
-    "types": [
-      "grass"
-    ]
-  },
-  {
-    "id": 754,
-    "baseFormId": 10128,
     "name": "ラランテス",
     "types": [
       "grass"
@@ -8318,15 +8249,6 @@
   {
     "id": 758,
     "baseFormId": 758,
-    "name": "エンニュート",
-    "types": [
-      "poison",
-      "fire"
-    ]
-  },
-  {
-    "id": 758,
-    "baseFormId": 10129,
     "name": "エンニュート",
     "types": [
       "poison",
@@ -8480,116 +8402,8 @@
   },
   {
     "id": 774,
-    "baseFormId": 10130,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10131,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10132,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10133,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10134,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10135,
-    "name": "メテノ (りゅうせいのすがた)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
     "baseFormId": 10136,
     "name": "メテノ (あかいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10137,
-    "name": "メテノ (だいだいいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10138,
-    "name": "メテノ (きいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10139,
-    "name": "メテノ (みどりいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10140,
-    "name": "メテノ (みずいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10141,
-    "name": "メテノ (あおいろのコア)",
-    "types": [
-      "rock",
-      "flying"
-    ]
-  },
-  {
-    "id": 774,
-    "baseFormId": 10142,
-    "name": "メテノ (むらさきいろのコア)",
     "types": [
       "rock",
       "flying"
@@ -8622,45 +8436,9 @@
     ]
   },
   {
-    "id": 777,
-    "baseFormId": 10154,
-    "name": "トゲデマル",
-    "types": [
-      "electric",
-      "steel"
-    ]
-  },
-  {
     "id": 778,
     "baseFormId": 778,
     "name": "ミミッキュ (ばけたすがた)",
-    "types": [
-      "ghost",
-      "fairy"
-    ]
-  },
-  {
-    "id": 778,
-    "baseFormId": 10143,
-    "name": "ミミッキュ (ばれたすがた)",
-    "types": [
-      "ghost",
-      "fairy"
-    ]
-  },
-  {
-    "id": 778,
-    "baseFormId": 10144,
-    "name": "ミミッキュ",
-    "types": [
-      "ghost",
-      "fairy"
-    ]
-  },
-  {
-    "id": 778,
-    "baseFormId": 10145,
-    "name": "ミミッキュ",
     "types": [
       "ghost",
       "fairy"
@@ -8722,15 +8500,6 @@
   {
     "id": 784,
     "baseFormId": 784,
-    "name": "ジャラランガ",
-    "types": [
-      "dragon",
-      "fighting"
-    ]
-  },
-  {
-    "id": 784,
-    "baseFormId": 10146,
     "name": "ジャラランガ",
     "types": [
       "dragon",
@@ -8925,15 +8694,6 @@
   {
     "id": 801,
     "baseFormId": 10317,
-    "name": "メガマギアナ",
-    "types": [
-      "steel",
-      "fairy"
-    ]
-  },
-  {
-    "id": 801,
-    "baseFormId": 10318,
     "name": "メガマギアナ",
     "types": [
       "steel",
@@ -9403,24 +9163,6 @@
     "id": 845,
     "baseFormId": 845,
     "name": "ウッウ",
-    "types": [
-      "flying",
-      "water"
-    ]
-  },
-  {
-    "id": 845,
-    "baseFormId": 10182,
-    "name": "ウッウ (うのみのすがた)",
-    "types": [
-      "flying",
-      "water"
-    ]
-  },
-  {
-    "id": 845,
-    "baseFormId": 10183,
-    "name": "ウッウ (まるのみのすがた)",
     "types": [
       "flying",
       "water"
@@ -10004,15 +9746,6 @@
     ]
   },
   {
-    "id": 893,
-    "baseFormId": 10192,
-    "name": "ザルード (とうちゃん)",
-    "types": [
-      "dark",
-      "grass"
-    ]
-  },
-  {
     "id": 894,
     "baseFormId": 894,
     "name": "レジエレキ",
@@ -10331,14 +10064,6 @@
     "id": 925,
     "baseFormId": 925,
     "name": "イッカネズミ (４ひきかぞく)",
-    "types": [
-      "normal"
-    ]
-  },
-  {
-    "id": 925,
-    "baseFormId": 10257,
-    "name": "イッカネズミ (３びきかぞく)",
     "types": [
       "normal"
     ]
@@ -10850,43 +10575,7 @@
   },
   {
     "id": 978,
-    "baseFormId": 10258,
-    "name": "シャリタツ (たれたすがた)",
-    "types": [
-      "dragon",
-      "water"
-    ]
-  },
-  {
-    "id": 978,
-    "baseFormId": 10259,
-    "name": "シャリタツ (のびたすがた)",
-    "types": [
-      "dragon",
-      "water"
-    ]
-  },
-  {
-    "id": 978,
     "baseFormId": 10322,
-    "name": "メガシャリタツ",
-    "types": [
-      "dragon",
-      "water"
-    ]
-  },
-  {
-    "id": 978,
-    "baseFormId": 10323,
-    "name": "メガシャリタツ",
-    "types": [
-      "dragon",
-      "water"
-    ]
-  },
-  {
-    "id": 978,
-    "baseFormId": 10324,
     "name": "メガシャリタツ",
     "types": [
       "dragon",
@@ -10924,14 +10613,6 @@
     "id": 982,
     "baseFormId": 982,
     "name": "ノココッチ (ふたふしフォルム)",
-    "types": [
-      "normal"
-    ]
-  },
-  {
-    "id": 982,
-    "baseFormId": 10255,
-    "name": "ノココッチ (みつふしフォルム)",
     "types": [
       "normal"
     ]
@@ -11178,81 +10859,9 @@
     ]
   },
   {
-    "id": 1007,
-    "baseFormId": 10264,
-    "name": "コライドン (せいげんけいたい)",
-    "types": [
-      "fighting",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1007,
-    "baseFormId": 10265,
-    "name": "コライドン (しっそうけいたい)",
-    "types": [
-      "fighting",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1007,
-    "baseFormId": 10266,
-    "name": "コライドン (ゆうえいけいたい)",
-    "types": [
-      "fighting",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1007,
-    "baseFormId": 10267,
-    "name": "コライドン (かっくうけいたい)",
-    "types": [
-      "fighting",
-      "dragon"
-    ]
-  },
-  {
     "id": 1008,
     "baseFormId": 1008,
     "name": "ミライドン (コンプリートモード)",
-    "types": [
-      "electric",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1008,
-    "baseFormId": 10268,
-    "name": "ミライドン (リミテッドモード)",
-    "types": [
-      "electric",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1008,
-    "baseFormId": 10269,
-    "name": "ミライドン (ドライブモード)",
-    "types": [
-      "electric",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1008,
-    "baseFormId": 10270,
-    "name": "ミライドン (フロートモード)",
-    "types": [
-      "electric",
-      "dragon"
-    ]
-  },
-  {
-    "id": 1008,
-    "baseFormId": 10271,
-    "name": "ミライドン (グライドモード)",
     "types": [
       "electric",
       "dragon"

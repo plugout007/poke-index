@@ -77,6 +77,7 @@ export type PokemonDetail = {
  */
 export type FetchPokemon = {
   id: number;        // ポケモンの一意のID
+  name: string;
   height: number;    // ポケモンの高さ
   weight: number;    // ポケモンの体重
   species: NamedResource;
