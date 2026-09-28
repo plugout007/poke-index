@@ -53,7 +53,6 @@ export default function Compare() {
           options={pokemonList}
           filterOptions={(options, state) => {
             const keyword = normalizeText(state.inputValue);
-
             return options.filter((option) =>
               normalizeText(option.name).includes(keyword)
             );

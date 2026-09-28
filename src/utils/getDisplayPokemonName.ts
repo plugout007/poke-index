@@ -23,6 +23,18 @@ export const getDisplayPokemonName = (id: number, pokemonName: string, formName:
   } else if (id === 10151) {
     // イワンコ (マイペース)
     return `${pokemonName} (マイペース)`;
+  } else if (id === 10178) {
+    // ヒヒダルマ (ガラルのすがた・ダルマモード)
+    return `${pokemonName} (ガラルのすがた・ダルマモード)`;
+  } else if (id === 10250) {
+    // ケンタロス (パルデアのすがた・コンバットしゅ)
+    return `${pokemonName} (パルデアのすがた・コンバットしゅ)`;
+  } else if (id === 10251) {
+    // ケンタロス (パルデアのすがた・ブレイズしゅ)
+    return `${pokemonName} (パルデアのすがた・ブレイズしゅ)`;
+  } else if (id === 10252) {
+    // ケンタロス (パルデアのすがた・ウォーターしゅ)
+    return `${pokemonName} (パルデアのすがた・ウォーターしゅ)`;
   } else if (formName) {
     return `${pokemonName} (${formName})`;
   } else if (pokemonName) {

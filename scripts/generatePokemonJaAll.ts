@@ -42,6 +42,8 @@ const fetchBatch = async (pokemons: NamedResource[]) => {
 
         // ピカチュウは原種とキョダイマックスのみ表示
         if(pokemonId === 25 && ![pokemonId, 10199].includes(data.id) ) return null;
+        // 重複しているイーブイは非表示（ピカブイのイーブイ）
+        if(data.id === 10159) return null;
         // ヌシポケモンは非表示
         if(data.name.includes('-totem')) return null;
         // メガニャオニクスのメスは非表示
