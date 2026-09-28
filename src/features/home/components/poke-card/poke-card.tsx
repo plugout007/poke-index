@@ -17,7 +17,7 @@ export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
   return (
     <Card
       sx={{
-        width: 220,
+        width: 225,
         margin: 2,
         bgcolor: "background.paper",
         transition: "background-color 0.2s ease, box-shadow 0.2s ease",
@@ -37,7 +37,7 @@ export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
             >
               No.{pokemon.id.toString().padStart(4, "0")}
             </Typography>
-            <Typography variant="h3" component="div" sx={{ mt: "5px" }}>
+            <Typography variant="h3" component="div" sx={{ mt: "5px", height: "90px" }}>
               {pokemon.name}
             </Typography>
           </Box>
@@ -45,10 +45,10 @@ export default memo(function PokeCard({ pokemon, isFavorite }: Props) {
             <StarIcon sx={{ color: "gold", fontSize: 30, mt: "5px" }} />
           )}
         </Box>
-        <Box display="flex" justifyContent="center">
+        <Box display="flex" justifyContent="center" sx={{ mt: "25px" }}>
           <img src={getPokemonImageUrl(pokemon.baseFormId)} alt={pokemon.name} loading="lazy" width={96} height={96}/>
         </Box>
-        <Box display="flex" justifyContent="center">
+        <Box display="flex" justifyContent="center" sx={{ mt: "5px" }}>
           <PokemonTypes types={pokemon.types} />
         </Box>
       </CardContent>
