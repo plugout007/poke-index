@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { } from './styled';
 import { Autocomplete, Box, TextField, Typography } from '@mui/material';
-import pokemonJa from "../../data/pokemonJa.json";
+import pokemonJaAll from "../../data/pokemonJaAll.json";
 import { normalizeText } from '../../utils/text';
 import { Pokemon } from "../../types/pokemon";
 import { getPokemon } from '../../api/pokeApi';
@@ -11,16 +11,16 @@ import PokemonData from './components/pokemon-data';
  * このコンポーネントはポケモン比較画面全体の機能を提供する
  */
 export default function Compare() {
-  const [name1, setName1] = useState<{ id: number; name: string } | null>(
+  const [name1, setName1] = useState<{ baseFormId: number; name: string } | null>(
     null
   );
-  const [name2, setName2] = useState<{ id: number; name: string } | null>(
+  const [name2, setName2] = useState<{ baseFormId: number; name: string } | null>(
     null
   );
   const [selectedPokemon1, setSelectedPokemon1] = useState<Pokemon | null>(null);
   const [selectedPokemon2, setSelectedPokemon2] = useState<Pokemon | null>(null);
 
-  const pokemonList = pokemonJa.map(p =>( {
+  const pokemonList = pokemonJaAll.map(p =>( {
     ...p,
     normalizedName: normalizeText(p.name),
   }));
@@ -29,7 +29,7 @@ export default function Compare() {
     if (!name1) return;
 
     const fetchPokemon = async () => {
-      const details = await getPokemon(name1.id);
+      const details = await getPokemon(name1.baseFormId);
       setSelectedPokemon1(details);
     };
     fetchPokemon();
@@ -39,7 +39,7 @@ export default function Compare() {
     if (!name2) return;
 
     const fetchPokemon = async () => {
-      const details = await getPokemon(name2.id);
+      const details = await getPokemon(name2.baseFormId);
       setSelectedPokemon2(details);
     };
     fetchPokemon();
