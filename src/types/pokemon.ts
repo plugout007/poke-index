@@ -46,6 +46,8 @@ export type Pokemon = {
   regions: PokemonRegion[];
   /** メガシンカデータ */
   megaPokemons: MegaPokemon[];
+  /** キョダイマックスデータ */
+  gmaxPokemons: GmaxPokemon[];
   /** フォルム違いデータ */
   formPokemons: FormPokemon[];
   /** バラエティ違いデータ */
@@ -190,6 +192,10 @@ export type PokemonRegion = {
 }
 
 export type MegaPokemon = {
+  type: string;
+  baseFormId: number;
+}
+export type GmaxPokemon = {
   type: string;
   baseFormId: number;
 }

@@ -198,6 +198,43 @@ const getMegaPokemons = async (varieties: PokemonVariety[], id: number) => {
   return megaPokemons;
 };
 
+/** キョダイマックスの有無の確認 */
+const getGmaxPokemons = async (varieties: PokemonVariety[], id: number) => {
+  if(varieties.length <= 1) return [];
+  const gmaxVarieties = varieties.filter((variety) =>
+    variety.pokemon.name.includes("-gmax")
+  );
+
+  const gmaxPokemons = await Promise.all(
+    gmaxVarieties.map(async (variety) => {
+      const response = await axios.get(variety.pokemon.url);
+      const formResponse = await axios.get(response.data.forms[0].url);
+
+      const formNameJa = formResponse.data.form_names.find(
+        (formName: PokemonFormLang) => formName.language.name === 'ja'
+      );
+      return {
+        type: formNameJa?.name,
+        baseFormId: extractIdFromUrl(variety.pokemon.url),
+      }
+    })
+  );
+
+  // ストリンダーの対応
+  // ハイのすがたの対応
+  if(id === 849 || id === 10219) return gmaxPokemons.filter((pokemon) => pokemon.baseFormId === 10219)
+  // ローのすがたの対応
+  if(id === 10184 || id === 10228) return gmaxPokemons.filter((pokemon) => pokemon.baseFormId === 10228)
+
+  // ウーラオスの対応
+  // いちげきのかたの対応
+  if(id === 892 || id === 10226) return gmaxPokemons.filter((pokemon) => pokemon.baseFormId === 10226)
+  // れんげきのかたの対応
+  if(id === 10191 || id === 10227) return gmaxPokemons.filter((pokemon) => pokemon.baseFormId === 10227)
+
+  return gmaxPokemons;
+};
+
 /** フォルム違いの取得（ステータスなど変化無し） */
 const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
   const femaleId = [592, 593, 668];  // 592: プルリル 593: ブルンゲル 668: カエンジシ
@@ -509,6 +546,8 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   const pokemonRegions = getPokemonRegions(species.varieties);
   // メガシンカ
   const megaPokemons = await getMegaPokemons(species.varieties, id);
+  // キョダイマックス
+  const gmaxPokemons = await getGmaxPokemons(species.varieties, id);
   // フォルム違い（ステータスなど変化無し）
   const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
   // バラエティ違い（ステータスなど変化有）
@@ -533,6 +572,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
     evolutionEdge: pokemonEvolutionEdge,
     regions: pokemonRegions,
     megaPokemons: megaPokemons,
+    gmaxPokemons: gmaxPokemons,
     formPokemons: formPokemons,
     varietyPokemons: varietyPokemons
   };

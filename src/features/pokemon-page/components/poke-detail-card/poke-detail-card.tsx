@@ -244,6 +244,25 @@ export default function PokeDetailCard({ pokemon }: Props) {
             ))}
           </Box>
         )}
+        {pokemon.gmaxPokemons.length > 0 && (
+          <Box sx={{ mt: "24px" }}>
+            <Typography variant="h5">
+              キョダイマックス
+            </Typography>
+            {pokemon.gmaxPokemons.map((gmaxPokemon, i) => (
+              <Box key={i} sx={{ mt: "5px" }}>
+                <Link to={`/pokemon/${gmaxPokemon.baseFormId}`} style={{ textDecoration: "none" }}>
+                  <Box
+                    component='img'
+                    src={getPokemonImageUrl(gmaxPokemon.baseFormId)}
+                    alt={gmaxPokemon.type}
+                    sx={{ width: '96px', height: '96px', objectFit: "contain"}}
+                  />
+                </Link>
+              </Box>
+            ))}
+          </Box>
+        )}
         {pokemon.formPokemons.length > 0 && (
           <Box sx={{ mt: "24px" }}>
             <Typography variant="h5">
