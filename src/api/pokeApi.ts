@@ -145,10 +145,16 @@ const getPokemonRegions = (varieties: PokemonVariety[]) => {
       const isExcluded = excludedPatternsWithCap.some((pattern) =>
         pattern.test(pokemonName)
       );
+      const specialRegionNames: Record<number, string> = {
+        10178: 'ガラルのすがた・ダルマモード',
+        10250: 'パルデアのすがた・コンバットしゅ',
+        10251: 'パルデアのすがた・ブレイズしゅ',
+        10252: 'パルデアのすがた・ウォーターしゅ',
+      };
 
       if (hasRegion && !isExcluded) {
         regions.push({
-          region: regionData[regionKey].ja,
+          region: specialRegionNames[baseFormId] ?? regionData[regionKey].ja,
           baseFormId,
         });
       }
@@ -267,7 +273,7 @@ const getPokemonForms = async (forms: PokemonFormResponse[], id: number) => {
   return pokemonForms;
 };
 /** バラエティ違いの取得（ステータスなど変化有） */
-const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
+const getPokemonVarieties = async (varieties: PokemonVariety[], id: number) => {
   if(varieties.length <= 1) return [];
   const pokemonVarietiesResponse = await Promise.all(
     varieties
@@ -289,6 +295,7 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
         };
       })
   );
+  console.log(pokemonVarietiesResponse);
   const pokemonVarieties = [];
   for (const response of pokemonVarietiesResponse) {
     if (!response) continue; // undefinedをスキップ
@@ -325,6 +332,23 @@ const getPokemonVarieties = async (varieties: PokemonVariety[]) => {
       });
       continue;
     };
+
+    // ヒヒダルマ（ガラルのすがた）の不要なバリエーションを除外
+    if (
+      (id === 10177 || id === 10178) &&
+      (response.baseFormId === 555 || response.baseFormId === 10017)
+    ) {
+      continue;
+    }
+    if (id === 10177 || id === 10178) {
+      pokemonVarieties.push({
+        baseFormId: response.baseFormId,
+        name: response.baseFormId === 10177 ? 'ノーマルモード' : 'ダルマモード',
+        imageUrl: response.imageUrl,
+        baseVarietyId: extractIdFromUrl(response.imageUrl),
+      });
+      continue;
+    }
 
     const hasRegion = regionPatterns.some((pattern) =>
       pattern.test(response.name)
@@ -551,7 +575,7 @@ export const getPokemon = async (id: number): Promise<Pokemon> => {
   // フォルム違い（ステータスなど変化無し）
   const formPokemons = await getPokemonForms(pokemon.forms, pokemonId);
   // バラエティ違い（ステータスなど変化有）
-  const varietyPokemons = await getPokemonVarieties(species.varieties);
+  const varietyPokemons = await getPokemonVarieties(species.varieties, id);
 
   return {
     id: pokemonId,

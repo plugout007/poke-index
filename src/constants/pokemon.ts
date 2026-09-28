@@ -42,7 +42,6 @@ export const excludedPatterns = [
   /-primal/,       // ゲンシカイキ
   /-gmax/,         // 巨大マックス
   /-totem-/,       // ヌシポケモン
-  /-zen/,          // No.555 ヒヒダルマのダルマモード
 ];
 
 export const excludedPatternsWithCap = [
